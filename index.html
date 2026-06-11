@@ -271,7 +271,17 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
 .pc-cream .price-features li i { color: var(--brick); }
 .pc-sage .price-features li i { color: var(--sage); }
 
-/* FOOTER */
+/* FAQ */
+.faq-list { max-width:760px; margin-top:2rem; display:flex; flex-direction:column; gap:0.75rem; }
+.faq-item { background:rgba(255,255,255,0.5); border-radius:8px; border:1px solid rgba(0,0,0,0.08); overflow:hidden; }
+.faq-q { list-style:none; padding:1.2rem 1.5rem; cursor:pointer; font-weight:700; font-size:1rem; color:var(--ink); display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.faq-q::-webkit-details-marker { display:none; }
+.faq-q::after { content:'＋'; font-size:1.2rem; color:var(--brick); flex-shrink:0; }
+.faq-item[open] .faq-q::after { content:'－'; }
+.faq-a { padding:0 1.5rem 1.2rem; font-size:0.95rem; line-height:1.7; color:var(--ink); }
+.section-ink .faq-item { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.12); }
+.section-ink .faq-q { color:var(--cream); }
+.section-ink .faq-a { color:rgba(250,243,224,0.85); }
 .footer { background: var(--ink); padding: 1.5rem max(2.5rem, calc((100vw - 960px) / 2 + 2.5rem)); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--cream); opacity: 0.7; border-top: 1px solid #ffffff15; flex-wrap: wrap; gap: 0.5rem; }
 .footer-logo { font-family: 'Unkempt', cursive; font-size: 1.1rem; opacity: 1; color: var(--cream); }
 
@@ -293,76 +303,129 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 </style>
 
 <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Mucked*",
+    "description": "Hands-on food and drink compliance, SALSA certification preparation and digital operational systems for small UK producers, distilleries and festival caterers. Built by someone who has actually been on the floor.",
+    "url": "https://mucked.co.uk",
+    "email": "michael@mucked.co.uk",
+    "founder": {
+      "@type": "Person",
+      "name": "Michael",
+      "jobTitle": "Founder",
+      "description": "Ten years getting food and drink businesses to market through festivals and events. Three years as operations manager at a startup distillery navigating HMRC excise law, SALSA compliance and food safety legislation simultaneously."
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    "knowsAbout": [
+      "Food Safety Act 1990",
+      "Regulation (EC) No 852/2004",
+      "SALSA Standard Compliance",
+      "HACCP plan development",
+      "Food Information Regulations 2014",
+      "Allergen management",
+      "Food business registration",
+      "HMRC excise duty records",
+      "Festival catering operations",
+      "Digital operational systems",
+      "Notion relational databases",
+      "Food business traceability systems",
+      "Environmental health inspections",
+      "Food safety management systems",
+      "Distillery operations",
+      "Brewery compliance"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Consultancy Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Food Safety and Compliance Consultancy",
+            "description": "Bespoke food safety management systems, HACCP plans and compliance documentation built around how your business actually operates."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SALSA Certification Preparation",
+            "description": "Full preparation for SALSA Food and Drink Production standard certification, covering all twelve compliance areas."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Digital Operational Systems",
+            "description": "Custom digital systems using Notion, Make and bespoke mobile apps. Data entered once, flowing automatically to stock, compliance and accounts."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Festival Catering Consultancy",
+            "description": "Compliance, systems and operational support for mobile and temporary food setups at festivals and events."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Distillery and Brewery Operations Consultancy",
+            "description": "HMRC excise duty systems, SALSA compliance and food safety documentation for licensed producers."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Mucked*",
+    "url": "https://mucked.co.uk",
+    "email": "michael@mucked.co.uk",
+    "description": "UK food and drink compliance and operations consultancy for small producers, distilleries, breweries and festival caterers.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Michael"
+    }
+  }
+]
+</script>
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Mucked*",
-  "description": "Hands-on food and drink compliance, SALSA certification preparation and digital operational systems for small UK producers, distilleries and festival caterers. Built by someone who has actually been on the floor.",
-  "url": "https://mucked.co.uk",
-  "email": "michael@mucked.co.uk",
-  "founder": {
-    "@type": "Person",
-    "name": "Michael"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "United Kingdom"
-  },
-  "knowsAbout": [
-    "Food Safety Act 1990",
-    "Regulation (EC) No 852/2004",
-    "SALSA Standard Compliance",
-    "HACCP plan development",
-    "Food Information Regulations 2014",
-    "Allergen management",
-    "Food business registration",
-    "HMRC excise duty records",
-    "Festival catering operations",
-    "Digital operational systems",
-    "Notion relational databases",
-    "Food business traceability systems"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Consultancy Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Food Safety and Compliance Consultancy",
-          "description": "Bespoke food safety management systems, HACCP plans and compliance documentation built around how your business actually operates."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "SALSA Certification Preparation",
-          "description": "Full preparation for SALSA Food and Drink Production standard certification, covering all twelve compliance areas."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Digital Operational Systems",
-          "description": "Custom digital systems using Notion, Make and bespoke mobile apps. Data entered once, flowing automatically to stock, compliance and accounts."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Festival Catering Consultancy",
-          "description": "Compliance, systems and operational support for mobile and temporary food setups at festivals and events."
-        }
-      }
-    ]
-  }
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Do I actually need SALSA certification?","acceptedAnswer":{"@type":"Answer","text":"Not always, but building to SALSA standard is almost always worth doing regardless. SALSA certification is a commercial requirement if you want to supply certain retailers, wholesalers and food service buyers. Even if your immediate buyers do not require the certificate, the SALSA standard is the most rigorous framework designed specifically for small producers."}},
+    {"@type":"Question","name":"How long does it take to get SALSA ready?","acceptedAnswer":{"@type":"Answer","text":"For a business starting from scratch with no documentation in place, realistically three to six months to have everything built, embedded and genuinely audit-ready. The documentation itself can be produced faster than that, but the audit requires evidence that your systems are actually being used."}},
+    {"@type":"Question","name":"Can I pass SALSA without hiring a consultant?","acceptedAnswer":{"@type":"Answer","text":"Technically yes. In practice, most first attempts without support either take much longer than expected or fail at the first audit. The most common issue is not that the documents are wrong, it is that the systems are not properly embedded in how the business actually operates."}},
+    {"@type":"Question","name":"What are the most common reasons businesses fail a SALSA audit?","acceptedAnswer":{"@type":"Answer","text":"Incomplete traceability records, allergen management that looks correct on paper but has gaps in practice, HACCP plans that reference equipment that does not match the actual operation, and supplier approval lists that have not been maintained."}},
+    {"@type":"Question","name":"What is the difference between SALSA and BRCGS?","acceptedAnswer":{"@type":"Answer","text":"SALSA was designed specifically for small and micro food and drink producers. BRCGS was designed for large food manufacturing operations and is significantly more demanding. For most small producers, BRCGS is disproportionate to their size and a SALSA certificate will satisfy the commercial requirements they actually face."}},
+    {"@type":"Question","name":"Can I use Notion or digital systems for SALSA documentation?","acceptedAnswer":{"@type":"Answer","text":"Yes. SALSA does not specify how records must be kept, only that they must be kept, accessible and auditable. A Notion database with version-controlled documents and a clear audit trail satisfies this requirement and is often easier to demonstrate to an auditor than a folder of printed forms."}},
+    {"@type":"Question","name":"Do I legally need a HACCP plan?","acceptedAnswer":{"@type":"Answer","text":"Yes. Regulation (EC) No 852/2004, retained in UK law after Brexit, requires all food businesses to implement a food safety management system based on HACCP principles. This applies to every food business regardless of size."}},
+    {"@type":"Question","name":"Can I just download a HACCP template online?","acceptedAnswer":{"@type":"Answer","text":"You can, but it will not do what you need it to do. A HACCP plan must reflect your specific products, equipment, premises and processes. A template downloaded from the internet reflects someone else's operation."}},
+    {"@type":"Question","name":"What do I need before I can legally sell food?","acceptedAnswer":{"@type":"Answer","text":"You must register your food business with your local authority at least 28 days before you start trading. You also need a food safety management system in place, accurate allergen information, and if producing alcohol, HMRC registration before your first duty-paying production."}},
+    {"@type":"Question","name":"Do I need to register my food business before trading?","acceptedAnswer":{"@type":"Answer","text":"Yes. Food business registration with your local authority is a legal requirement under the Food Standards Act 1999. You must register at least 28 days before you start trading. It is free and takes about ten minutes online."}},
+    {"@type":"Question","name":"What paperwork do I need to trade at festivals?","acceptedAnswer":{"@type":"Answer","text":"Most festival organisers require as a minimum: your food business registration, food hygiene rating certificate, public liability insurance, a food safety management system or HACCP summary, and allergen information for your products."}},
+    {"@type":"Question","name":"Is Notion suitable for a food or drink business?","acceptedAnswer":{"@type":"Answer","text":"Yes. For small producers it is often a significantly better solution than specialist food manufacturing software. Notion can be configured to manage production records, stock, compliance documents, supplier information, batch traceability and HMRC duty records in a single joined-up system."}},
+    {"@type":"Question","name":"When should I move away from spreadsheets?","acceptedAnswer":{"@type":"Answer","text":"When the same number appears in more than one spreadsheet, it is time. The moment you are copying data from one place to another, you have a system that will eventually produce errors, and in a food business those errors have consequences."}}
+  ]
 }
 </script>
-</head>
 <body>
 <div class="site">
 
@@ -377,6 +440,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <li><button onclick="showPage('festival')" id="nav-festival">Festival</button></li>
         <li><button onclick="showPage('pricing')" id="nav-pricing">Pricing</button></li>
         <li><button onclick="showPage('about')" id="nav-about">About</button></li>
+        <li><button onclick="showPage('faq')" id="nav-faq">FAQ</button></li>
         <li><button onclick="showPage('contact')" id="nav-contact">Contact</button></li>
       </ul>
     </nav>
@@ -387,6 +451,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
       <section class="hero-cream">
         <p class="eyebrow" style="color:var(--sage)">Food and drink consultancy</p>
         <h1 class="h1">The bit you've been avoiding?<br><span style="color:var(--brick)">That's exactly what we do.</span></h1>
+        <p class="body" style="max-width:580px;font-weight:700;color:var(--ink)">Food safety compliance, SALSA certification preparation and digital operational systems for small UK food and drink businesses.</p>
         <p class="body" style="max-width:580px"><span class="mucked">Mucked*</span> helps small food and drink businesses get properly sorted. Compliance, systems, certification and operations, so you can get back to the part you actually started the business for.</p>
         <button class="btn-primary" onclick="showPage('contact')">Let's talk</button>
       </section>
@@ -444,6 +509,65 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="eyebrow" style="color:var(--brick)">Why <span class="mucked">Mucked*</span></p>
         <h2 class="h2">Not corporate. Not expensive. Not guessing.</h2>
         <p class="body" style="max-width:540px;margin-left:auto;margin-right:auto"><span class="mucked">Mucked*</span> exists because small food and drink businesses deserve the same quality of operational support as large ones, without the price tag and without the condescension. The goal is simple. You succeed, you tell people, and this works for both of us.</p>
+      </section>
+
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What Mucked* covers</p>
+          <h2 class="h2">Every service. One person. Real experience.</h2>
+          <p class="body">Mucked* provides the following services to small food and drink businesses across the UK.</p>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item">
+            <div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-file-check"></i></div>
+            <div>
+              <p class="reg-title">HACCP plan development</p>
+              <p class="reg-body">Bespoke Hazard Analysis and Critical Control Point documentation written for your specific products, equipment and premises. Not templates. Built from scratch around how your operation actually works.</p>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-certificate"></i></div>
+            <div>
+              <p class="reg-title">SALSA certification preparation</p>
+              <p class="reg-body">Full preparation for the Safe and Local Supplier Approval standard, covering all twelve compliance areas. Used as the quality baseline for every Mucked* engagement, whether or not formal certification is the end goal.</p>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-shield-check"></i></div>
+            <div>
+              <p class="reg-title">Food safety compliance</p>
+              <p class="reg-body">Documentation and systems covering the Food Safety Act 1990, Regulation (EC) No 852/2004, Food Information Regulations 2014, food business registration, allergen management and environmental health inspection preparation.</p>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-database"></i></div>
+            <div>
+              <p class="reg-title">Notion-based operational systems</p>
+              <p class="reg-body">Custom relational databases built in Notion for production logging, stock management, supplier control, batch traceability, compliance records and HMRC duty returns. Integrated with Make for automation and custom mobile apps for floor-level data entry.</p>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-device-mobile"></i></div>
+            <div>
+              <p class="reg-title">Custom app development for food businesses</p>
+              <p class="reg-body">Mobile apps built for production floors. Goods in, batch logging, dispatch, temperature monitoring and maintenance checks. Error prevention built in so data is accurate from the moment it is entered.</p>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-tent"></i></div>
+            <div>
+              <p class="reg-title">Festival catering compliance and operations</p>
+              <p class="reg-body">Food safety documentation, kitchen design, temporary structure sign-off, event selection advice and on-site support for mobile and festival catering businesses. Ten years of real operational experience at events across the UK.</p>
+            </div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-building"></i></div>
+            <div>
+              <p class="reg-title">Distillery and brewery operations</p>
+              <p class="reg-body">HMRC excise duty record systems, SALSA standard compliance, food safety legislation and local authority licensing for distilleries, breweries and other licensed producers. Based on three years as operations manager at a startup distillery.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="section-brick">
@@ -943,6 +1067,264 @@ textarea.form-input { min-height: 120px; resize: vertical; }
       </section>
 
       <footer class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></footer>
+    </article>
+  </main>
+
+  <!-- FAQ PAGE -->
+  <main id="faq-content">
+    <article class="page" id="page-faq">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Frequently asked questions</p>
+        <h2 class="h1">Questions people actually ask.<br><span style="color:var(--brick)">Answered honestly.</span></h2>
+        <p class="body" style="max-width:580px">These are the questions that come up in almost every first conversation. If yours is not here, email Michael directly and he will answer it.</p>
+      </section>
+
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">SALSA and audits</p>
+          <h2 class="h2">The questions everyone asks before their first audit.</h2>
+        </div>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary class="faq-q">Do I actually need SALSA certification?</summary>
+            <p class="faq-a">Not always, but building to SALSA standard is almost always worth doing regardless. SALSA certification is a commercial requirement if you want to supply certain retailers, wholesalers and food service buyers. Without it, some doors simply will not open. But even if your immediate buyers do not require the certificate, the SALSA standard is the most rigorous framework designed specifically for small producers. Building to it means your compliance is genuinely solid rather than just about passing the minimum legal bar. Most clients find that by the time they need the certificate, the hard work is already done.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">How long does it take to get SALSA ready?</summary>
+            <p class="faq-a">For a business starting from scratch with no documentation in place, realistically three to six months to have everything built, embedded and genuinely audit-ready. The documentation itself can be produced faster than that, but the audit requires evidence that your systems are actually being used, not just written down. Auditors want to see completed records, review meetings that have happened, and staff who understand the procedures. Rushing the timeline tends to produce documentation that looks right on paper but falls apart when an auditor starts asking questions.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Can I pass SALSA without hiring a consultant?</summary>
+            <p class="faq-a">Technically yes. The SALSA guidance documents are publicly available and some businesses do prepare themselves. In practice, most first attempts without support either take much longer than expected or fail at the first audit. The most common issue is not that the documents are wrong, it is that the systems are not properly embedded in how the business actually operates. An auditor will spot quickly if a HACCP plan was written to pass an audit rather than written to reflect real practice. If you have strong operational experience and plenty of time, self-preparation is possible. If your time is better spent running the business, the cost of getting it done properly is usually recovered quickly in avoided re-audit fees and lost commercial opportunities.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What are the most common reasons businesses fail a SALSA audit?</summary>
+            <p class="faq-a">The most common failure points are incomplete traceability records, allergen management that looks correct on paper but has gaps in practice, HACCP plans that reference equipment or processes that do not match the actual operation, and supplier approval lists that have not been maintained. A close second is documentation that exists but nobody in the team actually uses or understands. An auditor will interview staff as well as review documents. If your team cannot explain why a procedure exists or what they do when something goes wrong, that is a finding regardless of how good the paperwork looks.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What is the difference between SALSA and BRCGS?</summary>
+            <p class="faq-a">SALSA was designed specifically for small and micro food and drink producers. BRCGS was designed for large food manufacturing operations and is significantly more demanding in terms of infrastructure, resource and ongoing audit frequency. If you are a small producer, SALSA is almost certainly the right standard to target. BRCGS becomes relevant if you are supplying certain major retailers who specifically require it, or if your operation has grown to a scale where SALSA is no longer the appropriate framework. For most small producers, BRCGS is disproportionate to their size and a SALSA certificate will satisfy the commercial requirements they actually face.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">How much paperwork do I really need?</summary>
+            <p class="faq-a">More than most small businesses have in place when they first seek help, but less than most people fear when they start looking at the requirements. The paperwork itself is not the point. The point is that your food safety management system is documented, followed and reviewed. A well-built system for a small producer typically covers twelve areas and produces maybe twenty to thirty core documents plus ongoing records. The difference between a system that works and one that is a paperwork burden is whether it was built around how your business actually operates, or whether it was written to satisfy a checklist.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Can I use Notion or digital systems for SALSA documentation?</summary>
+            <p class="faq-a">Yes, and for most small businesses a well-built digital system is significantly better than paper or spreadsheets. SALSA does not specify how records must be kept, only that they must be kept, accessible and auditable. A Notion database with version-controlled documents, completed record templates and a clear audit trail satisfies this requirement and is often easier to demonstrate to an auditor than a folder of printed forms. The key is that the system is genuinely being used, records are dated and completed, and there is a clear document control procedure showing version history.</p>
+          </details>
+
+        </div>
+      </section>
+
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">HACCP and food safety</p>
+          <h2 class="h2">What the law actually requires and what it means in practice.</h2>
+        </div>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary class="faq-q">Do I legally need a HACCP plan?</summary>
+            <p class="faq-a">Yes. Regulation (EC) No 852/2004, retained in UK law after Brexit, requires all food businesses to implement a food safety management system based on HACCP principles. This applies to every food business regardless of size, from a one-person kitchen operation to a large manufacturer. There is some flexibility in how small businesses document their HACCP approach, but the underlying requirement to identify hazards, put controls in place and keep records is not optional. Environmental health officers will ask to see evidence of your HACCP approach and the records it generates.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Can I just download a HACCP template online?</summary>
+            <p class="faq-a">You can, but it will not do what you need it to do. A HACCP plan must reflect your specific products, your specific equipment, your specific premises and your specific processes. A template downloaded from the internet reflects someone else's operation. When an environmental health officer or SALSA auditor reviews your HACCP plan, they will ask detailed questions about the critical control points it identifies and why. If your plan references a blast chiller you do not have, or does not cover a hazard specific to your process, that is an immediate problem. Templates are a starting point for understanding the structure, not a substitute for a plan built around your actual operation.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">How often should HACCP documents be reviewed?</summary>
+            <p class="faq-a">Your HACCP plan should be reviewed whenever something significant changes in your operation, and formally at least once a year as a minimum. Significant changes include introducing a new product, changing a supplier, modifying a process, adding new equipment, changing premises or adding allergens to your product range. Many small businesses have a HACCP plan that was written when they started and has never been touched since. If your operation has evolved and your HACCP plan has not, the plan is not reflecting the actual risks in your business.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What is the difference between HACCP and a food safety management system?</summary>
+            <p class="faq-a">HACCP is the hazard analysis methodology at the core of a food safety management system. It is the process of identifying what could go wrong with food safety in your operation and putting controls in place to prevent it. A food safety management system is the broader framework that includes your HACCP plan plus all the supporting procedures, records, training, cleaning, pest control, allergen management and supplier control that sit around it. Think of HACCP as the engine and the food safety management system as the whole vehicle.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Do I need separate HACCP plans for different products?</summary>
+            <p class="faq-a">Not necessarily separate plans, but your HACCP analysis needs to cover all the products you produce and the hazards associated with each. If your products are broadly similar in terms of ingredients and process, one HACCP plan with product-specific sections is usually sufficient. If you produce very different product types with fundamentally different processes and hazard profiles, separate plans may make more sense. The key question is whether a single document can clearly demonstrate that every product you make has been properly risk assessed. If it cannot, it needs to be expanded or split.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What records am I legally required to keep?</summary>
+            <p class="faq-a">As a minimum, you are required to keep records demonstrating that your food safety management system is being followed. In practice this means temperature records, cleaning records, supplier delivery records, training records, pest control records and evidence of HACCP review. The Food Safety Act 1990 requires you to be able to demonstrate due diligence, meaning that if something goes wrong, you can show you took all reasonable precautions. Businesses that cannot produce records when asked face the uncomfortable position of having no defence. For distilleries and other licensed producers, HMRC excise records are an additional legal requirement on top of food safety documentation.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What food safety paperwork should I have from day one?</summary>
+            <p class="faq-a">From the moment you start trading you should have: food business registration with your local authority, a HACCP plan covering your products and processes, a cleaning schedule, allergen information for all products, supplier records for your key ingredients, and basic temperature monitoring records if you are storing chilled or frozen food. This is the minimum. It is not a lot and it does not need to be complicated, but businesses that start without it tend to find themselves scrambling to produce documentation retrospectively when a buyer asks or an inspection happens.</p>
+          </details>
+
+        </div>
+      </section>
+
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">Environmental health and compliance</p>
+          <h2 class="h2">What to expect and how to be ready.</h2>
+        </div>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary class="faq-q">What happens during an environmental health inspection?</summary>
+            <p class="faq-a">An environmental health officer will visit your premises, usually unannounced, and assess three things: how hygienically you handle food, your physical condition and cleanliness, and your food safety management system and record keeping. They will look at your premises, your equipment, your storage, your temperature controls and your staff practices. They will also ask to see your documentation and may ask staff members questions directly. The inspection results in a food hygiene rating from zero to five. Most of what gets a business a lower rating is documentation that is absent, incomplete or clearly not being used in practice.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">How do I prepare for my first inspection?</summary>
+            <p class="faq-a">Have your documentation in order before you start trading, not after your first inspection. Make sure your HACCP plan is written, your cleaning schedule is being followed and the records are completed, your temperature monitoring is in place and recorded, your allergen information is accurate and accessible, and your staff know the basics of your food safety procedures. The biggest preparation mistake is treating the inspection as a one-off event to prepare for rather than building systems that mean you are always ready. Inspections happen unannounced. The only reliable preparation is operating correctly every day.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What food hygiene rating can I realistically expect as a new business?</summary>
+            <p class="faq-a">A new business with proper documentation, clean premises and good food hygiene practice should expect a four or five. The rating reflects the state of your operation on the day of the inspection. Businesses that get a three or below on a first inspection almost always have gaps in their documentation rather than problems with physical hygiene. A missing HACCP plan, incomplete records or allergen information that is not properly managed will bring a rating down regardless of how clean the kitchen is. Five is achievable from day one if the systems are in place.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What documents will an Environmental Health Officer ask to see?</summary>
+            <p class="faq-a">Typically: your HACCP plan and associated records, your cleaning schedule and cleaning records, temperature monitoring records for fridges, freezers and cooking, allergen information for your products, supplier records and delivery notes, staff training records, and pest control records. Some officers will also ask for your food business registration confirmation, your product specifications and your traceability records showing how you would trace an ingredient from supplier to customer. Having these in a clearly organised folder or digital system means an inspection feels like a straightforward conversation rather than a scramble.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What happens if I get a poor food hygiene rating?</summary>
+            <p class="faq-a">Commercially it can be damaging. The rating is published online and many buyers, retailers and consumers check it before making decisions. A rating below three can lose you accounts and make it significantly harder to win new ones. Practically, a poor rating triggers a requirement to address the findings, and you may face a re-inspection. The good news is that ratings can be improved, and many businesses that started with a low rating have recovered to a five with the right systems in place. The process is structured: understand exactly what the officer found, fix it properly, and request a re-inspection. Patching problems superficially before a re-inspection without fixing the underlying system usually results in the same issues surfacing again.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">How quickly can problems be fixed after an inspection?</summary>
+            <p class="faq-a">Documentation problems can often be addressed within days to weeks. Physical premises issues depend on the nature of the work required. The timeline for a re-inspection is typically a minimum of three months from the original visit, though this varies by local authority. The more important question is whether the fix is genuine. Writing a HACCP plan in a hurry after an inspection without properly understanding your hazards and controls produces documentation that will fail again. The businesses that recover fastest and stay at a five rating are the ones that treat the inspection findings as an opportunity to build the right systems rather than the minimum required to pass.</p>
+          </details>
+
+        </div>
+      </section>
+
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Starting a food or drink business</p>
+          <h2 class="h2">What you need before you start trading.</h2>
+        </div>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary class="faq-q">What do I need before I can legally sell food?</summary>
+            <p class="faq-a">You must register your food business with your local authority at least 28 days before you start trading. This is free and mandatory. Beyond registration, you need a food safety management system in place before you start, which means a HACCP plan, cleaning procedures, allergen management and basic record keeping. If your products carry allergen information, it must be accurate. If you are producing alcohol, you need HMRC registration before your first duty-paying production. None of this needs to be complicated at the start, but it needs to exist. The businesses that get into difficulty are the ones that start trading and think they will sort the paperwork later. Later tends to arrive in the form of an inspection or a buyer asking for documentation you do not have.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Do I need to register my food business before trading?</summary>
+            <p class="faq-a">Yes. Food business registration with your local authority is a legal requirement under the Food Standards Act 1999. You must register at least 28 days before you start trading. It is free, it takes about ten minutes online, and you cannot be refused. Many startups miss this because they are focused on everything else involved in launching and assume it will sort itself out. It will not sort itself out. An unregistered food business is operating illegally and has no food hygiene rating, which creates immediate problems with any buyer or retailer who asks to see it.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What records should I start keeping immediately?</summary>
+            <p class="faq-a">From day one: temperature records for any chilled or frozen storage, delivery records for incoming ingredients, cleaning records, and any records your HACCP plan requires you to keep. If you are a distillery or licensed producer, HMRC duty records from your first production. The instinct to sort records out later is understandable when you are trying to do everything at once, but incomplete records from the early days of a business are almost impossible to reconstruct. Start simple, be consistent, and build from there.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">When should I think about SALSA certification?</summary>
+            <p class="faq-a">Earlier than most people do. The common pattern is to start thinking about SALSA when a buyer asks for it, at which point there is pressure to get certified quickly. A better approach is to build to SALSA standard from the beginning, even if formal certification is not an immediate commercial requirement. The cost of building your systems to SALSA standard at the start is not much more than building them to a lower standard, and the value of having certification available when a buyer asks for it, rather than scrambling to get it, is significant. If you are building systems from scratch, build them right the first time.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What systems should I put in place before I grow?</summary>
+            <p class="faq-a">Before you add staff, add products or add sites, you need your core systems documented and working. That means a food safety management system that reflects your actual operation, a traceability system that can scale, a production recording process that does not rely on memory or whiteboard notes, and a document control system so that when procedures change, old versions do not keep circulating. The businesses that grow smoothly are the ones that built proper operational infrastructure before they needed it. The businesses that struggle are the ones trying to document what they do at the same time as training new staff, preparing for an audit and launching a new product.</p>
+          </details>
+
+        </div>
+      </section>
+
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Festival and event operations</p>
+          <h2 class="h2">What you need to trade at festivals and what catches people out.</h2>
+        </div>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary class="faq-q">What paperwork do I need to trade at festivals?</summary>
+            <p class="faq-a">Most festival organisers will require as a minimum: your food business registration, your food hygiene rating certificate, your public liability insurance, a food safety management system or HACCP summary, and allergen information for your products. Some larger events will require additional documentation including a risk assessment, gas safety certificates if you are using LPG, electrical certificates and a fire risk assessment for your unit. The documentation requirements vary by organiser and event size. The safest approach is to have all of it in order before your first season, not to wait until an organiser asks for something specific.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What food safety requirements do festival organisers usually ask for?</summary>
+            <p class="faq-a">At a minimum, proof of food business registration and a current food hygiene rating. Most serious events will also want to see your food safety management documentation, allergen information and evidence that your staff have food hygiene training. Some events have their own compliance forms that you fill in as part of the application process. The requirements have tightened significantly over the last ten years. An event that accepted a basic hygiene certificate five years ago may now require a full documentation pack before they will confirm your pitch. Getting a rejection after you have already planned your season around an event is an expensive lesson.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">How do I manage allergens at events?</summary>
+            <p class="faq-a">This is one of the highest risk areas for festival caterers and one of the most commonly mishandled. Your allergen information must be accurate, clearly displayed and kept up to date if your recipe or suppliers change. Cross-contamination controls need to be practical for your setup, which is more challenging in a temporary kitchen than in a fixed premises. Staff need to understand your allergens and know what to say when a customer asks. The most dangerous scenario is a member of staff giving incorrect allergen information because they are not sure and do not want to disappoint a customer. A written allergen policy, clear labelling and regular team briefings are the minimum. At a busy festival with a queue building, allergen management has to be automatic rather than something people have to think about under pressure.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What are the biggest mistakes first-time festival traders make?</summary>
+            <p class="faq-a">Underestimating the paperwork requirements and leaving it until the week before the event. Choosing the wrong events, specifically large music festivals with demographics that are not aligned with the food being sold. Underestimating costs, particularly pitch fees, equipment hire, staffing and food waste. Over-preparing on volume and running out of a key ingredient, or under-preparing and selling out on day one without enough product for day two. Not having systems that work in a field, so what works in a fixed kitchen becomes chaotic in a temporary setup. And not having anyone to call when something goes wrong on site. The common thread is a lack of operational planning that turns manageable problems into expensive ones.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What documents should I keep on-site at events?</summary>
+            <p class="faq-a">Your food business registration confirmation, your food hygiene rating certificate, your allergen information, your food safety management summary or HACCP overview, your temperature monitoring records for that day, and your cleaning records. If you are using gas, your gas safety certificate. If your event runs over multiple days, daily records for each day. An environmental health officer can and does inspect at festivals and events, and a temporary setup is treated as a food business in exactly the same way as a permanent kitchen. Having everything in a clearly labelled folder in the unit is the simplest solution.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">How do I prepare for an inspection during an event?</summary>
+            <p class="faq-a">The honest answer is that you prepare by operating correctly every day, not by doing anything differently when an officer appears. If your temperature monitoring is up to date, your allergen information is accurate, your food is stored and handled correctly and your records are complete, an inspection during an event is a ten-minute conversation rather than a problem. The businesses that struggle during on-site inspections are the ones that cut corners under the pressure of a busy service. An officer who sees food stored incorrectly, temperatures not being checked or staff handling food with poor hygiene practice will not be satisfied by a folder of documents showing what should be happening.</p>
+          </details>
+
+        </div>
+      </section>
+
+      <section class="section-ink">
+        <div class="inner">
+          <p class="eyebrow">Digital systems and operations</p>
+          <h2 class="h2">When spreadsheets stop working and what to do about it.</h2>
+        </div>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary class="faq-q">Is Notion suitable for a food or drink business?</summary>
+            <p class="faq-a">Yes, and for small producers it is often a significantly better solution than specialist food manufacturing software that costs hundreds of pounds a month and was built for operations ten times larger. Notion is a relational database tool that can be configured to manage production records, stock, compliance documents, supplier information, batch traceability and HMRC duty records in a single joined-up system. The key is how it is configured. A Notion workspace set up without food industry knowledge tends to become a digital filing cabinet. Configured properly around the specific needs of a food or drink business, it becomes a system where data flows automatically and compliance happens as a byproduct of normal operations.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Can I manage HACCP records digitally?</summary>
+            <p class="faq-a">Yes. There is no legal requirement for food safety records to be on paper. Digital records are perfectly acceptable to environmental health officers and SALSA auditors, provided they are properly maintained, dated, backed up and have a clear audit trail. A digital system with completed records, version-controlled documents and a clear review history is often easier to present during an inspection than a folder of paper forms. The important thing is that the records are complete and current, not that they are in a particular format.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">What systems should I implement before hiring staff?</summary>
+            <p class="faq-a">Before you hire anyone, you need documented procedures for every task that person will carry out, a training record system so you can demonstrate that training has happened, a way of issuing and updating documents so staff are always working from the current version, and a record-keeping system that does not depend on institutional knowledge to operate. The businesses that struggle most when they add their first member of staff are the ones where everything has lived in the founder's head. Writing procedures when you are the only person doing the job feels unnecessary. Writing them when you have a new starter on their first day, a queue of orders to get out and a supplier on the phone feels impossible.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">When should I move away from spreadsheets?</summary>
+            <p class="faq-a">When the same number appears in more than one spreadsheet, it is time. The moment you are copying data from one place to another, you have a system that will eventually produce errors, and in a food business those errors have consequences. Most small producers reach this point somewhere between their first and second year of trading, usually triggered by a combination of adding products, adding staff or preparing for an audit. The good news is that moving from spreadsheets to a properly configured database system is not as disruptive as it sounds if it is done methodically, and the time saved from not reconciling data across multiple files pays back quickly.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">How do I organise compliance documents without expensive software?</summary>
+            <p class="faq-a">A well-configured Notion workspace can manage all of your compliance documentation for a fraction of the cost of specialist software. The core requirement is a version-controlled document library with a clear naming convention, a review schedule so documents do not go out of date without anyone noticing, and a way of linking documents to the records they generate. For most small producers, the total software cost of a Notion-based compliance system is under £20 a month. The investment is in configuring it correctly at the start rather than in ongoing licence fees. The businesses that pay for expensive specialist software and still have compliance problems almost always have a configuration and process problem, not a software problem.</p>
+          </details>
+
+        </div>
+      </section>
+
+      <section class="section-brick">
+        <h2 class="h2">Still have a question?</h2>
+        <p class="body">If your question is not here, email Michael directly. He reads every message and responds personally.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Get in touch</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
     </article>
   </main>
 
