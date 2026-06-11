@@ -311,6 +311,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 .nav-dropdown-menu li { list-style:none; }
 .nav-dropdown-menu li button { background:none; border:none; color:var(--cream); font-size:0.85rem; padding:0.6rem 1.2rem; width:100%; text-align:left; cursor:pointer; opacity:0.8; transition:opacity 0.15s, background 0.15s; }
 .nav-dropdown-menu li button:hover { opacity:1; background:rgba(255,255,255,0.08); }
+.dropdown-label { font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--brick); padding:0.75rem 1.2rem 0.3rem; pointer-events:none; }
 </style>
 
 <script type="application/ld+json">
@@ -450,7 +451,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <li><button onclick="showPage('digital')" id="nav-digital">Digital</button></li>
         <li><button onclick="showPage('festival')" id="nav-festival">Festival</button></li>
         <li class="nav-dropdown" id="nav-who-wrap">
-          <button class="nav-dropdown-btn" id="nav-who" onclick="toggleDropdown()">Who We Help ▾</button>
+          <button class="nav-dropdown-btn" id="nav-who" onclick="toggleDropdown('who-menu')">Who We Help ▾</button>
           <ul class="nav-dropdown-menu" id="who-menu">
             <li><button onclick="showPage('distilleries')">Distilleries</button></li>
             <li><button onclick="showPage('breweries')">Breweries</button></li>
@@ -461,9 +462,22 @@ textarea.form-input { min-height: 120px; resize: vertical; }
             <li><button onclick="showPage('startups')">Startups</button></li>
           </ul>
         </li>
+        <li class="nav-dropdown" id="nav-resources-wrap">
+          <button class="nav-dropdown-btn" id="nav-resources" onclick="toggleDropdown('resources-menu')">Resources ▾</button>
+          <ul class="nav-dropdown-menu" id="resources-menu">
+            <li class="dropdown-label">Guides</li>
+            <li><button onclick="showPage('res-salsa-cost')">How Much Does SALSA Cost?</button></li>
+            <li><button onclick="showPage('res-need-salsa')">Do I Need SALSA Certification?</button></li>
+            <li><button onclick="showPage('res-haccp-plan')">Can I Write My Own HACCP Plan?</button></li>
+            <li><button onclick="showPage('res-startup-checklist')">Food Business Startup Checklist</button></li>
+            <li><button onclick="showPage('res-eho-inspection')">Environmental Health Inspections</button></li>
+            <li><button onclick="showPage('res-legal-records')">Legal Record Keeping Requirements</button></li>
+            <li class="dropdown-label">FAQs</li>
+            <li><button onclick="showPage('faq')">All FAQs</button></li>
+          </ul>
+        </li>
         <li><button onclick="showPage('pricing')" id="nav-pricing">Pricing</button></li>
         <li><button onclick="showPage('about')" id="nav-about">About</button></li>
-        <li><button onclick="showPage('faq')" id="nav-faq">FAQ</button></li>
         <li><button onclick="showPage('contact')" id="nav-contact">Contact</button></li>
       </ul>
     </nav>
@@ -1355,6 +1369,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 
 <script>
 const whoPages = ['distilleries','breweries','drinks-brands','food-manufacturers','artisan-producers','festival-caterers','startups'];
+const resourcePages = ['faq','res-salsa-cost','res-need-salsa','res-haccp-plan','res-startup-checklist','res-eho-inspection','res-legal-records'];
 
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1363,23 +1378,25 @@ function showPage(id) {
   const targetNav = document.getElementById('nav-' + id);
   if (targetPage) targetPage.classList.add('active');
   if (targetNav) targetNav.classList.add('active');
-  if (whoPages.includes(id)) {
-    document.getElementById('nav-who').classList.add('active');
-  }
-  closeDropdown();
+  if (whoPages.includes(id)) document.getElementById('nav-who').classList.add('active');
+  if (resourcePages.includes(id)) document.getElementById('nav-resources').classList.add('active');
+  closeAllDropdowns();
   window.scrollTo(0, 0);
 }
 
-function toggleDropdown() {
-  document.getElementById('who-menu').classList.toggle('open');
+function toggleDropdown(menuId) {
+  const menu = document.getElementById(menuId);
+  const isOpen = menu.classList.contains('open');
+  closeAllDropdowns();
+  if (!isOpen) menu.classList.add('open');
 }
 
-function closeDropdown() {
-  document.getElementById('who-menu').classList.remove('open');
+function closeAllDropdowns() {
+  document.querySelectorAll('.nav-dropdown-menu').forEach(m => m.classList.remove('open'));
 }
 
 document.addEventListener('click', function(e) {
-  if (!e.target.closest('.nav-dropdown')) closeDropdown();
+  if (!e.target.closest('.nav-dropdown')) closeAllDropdowns();
 });
 </script>
 <!-- WHO WE HELP PAGES -->
@@ -1632,6 +1649,295 @@ document.addEventListener('click', function(e) {
       <section class="section-brick">
         <h2 class="h2">Just starting out and want to get it right?</h2>
         <p class="body">Tell Michael what you are building and where you are in the process.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+<!-- TIER 1 RESOURCE PAGES -->
+
+    <article class="page" id="page-res-salsa-cost">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Resources</p>
+        <h2 class="h1">How much does SALSA certification cost?<br><span style="color:var(--brick)">The honest answer.</span></h2>
+        <p class="body" style="max-width:580px">SALSA certification involves several different costs and most businesses do not account for all of them upfront. This page breaks down what you will actually spend.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The SALSA fees</p>
+          <h2 class="h2">What SALSA itself charges.</h2>
+          <p class="body">SALSA certification involves a membership fee and an audit fee. Membership is currently around £400 per year. The initial audit fee varies depending on the size and complexity of your operation but is typically in the range of £500 to £800 for a small producer. These are the fees you pay directly to SALSA. They are not the largest part of the cost.</p>
+          <p class="body">If you fail the initial audit and need a re-audit, you pay the audit fee again. This is one of the reasons that getting proper preparation in place before the audit matters commercially, not just operationally.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">The preparation cost</p>
+          <h2 class="h2">The part most businesses underestimate.</h2>
+          <p class="body">The SALSA fee is not the biggest cost. The biggest cost is getting your operation to the standard required. SALSA covers twelve compliance areas. For a business starting from scratch with no documentation in place, building everything to SALSA standard involves significant time and resource.</p>
+          <p class="body">If you do it yourself, the cost is primarily your time. Realistically, a founder with no compliance background building to SALSA standard from scratch should expect to spend several months and a significant number of hours on documentation, review and embedding procedures into daily operations. That time has a cost even if it is not an invoice.</p>
+          <p class="body">If you use a consultant, fees vary considerably. Generic compliance consultants with no food industry specialism charge day rates typically around £230 per day. Specialist food safety consultants charge more. A bespoke HACCP plan alone from a specialist firm can run to between £3,000 and £14,000. That does not include digital systems, ongoing support or the other eleven SALSA compliance areas.</p>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">Total realistic cost</p>
+          <h2 class="h2">What businesses actually spend to get certified.</h2>
+          <p class="body">A small producer working with a specialist consultant to build everything from scratch and achieve SALSA certification typically spends between £5,000 and £20,000 in total, including the SALSA fees, consultant fees and any digital systems required. The range is wide because it depends heavily on how much is already in place, the complexity of your products and processes, and the quality of preparation before the audit.</p>
+          <p class="body">Businesses that cut costs on preparation and fail the first audit often spend more in total than businesses that invested properly upfront, because re-audit fees, lost commercial opportunities and the cost of rebuilding inadequate documentation all add up.</p>
+        </div>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What Mucked* charges</p>
+          <h2 class="h2">A combined build that covers everything.</h2>
+          <p class="body"><span class="mucked">Mucked*</span> builds compliance documentation, digital systems and SALSA preparation as a single combined engagement rather than charging separately for each element. The build starts from £10,000 for a small startup of up to five people, covering all twelve SALSA compliance areas, HACCP documentation, digital operational systems, custom apps and integrations.</p>
+          <p class="body">That figure includes everything a separate team of specialists would charge significantly more than £30,000 to deliver independently. A 12 month payment plan is available that combines the build and ongoing support into roughly £1,100 to £1,200 per month all in for year one.</p>
+          <button class="btn-primary" style="margin-top:1.5rem" onclick="showPage('pricing')">See full pricing</button>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Want a realistic view of what it would cost for your business?</h2>
+        <p class="body">Tell Michael about your operation and he will give you an honest estimate.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-need-salsa">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Resources</p>
+        <h2 class="h1">Do I need SALSA certification?<br><span style="color:var(--brick)">It depends. Here is how to work it out.</span></h2>
+        <p class="body" style="max-width:580px">SALSA certification is not a legal requirement. It is a commercial one. Whether you need it depends entirely on who you want to sell to and when. This page helps you work that out.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">When you definitely need it</p>
+          <h2 class="h2">Some buyers will not stock you without it.</h2>
+          <p class="body">If you want to supply certain regional and national retailers, independent farm shops with formal buying processes, food service wholesalers, or hospitality buyers who run supplier due diligence, SALSA certification is increasingly a hard requirement rather than a preference. If a buyer asks for your SALSA certificate and you do not have one, you lose the listing. That is the simplest version of the answer.</p>
+          <p class="body">The buyers who require SALSA are not doing it to be difficult. They are doing it because a SALSA certificate tells them that your operation has been independently audited to a recognised standard and that your documentation is in order. It removes their risk.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">When you probably need it soon</p>
+          <h2 class="h2">Even if no buyer has asked yet, it is worth building towards.</h2>
+          <p class="body">If your ambition includes supplying serious retailers or wholesalers in the next one to two years, building to SALSA standard now means the certificate is available when a buyer asks rather than being something you have to scramble to get. The businesses that lose commercial opportunities over SALSA are almost always the ones that knew they would need it eventually but did not start early enough.</p>
+          <p class="body">There is also a strong argument for building to SALSA standard even if you never pursue formal certification. SALSA covers twelve compliance areas. A business built to that standard has genuinely robust food safety systems, will sail through environmental health inspections, and has documentation that satisfies buyer due diligence even without the certificate itself.</p>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">When you might not need it right now</p>
+          <h2 class="h2">Direct to consumer and early-stage businesses.</h2>
+          <p class="body">If you are selling entirely direct to consumers through markets, your own website or a farm shop you operate yourself, SALSA certification is not an immediate commercial requirement. You still need proper food safety systems and documentation in place, but the formal certificate is not what opens those doors.</p>
+          <p class="body">The honest caveat is that most food and drink businesses that start direct to consumer eventually want to grow into wholesale, retail or food service supply. If that is your trajectory, building to SALSA standard from the beginning costs very little more than building to a lower standard, and it means the transition is a certificate application rather than a full rebuild.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Not sure whether you need it?</h2>
+        <p class="body">Tell Michael about your business and your plans. He will give you an honest view.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-haccp-plan">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Resources</p>
+        <h2 class="h1">Can I write my own HACCP plan?<br><span style="color:var(--brick)">Yes. But here is what most people get wrong.</span></h2>
+        <p class="body" style="max-width:580px">Writing your own HACCP plan is legally permitted and some businesses do it well. Most do not, and the failures tend to follow the same patterns. This page explains what a HACCP plan actually needs to do and where self-written ones usually fall short.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What a HACCP plan actually is</p>
+          <h2 class="h2">Not a document. A system.</h2>
+          <p class="body">The most common misunderstanding about HACCP plans is treating them as a document to produce rather than a system to build. A HACCP plan is a documented analysis of every hazard in your production process, the controls you have put in place to manage each one, the monitoring procedures that confirm those controls are working, and the corrective actions you take when something goes wrong. It is a living document that reflects how your operation actually works, not a description of how a generic food business operates.</p>
+          <p class="body">The Food Standards Agency publishes guidance on HACCP that is freely available and genuinely useful for understanding the framework. Reading it before attempting to write your own plan is strongly recommended.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Where self-written plans go wrong</p>
+          <h2 class="h2">The four most common failure points.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-alert-triangle"></i></div><div><p class="reg-title">Hazard identification is incomplete</p><p class="reg-body">Most self-written HACCP plans identify the obvious hazards and miss the less obvious ones. Allergen cross-contamination, chemical contamination from cleaning agents, physical hazards from equipment, and microbiological hazards specific to your ingredient combinations all need to be assessed. Missing a hazard is not just a documentation problem. It is a genuine food safety risk.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-alert-triangle"></i></div><div><p class="reg-title">Critical control points are not correctly identified</p><p class="reg-body">A critical control point is a step in your process where a control measure can be applied to prevent, eliminate or reduce a food safety hazard to an acceptable level. Identifying too many CCPs makes the system unmanageable. Identifying too few means genuine risks are not being controlled. Getting this right requires a genuine understanding of your process and the hazards associated with it.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-alert-triangle"></i></div><div><p class="reg-title">The plan does not reflect the actual operation</p><p class="reg-body">A HACCP plan that references a walk-in chiller you do not have, a cooking process you do not use or equipment that was replaced two years ago is not just technically wrong. It is actively misleading to an environmental health officer or auditor, and it provides no protection under the due diligence defence if something goes wrong.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-alert-triangle"></i></div><div><p class="reg-title">It is written once and never reviewed</p><p class="reg-body">A HACCP plan must be reviewed whenever anything significant changes in your operation. New products, new equipment, new suppliers, new staff, new premises. A plan written on day one that has never been touched is almost certainly out of date and will not withstand scrutiny.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">When writing your own makes sense</p>
+          <h2 class="h2">And when it probably does not.</h2>
+          <p class="body">If you have a genuine understanding of food safety hazards relevant to your products, the time to invest in doing it properly, and a straightforward production process, writing your own HACCP plan is achievable. The FSA guidance and the Safer Food Better Business toolkit are both useful starting points.</p>
+          <p class="body">If your products are complex, your ingredient supply chain involves allergen risk, your process involves multiple steps with genuine hazard points, or your ambition includes SALSA certification or retail supply, getting it done properly by someone who understands food production is likely to cost less in the long run than rebuilding an inadequate plan when a buyer or auditor finds the gaps.</p>
+          <button class="btn-primary" style="margin-top:1.5rem" onclick="showPage('contact')">Talk to Michael about your HACCP plan</button>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Want an honest view of what your HACCP plan needs?</h2>
+        <p class="body">Tell Michael about your products and processes. He will tell you what is actually required.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-startup-checklist">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Resources</p>
+        <h2 class="h1">Food business startup checklist UK.<br><span style="color:var(--brick)">Everything you need before you start trading.</span></h2>
+        <p class="body" style="max-width:580px">This is the list most food business founders wish they had seen before they started. Not a comprehensive legal guide. A practical checklist of what you actually need in place before you start selling food or drink in the UK.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Before you trade</p>
+          <h2 class="h2">The things that must be in place before your first sale.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">Register your food business</p><p class="reg-body">Register with your local authority at least 28 days before you start trading. Free, mandatory, and takes about ten minutes online. Search for your local authority and food business registration. You cannot be refused. Not registering is a legal offence.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">HACCP plan in place</p><p class="reg-body">A documented food safety management system based on HACCP principles is a legal requirement under Regulation (EC) No 852/2004. It must reflect your actual products, equipment and processes. Not a template downloaded from the internet.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">Allergen information accurate and accessible</p><p class="reg-body">Under the Food Information Regulations 2014, the 14 major allergens must be clearly declared for all food products. For pre-packed food, this must be on the label. For food sold loose or direct to customers, allergen information must be available and accurate. Getting this wrong is a safety issue, not just a compliance issue.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">Food hygiene training</p><p class="reg-body">Everyone handling food must have appropriate food hygiene training. A Level 2 Food Hygiene certificate covers the basics and is available online for under £20. Higher levels are appropriate for supervisors and managers.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">Public liability insurance</p><p class="reg-body">Not a legal requirement for all food businesses, but effectively mandatory in practice. Festival organisers, markets, retailers and food service buyers will all ask for it. Product liability insurance is also strongly recommended for producers.</p></div></div>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">From day one</p>
+          <h2 class="h2">Records you need to start keeping immediately.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-clipboard-check"></i></div><div><p class="reg-title">Temperature records</p><p class="reg-body">Fridge and freezer temperatures logged daily. Cooking and chilling temperatures recorded where relevant. The records do not need to be complicated but they need to exist and be completed consistently.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-clipboard-check"></i></div><div><p class="reg-title">Cleaning records</p><p class="reg-body">A cleaning schedule showing what is cleaned, how often, and by whom. Records showing it is being followed. This is one of the first things an environmental health officer will ask to see.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-clipboard-check"></i></div><div><p class="reg-title">Supplier and delivery records</p><p class="reg-body">Records of who your ingredients come from, when deliveries arrive, and any quality checks carried out on receipt. The foundation of your traceability system.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-clipboard-check"></i></div><div><p class="reg-title">Batch and traceability records</p><p class="reg-body">For producers, records linking each batch of product to the ingredients used and the customers it was dispatched to. If there is ever a recall or a safety concern, you need to be able to trace product forward and backward within hours.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">For distilleries and licensed producers</p>
+          <h2 class="h2">Additional requirements for alcohol production.</h2>
+          <p class="body">If you are producing alcohol, you must register with HMRC as an excise trader before your first duty-paying production. Producing dutiable alcohol without HMRC registration is a serious offence. You will also need to keep excise records covering production volumes, bulk stock accounts and dispatch records. These requirements are in addition to the food safety documentation above, not instead of it.</p>
+        </div>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">When you are ready to grow</p>
+          <h2 class="h2">The things to build towards in your first year.</h2>
+          <p class="body">Once you are trading and the basics are in place, the next priorities for most small food and drink businesses are building towards SALSA standard even if formal certification is not yet required, implementing a digital operational system to replace spreadsheets and paper records before you add staff or products, and reviewing and updating your HACCP plan as your operation evolves.</p>
+          <p class="body">The businesses that grow most smoothly are the ones that built proper foundations before they needed them. The ones that struggle are the ones trying to retrofit compliance systems while also running a growing operation.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Starting a food or drink business and want to get it right?</h2>
+        <p class="body">Tell Michael what you are building. He will tell you what you actually need.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-eho-inspection">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Resources</p>
+        <h2 class="h1">What happens during an environmental health inspection?<br><span style="color:var(--brick)">What to expect and how to be ready.</span></h2>
+        <p class="body" style="max-width:580px">Environmental health inspections happen unannounced. The only reliable preparation is operating correctly every day. This page explains what an officer actually looks at, what gets businesses into trouble, and what a good inspection looks like.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What an officer actually assesses</p>
+          <h2 class="h2">Three areas. All of them matter.</h2>
+          <p class="body">Environmental health officers assess food businesses against three broad areas. How hygienically food is handled and prepared. The physical condition and cleanliness of the premises and equipment. And the food safety management system, which means the documentation, records and procedures in place to ensure food safety is being managed properly.</p>
+          <p class="body">The food hygiene rating you receive reflects the worst of these three areas, not the average. A spotlessly clean kitchen with no documentation will not receive a five. A business with excellent documentation but poor temperature control will not receive a five. All three need to be in good order.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What officers look at in detail</p>
+          <h2 class="h2">The specifics that determine your rating.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-thermometer"></i></div><div><p class="reg-title">Temperature controls</p><p class="reg-body">Fridge and freezer temperatures, cooking temperatures, chilling procedures and hot holding. The officer will check the actual temperatures in your equipment and ask to see your temperature monitoring records. Records that exist but are not being completed consistently are a red flag.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-droplet"></i></div><div><p class="reg-title">Cleaning and hygiene</p><p class="reg-body">The physical condition of surfaces, equipment and food contact materials. Your cleaning schedule and the records showing it is being followed. The condition of handwashing facilities. Cross-contamination controls between raw and ready-to-eat food.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-file-check"></i></div><div><p class="reg-title">Documentation</p><p class="reg-body">Your HACCP plan, cleaning records, temperature logs, allergen information, supplier records, training records and pest control records. The officer will ask to see these and may ask staff members questions about them. Documents that exist but nobody uses or understands are worse than useful in an inspection.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-shield-check"></i></div><div><p class="reg-title">Allergen management</p><p class="reg-body">How allergens are identified, controlled and communicated to customers. This area has become significantly more scrutinised following high-profile allergen incidents in the UK food industry. Inaccurate allergen information is treated as a serious finding.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">What gets businesses into trouble</p>
+          <h2 class="h2">The most common reasons for a poor rating.</h2>
+          <p class="body">The most common reason for a rating below four is documentation that is absent, incomplete or clearly not being used. A HACCP plan that was written two years ago and never reviewed. Temperature records with blank entries. Cleaning records that are identical every day in a way that suggests they are being filled in retrospectively rather than in real time. Training records that do not exist.</p>
+          <p class="body">The second most common reason is physical premises issues that have been allowed to deteriorate. Damaged surfaces that cannot be cleaned effectively, inadequate handwashing facilities, poor pest control or food stored in a way that creates cross-contamination risk.</p>
+          <p class="body">Neither of these is difficult to address if you know what is expected. The businesses that receive poor ratings are almost always the ones that have not prioritised compliance rather than the ones that have tried and failed.</p>
+        </div>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">After an inspection</p>
+          <h2 class="h2">What happens if you get a poor rating.</h2>
+          <p class="body">A poor food hygiene rating is published online and is increasingly checked by buyers, retailers and consumers. A rating below three can lose you accounts and make winning new ones significantly harder. The rating can be improved, but there is typically a minimum of three months before a re-inspection can be requested, and the local authority controls the timeline.</p>
+          <p class="body">Improvement notices have legal force and deadlines. If an officer issues an improvement notice, the required actions must be completed within the specified timeframe. Getting the right documentation and systems in place quickly and correctly is exactly the kind of situation <span class="mucked">Mucked*</span> is built for.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Preparing for an inspection or dealing with the aftermath of one?</h2>
+        <p class="body">Tell Michael where you are at. He has been through this from both sides.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-legal-records">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Resources</p>
+        <h2 class="h1">What food safety records am I legally required to keep?<br><span style="color:var(--brick)">The minimum. And why you should do more than the minimum.</span></h2>
+        <p class="body" style="max-width:580px">The law specifies what food businesses must document and record. This page covers what is legally required, what is expected in practice, and what records will protect your business if something goes wrong.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The legal requirements</p>
+          <h2 class="h2">What the law actually says.</h2>
+          <p class="body">Regulation (EC) No 852/2004, retained in UK law after Brexit, requires food businesses to implement and maintain a food safety management system based on HACCP principles, keep records demonstrating that the system is being followed, and retain those records for a period appropriate to the shelf life of the products.</p>
+          <p class="body">The Food Safety Act 1990 establishes the due diligence defence. If something goes wrong with food safety in your business, the defence requires you to demonstrate that you took all reasonable precautions and exercised all due diligence. Without records, there is no defence. This is the practical reason why record keeping matters beyond regulatory compliance.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Records you are required to keep</p>
+          <h2 class="h2">The minimum that an environmental health officer will expect to see.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-thermometer"></i></div><div><p class="reg-title">Temperature monitoring records</p><p class="reg-body">Fridge and freezer temperature logs. Cooking temperature records where cooking is part of your process. Chilling records where food is cooled after cooking. These need to be completed in real time, not retrospectively.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-droplet"></i></div><div><p class="reg-title">Cleaning records</p><p class="reg-body">A cleaning schedule showing what is cleaned, how often and with what. Records confirming the schedule is being followed. Signed and dated by the person who carried out the cleaning.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-truck"></i></div><div><p class="reg-title">Supplier and delivery records</p><p class="reg-body">Records of approved suppliers, delivery notes and incoming goods checks. These form the first link in your traceability chain and are required to demonstrate that your raw materials are sourced from reputable, approved suppliers.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-users"></i></div><div><p class="reg-title">Training records</p><p class="reg-body">Records showing that all food handlers have received appropriate food hygiene training. The level of training required depends on the role, but every person handling food must have evidence of training in place.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-bug"></i></div><div><p class="reg-title">Pest control records</p><p class="reg-body">Evidence of a pest management programme, whether contracted out or managed internally. Inspection reports, treatment records and any findings and actions taken.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-file-check"></i></div><div><p class="reg-title">HACCP review records</p><p class="reg-body">Records showing that your HACCP plan is reviewed regularly and whenever significant changes occur. Review meetings should be documented with findings and any updates recorded.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">For distilleries and licensed producers</p>
+          <h2 class="h2">Additional legal record keeping requirements.</h2>
+          <p class="body">If you produce dutiable alcohol, HMRC requires you to keep excise records covering production volumes, alcohol strength measurements, bulk stock accounts, movements of goods under duty suspension, and dispatch records. These records must be retained for a minimum of six years. HMRC has the right to inspect these records and discrepancies can result in duty assessments and penalties.</p>
+          <p class="body">Excise record keeping requirements are in addition to food safety documentation, not instead of it. A distillery must maintain both sets of records to the required standard.</p>
+        </div>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Beyond the minimum</p>
+          <h2 class="h2">Why the businesses that do more than the minimum are better protected.</h2>
+          <p class="body">The legal minimum is the floor, not the standard to aim for. Businesses that maintain thorough records are better protected in three ways. They can demonstrate due diligence if a food safety incident occurs. They can respond quickly to buyer traceability requests and auditor questions. And they can identify problems in their operation before those problems cause harm or trigger enforcement action.</p>
+          <p class="body">The businesses that get into serious difficulty are rarely the ones that tried to maintain good records and fell short. They are almost always the ones that decided records were a bureaucratic burden rather than operational protection and stopped keeping them properly.</p>
+          <button class="btn-primary" style="margin-top:1.5rem" onclick="showPage('contact')">Talk to Michael about your record keeping</button>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Not sure whether your records are where they need to be?</h2>
+        <p class="body">Tell Michael about your operation and he will give you an honest view.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
       <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
