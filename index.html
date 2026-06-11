@@ -472,6 +472,11 @@ textarea.form-input { min-height: 120px; resize: vertical; }
             <li><button onclick="showPage('res-startup-checklist')">Food Business Startup Checklist</button></li>
             <li><button onclick="showPage('res-eho-inspection')">Environmental Health Inspections</button></li>
             <li><button onclick="showPage('res-legal-records')">Legal Record Keeping Requirements</button></li>
+            <li class="dropdown-label">Comparisons</li>
+            <li><button onclick="showPage('res-salsa-vs-brcgs')">SALSA vs BRCGS</button></li>
+            <li><button onclick="showPage('res-haccp-templates')">HACCP Templates vs Custom Plans</button></li>
+            <li><button onclick="showPage('res-consultant-vs-software')">Consultant vs Food Safety Software</button></li>
+            <li><button onclick="showPage('res-notion-vs-software')">Notion vs Specialist Software</button></li>
             <li class="dropdown-label">FAQs</li>
             <li><button onclick="showPage('faq')">All FAQs</button></li>
           </ul>
@@ -1369,7 +1374,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 
 <script>
 const whoPages = ['distilleries','breweries','drinks-brands','food-manufacturers','artisan-producers','festival-caterers','startups'];
-const resourcePages = ['faq','res-salsa-cost','res-need-salsa','res-haccp-plan','res-startup-checklist','res-eho-inspection','res-legal-records'];
+const resourcePages = ['faq','res-salsa-cost','res-need-salsa','res-haccp-plan','res-startup-checklist','res-eho-inspection','res-legal-records','res-salsa-vs-brcgs','res-haccp-templates','res-consultant-vs-software','res-notion-vs-software'];
 
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1939,6 +1944,246 @@ document.addEventListener('click', function(e) {
         <h2 class="h2">Not sure whether your records are where they need to be?</h2>
         <p class="body">Tell Michael about your operation and he will give you an honest view.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+<!-- TIER 2 COMPARISON PAGES -->
+
+    <article class="page" id="page-res-salsa-vs-brcgs">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Comparisons</p>
+        <h2 class="h1">SALSA vs BRCGS.<br><span style="color:var(--brick)">Which standard does your business actually need?</span></h2>
+        <p class="body" style="max-width:580px">Both are food safety certification schemes. They are not interchangeable. One was built for small producers. One was built for large manufacturers. Choosing the wrong one wastes time and money. Here is how to work out which applies to you.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The short answer</p>
+          <h2 class="h2">If you are a small producer, you almost certainly need SALSA. Not BRCGS.</h2>
+          <p class="body">SALSA, Safe and Local Supplier Approval, was designed specifically for small and micro food and drink producers in the UK. BRCGS, Brand Reputation Compliance Global Standards, was designed for large food manufacturing operations supplying major retailers at scale. The two standards serve different parts of the market. Applying BRCGS to a small producer is like using industrial safety standards to certify a bicycle.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Side by side</p>
+          <h2 class="h2">What each standard actually involves.</h2>
+        </div>
+        <div class="compare" style="margin-top:2rem">
+          <div class="compare-col">
+            <p class="compare-title" style="color:var(--brick)">SALSA</p>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Designed for small and micro producers</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>12 compliance areas covering all food safety requirements</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Audit conducted by a SALSA-approved auditor</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Annual membership around £400, audit fee around £500 to £800</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Required by regional retailers, wholesalers and food service buyers</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Achievable for a well-prepared small business in 3 to 6 months</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Proportionate to the scale and resource of a small operation</p></div>
+          </div>
+          <div class="compare-col">
+            <p class="compare-title" style="color:var(--ink)">BRCGS</p>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Designed for large food manufacturers</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Significantly more demanding infrastructure requirements</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Graded audit with announced and unannounced options</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Certification costs significantly higher, often thousands per year</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Required by major national retailers for direct supply</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Requires dedicated resource to implement and maintain</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Disproportionate for most small producers</p></div>
+          </div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">When BRCGS becomes relevant</p>
+          <h2 class="h2">There are situations where BRCGS is the right answer.</h2>
+          <p class="body">If you are supplying certain major national supermarkets directly and they specifically require BRCGS certification, that is the standard you need. Some large food service contracts and export markets also specify BRCGS. These situations are genuinely rare for small producers. Most small food and drink businesses will never need BRCGS certification, and pursuing it when SALSA would open the same commercial doors is an unnecessary use of time and money.</p>
+          <p class="body">The practical question to ask is what your buyers actually require. If your current and target buyers require SALSA, build to SALSA. If a specific buyer requires BRCGS, that conversation is worth having before you invest in either standard, because BRCGS typically requires operational changes that not every small producer can make cost-effectively.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Not sure which standard applies to your business?</h2>
+        <p class="body">Tell Michael about your products and your target buyers. He will give you a straight answer.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-haccp-templates">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Comparisons</p>
+        <h2 class="h1">HACCP templates vs custom HACCP plans.<br><span style="color:var(--brick)">One of them actually works. One of them just looks like it does.</span></h2>
+        <p class="body" style="max-width:580px">HACCP templates are everywhere. Government websites, food safety consultancies, trade associations. They are free or cheap and they look like a HACCP plan. The problem is that they are not a HACCP plan for your business. This page explains the difference and why it matters.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What a template actually is</p>
+          <h2 class="h2">A starting point. Not a finished document.</h2>
+          <p class="body">A HACCP template is a document structure showing you the format and headings a HACCP plan should contain. It might include example hazards, example critical control points and example monitoring procedures. It shows you what a HACCP plan looks like. It does not show you what your HACCP plan should say.</p>
+          <p class="body">The FSA's Safer Food Better Business toolkit is an example of a template-based approach that is genuinely useful for very simple, low-risk food operations. For more complex production, it is a starting point for understanding the structure rather than a document you can complete and submit.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Side by side</p>
+          <h2 class="h2">Template vs custom. The practical differences.</h2>
+        </div>
+        <div class="compare" style="margin-top:2rem">
+          <div class="compare-col">
+            <p class="compare-title" style="color:var(--brick)">Custom HACCP plan</p>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Built around your specific products and processes</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Hazards identified for your actual ingredients and methods</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Critical control points reflect your real operation</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Monitoring procedures designed for your equipment and team</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Withstands scrutiny from an environmental health officer or auditor</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Provides genuine due diligence protection if something goes wrong</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Can be updated as your operation changes</p></div>
+          </div>
+          <div class="compare-col">
+            <p class="compare-title" style="color:var(--ink)">Downloaded template</p>
+            <div class="compare-item"><i class="ti ti-square-x" style="color:var(--brick)"></i><p>Generic structure that does not reflect your business</p></div>
+            <div class="compare-item"><i class="ti ti-square-x" style="color:var(--brick)"></i><p>Example hazards that may not apply to your products</p></div>
+            <div class="compare-item"><i class="ti ti-square-x" style="color:var(--brick)"></i><p>CCPs based on a different operation entirely</p></div>
+            <div class="compare-item"><i class="ti ti-square-x" style="color:var(--brick)"></i><p>Monitoring procedures that may reference equipment you do not have</p></div>
+            <div class="compare-item"><i class="ti ti-square-x" style="color:var(--brick)"></i><p>Immediately obvious to an experienced auditor that it was not written for your business</p></div>
+            <div class="compare-item"><i class="ti ti-square-x" style="color:var(--brick)"></i><p>Weak due diligence protection because it does not describe your actual controls</p></div>
+            <div class="compare-item"><i class="ti ti-square-x" style="color:var(--brick)"></i><p>Quickly becomes outdated if not maintained</p></div>
+          </div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">When templates are fine</p>
+          <h2 class="h2">They are not always the wrong answer.</h2>
+          <p class="body">For a very simple, low-risk food business with a small number of products and a straightforward process, a well-completed template can be sufficient. A sole trader making sandwiches with a small number of ingredients and no cooking processes can get a long way with the FSA's Safer Food Better Business approach.</p>
+          <p class="body">The template approach breaks down when you have complex products, multiple ingredients with allergen implications, cooking and chilling processes, a production line, specialist equipment, or ambitions that include SALSA certification or retail supply. At that point, a template completed generically will not withstand the scrutiny it faces.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Not sure whether your HACCP plan is fit for purpose?</h2>
+        <p class="body">Tell Michael about your operation. He will give you an honest view of what you actually need.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-consultant-vs-software">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Comparisons</p>
+        <h2 class="h1">Food safety consultant vs food safety software.<br><span style="color:var(--brick)">They solve different problems. Here is how to know which you need.</span></h2>
+        <p class="body" style="max-width:580px">Food safety software and food safety consultants are both positioned as solutions to the same problem. They are not. Understanding the difference helps you spend your money in the right place.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What food safety software actually does</p>
+          <h2 class="h2">It manages records. It does not build your system.</h2>
+          <p class="body">Food safety software products, and there are dozens of them aimed at small producers, are primarily record management tools. They give you a platform to log temperature checks, complete cleaning records, manage allergen information and store compliance documents. Some include template HACCP plans. Some include audit preparation checklists.</p>
+          <p class="body">What they do not do is think. They do not analyse your specific hazards, write your HACCP plan, identify the gaps in your allergen management, build your supplier approval system or prepare you for a SALSA audit. They give you a place to put things once you have worked out what those things should be.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Side by side</p>
+          <h2 class="h2">Consultant vs software. What each one actually delivers.</h2>
+        </div>
+        <div class="compare" style="margin-top:2rem">
+          <div class="compare-col">
+            <p class="compare-title" style="color:var(--brick)">Food safety consultant</p>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Analyses your specific operation and identifies real hazards</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Writes documentation that reflects how your business actually works</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Builds systems designed for your team and your processes</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Prepares you for audits and inspections specifically</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Provides genuine expertise when something goes wrong</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Ongoing support as your business changes</p></div>
+          </div>
+          <div class="compare-col">
+            <p class="compare-title" style="color:var(--ink)">Food safety software</p>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Provides a platform for completing and storing records</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Includes template documents you adapt yourself</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Useful once your system is designed and you need to run it</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Automates reminders and scheduling</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Monthly subscription cost, typically £50 to £300 for small businesses</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Does not replace the need to understand what you are recording and why</p></div>
+          </div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">The honest answer</p>
+          <h2 class="h2">Most small businesses need a consultant first and software later. Or neither.</h2>
+          <p class="body">If you do not have a properly built food safety management system in place, food safety software will not fix that. It will give you an expensive platform for storing inadequate documentation. The foundation needs to be built correctly first. Once it is built, the question of whether you need dedicated software or whether a well-configured Notion system covers everything you need is a practical one based on your operation and your budget.</p>
+          <p class="body">The <span class="mucked">Mucked*</span> approach is to build the system properly from the start using tools that are fit for purpose and proportionate to the scale of the business. For most small producers, that means a Notion-based operational system rather than a dedicated food safety software subscription that costs more per month and does less.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Wondering whether software or a consultant is the right next step?</h2>
+        <p class="body">Tell Michael about your operation and he will give you a straight answer.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-notion-vs-software">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Comparisons</p>
+        <h2 class="h1">Notion vs specialist food manufacturing software.<br><span style="color:var(--brick)">One costs a fraction of the other. Here is why it can do more.</span></h2>
+        <p class="body" style="max-width:580px">Specialist food manufacturing software is expensive, was built for operations larger than yours, and often does not talk to your accounts package or compliance documents. Notion, configured properly, can do everything you actually need at a fraction of the cost. This page explains how.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The specialist software problem</p>
+          <h2 class="h2">Built for someone ten times your size. Priced accordingly.</h2>
+          <p class="body">Specialist food manufacturing software products typically cost between £300 and £800 a month for a small operation. They were built for food manufacturers with dedicated production teams, quality managers and IT support. The feature sets reflect that. You end up paying for modules and capabilities you will never use while the things that would actually help your operation, like a direct connection to your compliance documents or your accounts package, require additional integrations or are not available at all.</p>
+          <p class="body">The onboarding process for most specialist software is significant. Configuration takes weeks, training takes time, and the ongoing admin burden of maintaining a complex system is real. For a small producer where the founder is doing most things, that overhead is not trivial.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Side by side</p>
+          <h2 class="h2">Notion vs specialist software. The practical comparison.</h2>
+        </div>
+        <div class="compare" style="margin-top:2rem">
+          <div class="compare-col">
+            <p class="compare-title" style="color:var(--brick)">Notion-based system</p>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Configured specifically for your business from scratch</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>All data in one place, linked relationally so nothing is entered twice</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Compliance documents, production records and stock in one system</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Integrates with Make for automation and custom apps for floor entry</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Total software cost under £200 per month for a small startup</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>You own and control everything, subscriptions in your name</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--sage)"></i><p>Scales with your business without a corresponding increase in software cost</p></div>
+          </div>
+          <div class="compare-col">
+            <p class="compare-title" style="color:var(--ink)">Specialist food software</p>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Pre-built modules, some of which you will use and some you will not</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Data often siloed within the platform</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Compliance and production often in separate modules or separate products</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Integrations with other tools limited or require additional cost</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Typically £300 to £800 per month for a small operation</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Vendor lock-in, your data lives in their platform</p></div>
+            <div class="compare-item"><i class="ti ti-square-check" style="color:var(--blue-mid)"></i><p>Pricing typically scales with users and modules</p></div>
+          </div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">When specialist software makes sense</p>
+          <h2 class="h2">There are situations where it is the right answer.</h2>
+          <p class="body">If your operation has grown to a scale where you have a dedicated quality team, multiple production sites, complex regulatory reporting requirements, or a need for deep integration with ERP systems, specialist food manufacturing software may be the right tool. At that scale the cost is proportionate to the value and the feature set matches the operational complexity.</p>
+          <p class="body">For most small producers, that scale is a long way off. And the businesses that buy specialist software before they need it spend years paying for complexity they are not using while the features they actually need are either missing or poorly implemented.</p>
+        </div>
+      </section>
+      <section class="section-ink">
+        <div class="inner">
+          <p class="eyebrow">What a Notion-based system looks like in practice</p>
+          <h2 class="h2">The same data. A fraction of the cost.</h2>
+          <p class="body">A properly configured Notion workspace for a small food or drink producer includes a relational database covering suppliers, raw materials, recipes, production records, stock, compliance documents, customers and dispatch records. All linked so that when a production batch is logged, stock adjusts, traceability records update and compliance records are created automatically.</p>
+          <p class="body">Custom mobile apps handle floor-level data entry. Make handles automation. Xero handles accounts. Everything talks to everything else. The total monthly cost for a small startup running this stack is typically under £200. The configuration is where the investment sits, not the ongoing licence fees.</p>
+          <button class="btn-primary" style="margin-top:1.5rem" onclick="showPage('digital')">See how the digital system works</button>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Paying for software that is not doing what you need?</h2>
+        <p class="body">Tell Michael about your current setup. He will give you an honest view of whether there is a better way.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
       <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
     </article>
