@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mucked* — Food and Drink Consultancy</title>
+<title>Mucked* | Food Safety, SALSA & Operations Consultancy UK</title>
+<meta name="description" content="Hands-on food and drink compliance, SALSA certification preparation and digital operational systems for small UK producers, distilleries and festival caterers. Built by someone who has actually been on the floor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Unkempt:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -24,7 +25,7 @@
 
 body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--ink); }
 
-.site { max-width: 960px; margin: 0 auto; }
+.site { width: 100%; }
 
 .mucked { font-family: 'Unkempt', cursive; font-weight: 700; color: var(--brick); }
 
@@ -33,7 +34,7 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem 2rem;
+  padding: 1.1rem max(2rem, calc((100vw - 960px) / 2 + 2rem));
   background: var(--ink);
   position: sticky;
   top: 0;
@@ -119,12 +120,12 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
 }
 
 /* SECTIONS */
-.hero-cream { background: var(--cream); padding: 5rem 2.5rem 4.5rem; border-left: 6px solid var(--brick); padding-left: 3rem; }
-.section-blue { background: var(--blue-light); padding: 4.5rem 2.5rem; border-left: 6px solid var(--blue); padding-left: 3rem; }
-.section-sage { background: var(--sage-light); padding: 4.5rem 2.5rem; border-left: 6px solid var(--sage); padding-left: 3rem; }
-.section-cream { background: var(--cream); padding: 4.5rem 2.5rem; border-left: 6px solid var(--brick); padding-left: 3rem; }
-.section-ink { background: var(--ink); padding: 4.5rem 2.5rem; border-left: 6px solid var(--sage-dark); padding-left: 3rem; }
-.section-brick { background: var(--brick); padding: 4.5rem 2.5rem; text-align: center; border-left: 6px solid rgba(0,0,0,0.15); padding-left: 3rem; }
+.hero-cream { background: var(--cream); padding: 5rem max(3rem, calc((100vw - 960px) / 2 + 3rem)) 4.5rem; border-left: none; border-top: 6px solid var(--brick); }
+.section-blue { background: var(--blue-light); padding: 4.5rem max(3rem, calc((100vw - 960px) / 2 + 3rem)); border-left: none; border-top: 6px solid var(--blue); }
+.section-sage { background: var(--sage-light); padding: 4.5rem max(3rem, calc((100vw - 960px) / 2 + 3rem)); border-left: none; border-top: 6px solid var(--sage); }
+.section-cream { background: var(--cream); padding: 4.5rem max(3rem, calc((100vw - 960px) / 2 + 3rem)); border-left: none; border-top: 6px solid var(--brick); }
+.section-ink { background: var(--ink); padding: 4.5rem max(3rem, calc((100vw - 960px) / 2 + 3rem)); border-left: none; border-top: 6px solid var(--sage-dark); }
+.section-brick { background: var(--brick); padding: 4.5rem max(3rem, calc((100vw - 960px) / 2 + 3rem)); text-align: center; border-left: none; border-top: 6px solid rgba(0,0,0,0.15); }
 
 .section-blue .eyebrow { color: var(--blue); }
 .section-blue .h2 { color: var(--blue-mid); }
@@ -271,7 +272,7 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
 .pc-sage .price-features li i { color: var(--sage); }
 
 /* FOOTER */
-.footer { background: var(--ink); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--cream); opacity: 0.7; border-top: 1px solid #ffffff15; flex-wrap: wrap; gap: 0.5rem; }
+.footer { background: var(--ink); padding: 1.5rem max(2.5rem, calc((100vw - 960px) / 2 + 2.5rem)); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--cream); opacity: 0.7; border-top: 1px solid #ffffff15; flex-wrap: wrap; gap: 0.5rem; }
 .footer-logo { font-family: 'Unkempt', cursive; font-size: 1.1rem; opacity: 1; color: var(--cream); }
 
 /* CONTACT FORM */
@@ -283,9 +284,9 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
 textarea.form-input { min-height: 120px; resize: vertical; }
 
 @media (max-width: 768px) {
-  .nav { padding: 1rem; flex-direction: column; align-items: flex-start; }
+  .nav { padding: 1rem 1.5rem; flex-direction: column; align-items: flex-start; }
   .nav-links { justify-content: flex-start; width: 100%; margin-top: 0.5rem; }
-  .hero-cream, .section-blue, .section-sage, .section-cream, .section-ink, .section-brick { padding: 3rem 1.5rem; border-left-width: 4px; padding-left: 1.75rem; }
+  .hero-cream, .section-blue, .section-sage, .section-cream, .section-ink, .section-brick { padding: 3rem 1.5rem; border-top-width: 4px; }
   .compare { grid-template-columns: 1fr; }
   .price-grid { grid-template-columns: 1fr; }
 }
@@ -296,22 +297,69 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Mucked*",
-  "description": "Compliance, operations, SALSA standards, and digital operational workflow tracking configurations for early-stage UK food and drink startups.",
+  "description": "Hands-on food and drink compliance, SALSA certification preparation and digital operational systems for small UK producers, distilleries and festival caterers. Built by someone who has actually been on the floor.",
   "url": "https://mucked.co.uk",
   "email": "michael@mucked.co.uk",
   "founder": {
     "@type": "Person",
     "name": "Michael"
   },
-  "areaServed": "GB",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+  },
   "knowsAbout": [
     "Food Safety Act 1990",
     "Regulation (EC) No 852/2004",
     "SALSA Standard Compliance",
-    "HACCP architecture validation",
-    "Food business registration management",
-    "Festival operations and mobile workflow tracking"
-  ]
+    "HACCP plan development",
+    "Food Information Regulations 2014",
+    "Allergen management",
+    "Food business registration",
+    "HMRC excise duty records",
+    "Festival catering operations",
+    "Digital operational systems",
+    "Notion relational databases",
+    "Food business traceability systems"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Consultancy Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Food Safety and Compliance Consultancy",
+          "description": "Bespoke food safety management systems, HACCP plans and compliance documentation built around how your business actually operates."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "SALSA Certification Preparation",
+          "description": "Full preparation for SALSA Food and Drink Production standard certification, covering all twelve compliance areas."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Digital Operational Systems",
+          "description": "Custom digital systems using Notion, Make and bespoke mobile apps. Data entered once, flowing automatically to stock, compliance and accounts."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Festival Catering Consultancy",
+          "description": "Compliance, systems and operational support for mobile and temporary food setups at festivals and events."
+        }
+      }
+    ]
+  }
 }
 </script>
 </head>
@@ -409,7 +457,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
     <article class="page" id="page-compliance">
       <section class="hero-cream">
         <p class="eyebrow" style="color:var(--sage)">Compliance and food safety</p>
-        <h1 class="h1">Get it right from day one.<br><span style="color:var(--brick)">Before it becomes a problem.</span></h1>
+        <h2 class="h1">Get it right from day one.<br><span style="color:var(--brick)">Before it becomes a problem.</span></h2>
         <p class="body" style="max-width:580px">Food safety compliance is not optional and it is not one size fits all. Whether you are registering your first food business or preparing for a buyer audit, the paperwork needs to reflect how your operation actually works. Not how someone else's does.</p>
         <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
       </section>
@@ -499,7 +547,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
     <article class="page" id="page-salsa">
       <section class="hero-cream">
         <p class="eyebrow" style="color:var(--sage)">SALSA standard</p>
-        <h1 class="h1">The highest bar in the industry.<br><span style="color:var(--brick)">Applied to every piece of work.</span></h1>
+        <h2 class="h1">The highest bar in the industry.<br><span style="color:var(--brick)">Applied to every piece of work.</span></h2>
         <p class="body" style="max-width:580px"><span class="mucked">Mucked*</span> uses the SALSA Food and Drink Production standard as its baseline for every engagement. Not because every client needs formal SALSA certification, but because building to that standard means everything is done properly from the start and everything that matters is covered.</p>
         <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
       </section>
@@ -560,7 +608,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
     <article class="page" id="page-digital">
       <section class="hero-cream">
         <p class="eyebrow" style="color:var(--blue-mid)">Digital operational systems</p>
-        <h1 class="h1">One system. Everything flows.<br><span style="color:var(--brick)">Nothing gets missed.</span></h1>
+        <h2 class="h1">One system. Everything flows.<br><span style="color:var(--brick)">Nothing gets missed.</span></h2>
         <p class="body" style="max-width:580px">Most small food and drink businesses run on spreadsheets, paper files and memory. It works until it does not. A digital operational system built around how your business actually works means compliance, stock, duty records and accounts all happen as a byproduct of doing your job. Not as a separate job on top of it.</p>
         <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
       </section>
@@ -633,7 +681,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
     <article class="page" id="page-festival">
       <section class="hero-cream">
         <p class="eyebrow" style="color:var(--sage)">Festival catering consultancy</p>
-        <h1 class="h1">Taking food to festivals<br><span style="color:var(--brick)">is harder than it looks.</span></h1>
+        <h2 class="h1">Taking food to festivals<br><span style="color:var(--brick)">is harder than it looks.</span></h2>
         <p class="body" style="max-width:580px">The idea is exciting. The reality involves environmental health paperwork, temporary structure applications, food safety documentation for a kitchen that fits in a trailer, cash flow tight enough to feel it in your chest and a 4am start on day two because you sold out on day one. <span class="mucked">Mucked*</span> has been there. Actually there.</p>
         <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
       </section>
@@ -698,7 +746,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
     <article class="page" id="page-pricing">
       <section class="hero-cream">
         <p class="eyebrow" style="color:var(--brick)">Pricing</p>
-        <h1 class="h1">You came straight here didn't you.<br><span style="color:var(--sage-dark)">Fair enough. Here is the honest version.</span></h1>
+        <h2 class="h1">You came straight here didn't you.<br><span style="color:var(--sage-dark)">Fair enough. Here is the honest version.</span></h2>
         <p class="body" style="max-width:580px">If you skipped straight to this page without reading anything else, no judgement. Everyone does it. But it does mean you have probably missed the bit that explains why <span class="mucked">Mucked*</span> is genuinely different from every other consultancy charging for this kind of work. Worth a read when you get a chance.</p>
         <p class="body" style="max-width:580px">Here is the truth: pricing depends on your business, your products, how much you already have in place and what you actually need built. This page gives you a clear guide, an honest comparison with what the same outcome costs elsewhere, and real numbers so you know roughly where you stand before we speak.</p>
         <p class="body" style="max-width:580px"><span class="mucked">Mucked*</span> is also a startup. The rates right now are significantly lower than they will be once there are a handful of happy clients and a track record to point to. If you come in early, you benefit from that.</p>
@@ -785,7 +833,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
     <article class="page" id="page-about">
       <section class="hero-cream">
         <p class="eyebrow" style="color:var(--sage)">About</p>
-        <h1 class="h1">Mucked* is one person.<br><span style="color:var(--brick)">With a very specific set of skills.</span></h1>
+        <h2 class="h1">Mucked* is one person.<br><span style="color:var(--brick)">With a very specific set of skills.</span></h2>
         <p class="body" style="max-width:580px">No team of consultants. No junior staff doing the work while a senior partner takes the credit. When you work with <span class="mucked">Mucked*</span>, you work with Michael. That is the point.</p>
         <p class="body" style="max-width:580px">There is also a small Italian husband lurking about LinkedIn with the lofty title of Business Development Manager. He is very enthusiastic, extremely well connected and absolutely not allowed anywhere near client work. He handles the outreach. Michael handles everything else.</p>
       </section>
@@ -832,7 +880,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
     <article class="page" id="page-contact">
       <section class="hero-cream">
         <p class="eyebrow" style="color:var(--sage)">Contact</p>
-        <h1 class="h1">Got something on the go?<br><span style="color:var(--brick)">Let's talk about it.</span></h1>
+        <h2 class="h1">Got something on the go?<br><span style="color:var(--brick)">Let's talk about it.</span></h2>
         <p class="body" style="max-width:580px">Tell Michael about your business and where you are at. Whether you are just starting out, preparing for an audit, scaling up for festival season or trying to get a digital system that actually makes sense, the first conversation costs nothing and comes with no obligation.</p>
         <p class="body" style="max-width:580px">Michael reads every message personally and responds to every one. You will not get an automated reply or a call from someone who did not read what you wrote.</p>
       </section>
