@@ -299,7 +299,18 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   .hero-cream, .section-blue, .section-sage, .section-cream, .section-ink, .section-brick { padding: 3rem 1.5rem; border-top-width: 4px; }
   .compare { grid-template-columns: 1fr; }
   .price-grid { grid-template-columns: 1fr; }
+  .nav-dropdown-menu { position:static; box-shadow:none; border:none; background:rgba(255,255,255,0.05); border-radius:4px; margin-top:0.25rem; }
 }
+
+/* DROPDOWN */
+.nav-dropdown { position:relative; }
+.nav-dropdown-btn { background:none; border:none; color:var(--cream); font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; padding:0.3rem 0; opacity:0.7; transition:opacity 0.2s; white-space:nowrap; }
+.nav-dropdown-btn:hover, .nav-dropdown-btn.active { opacity:1; color:var(--brick); }
+.nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 0.75rem); left:0; background:var(--ink); border:1px solid rgba(255,255,255,0.1); border-radius:8px; min-width:180px; padding:0.5rem 0; z-index:200; box-shadow:0 8px 24px rgba(0,0,0,0.3); }
+.nav-dropdown-menu.open { display:block; }
+.nav-dropdown-menu li { list-style:none; }
+.nav-dropdown-menu li button { background:none; border:none; color:var(--cream); font-size:0.85rem; padding:0.6rem 1.2rem; width:100%; text-align:left; cursor:pointer; opacity:0.8; transition:opacity 0.15s, background 0.15s; }
+.nav-dropdown-menu li button:hover { opacity:1; background:rgba(255,255,255,0.08); }
 </style>
 
 <script type="application/ld+json">
@@ -438,6 +449,18 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <li><button onclick="showPage('salsa')" id="nav-salsa">SALSA</button></li>
         <li><button onclick="showPage('digital')" id="nav-digital">Digital</button></li>
         <li><button onclick="showPage('festival')" id="nav-festival">Festival</button></li>
+        <li class="nav-dropdown" id="nav-who-wrap">
+          <button class="nav-dropdown-btn" id="nav-who" onclick="toggleDropdown()">Who We Help ▾</button>
+          <ul class="nav-dropdown-menu" id="who-menu">
+            <li><button onclick="showPage('distilleries')">Distilleries</button></li>
+            <li><button onclick="showPage('breweries')">Breweries</button></li>
+            <li><button onclick="showPage('drinks-brands')">Drinks Brands</button></li>
+            <li><button onclick="showPage('food-manufacturers')">Food Manufacturers</button></li>
+            <li><button onclick="showPage('artisan-producers')">Artisan Producers</button></li>
+            <li><button onclick="showPage('festival-caterers')">Festival Caterers</button></li>
+            <li><button onclick="showPage('startups')">Startups</button></li>
+          </ul>
+        </li>
         <li><button onclick="showPage('pricing')" id="nav-pricing">Pricing</button></li>
         <li><button onclick="showPage('about')" id="nav-about">About</button></li>
         <li><button onclick="showPage('faq')" id="nav-faq">FAQ</button></li>
@@ -1331,18 +1354,288 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 </div>
 
 <script>
+const whoPages = ['distilleries','breweries','drinks-brands','food-manufacturers','artisan-producers','festival-caterers','startups'];
+
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
-  
   const targetPage = document.getElementById('page-' + id);
   const targetNav = document.getElementById('nav-' + id);
-  
   if (targetPage) targetPage.classList.add('active');
   if (targetNav) targetNav.classList.add('active');
-  
+  if (whoPages.includes(id)) {
+    document.getElementById('nav-who').classList.add('active');
+  }
+  closeDropdown();
   window.scrollTo(0, 0);
 }
+
+function toggleDropdown() {
+  document.getElementById('who-menu').classList.toggle('open');
+}
+
+function closeDropdown() {
+  document.getElementById('who-menu').classList.remove('open');
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-dropdown')) closeDropdown();
+});
 </script>
+<!-- WHO WE HELP PAGES -->
+
+    <article class="page" id="page-distilleries">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Who we help</p>
+        <h2 class="h1">Distilleries.<br><span style="color:var(--brick)">The most regulated small business you can run.</span></h2>
+        <p class="body" style="max-width:580px">HMRC excise duty. SALSA certification. Food safety legislation. Local authority licensing. Environmental health. All of it, simultaneously, from the moment you start production. Most distilleries find out how complex this is after they have already started. <span class="mucked">Mucked*</span> has been inside a startup distillery doing all of it from scratch. That changes the advice significantly.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The reality of running a distillery</p>
+          <h2 class="h2">You are not just making spirits. You are running one of the most compliance-heavy operations in food and drink.</h2>
+          <p class="body">HMRC requires you to account for every litre of alcohol produced, every litre in bond, every litre dispatched. Records must balance. Discrepancies trigger enquiries. The duty liability on a small production run is significant enough that errors are not just an administrative inconvenience, they are a financial problem.</p>
+          <p class="body">On top of excise duty, you have food safety legislation, HACCP requirements, allergen management for botanical recipes, local authority licensing, environmental health inspections and, if you want to supply serious buyers, SALSA certification. None of these exist in isolation. They all need to work together as a single operational system, not as separate folders of paperwork.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What Mucked* builds for distilleries</p>
+          <h2 class="h2">One system. Everything covered.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-building-factory"></i></div><div><p class="reg-title">HMRC excise duty records</p><p class="reg-body">Production records, bulk stock accounts, duty suspension records, dispatch documentation and reconciliation systems. Built so the numbers balance automatically and the return takes minutes rather than a day.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-certificate"></i></div><div><p class="reg-title">SALSA certification preparation</p><p class="reg-body">All twelve compliance areas built to SALSA standard, including allergen management for complex botanical recipes, supplier control for specialist ingredients and traceability from raw botanical to finished bottle.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-database"></i></div><div><p class="reg-title">Digital operational systems</p><p class="reg-body">A single Notion-based system where production logging, stock management, duty records, compliance documentation and batch traceability all live together and update automatically. No spreadsheets. No data entered twice.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-device-mobile"></i></div><div><p class="reg-title">Custom production apps</p><p class="reg-body">Mobile apps for the still room. Production batch logging, goods in, dispatch, equipment calibration records and temperature monitoring. Built for use during production, not at a desk afterwards.</p></div></div>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Running a distillery and drowning in paperwork?</h2>
+        <p class="body">Tell Michael where you are at. He has been there.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-breweries">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Who we help</p>
+        <h2 class="h1">Breweries.<br><span style="color:var(--brick)">Great beer deserves a system that keeps up with it.</span></h2>
+        <p class="body" style="max-width:580px">Whether you are running a microbrewery, a taproom, a canning line or all three, the compliance requirements grow with you. HMRC duty records, food safety, allergen declarations, SALSA certification for retail supply. Getting the systems right before you scale means growth does not break everything.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Where breweries tend to struggle</p>
+          <h2 class="h2">The compliance catches up with you eventually. Better to get ahead of it.</h2>
+          <p class="body">Most breweries start small and sort compliance as they go. That works up to a point. The point is usually when a retailer asks for your SALSA certificate, when HMRC asks a question about your duty records, or when an environmental health officer finds that your HACCP plan does not cover the canning line you added eighteen months ago. None of these are unfixable problems. They are all significantly easier to deal with before they happen than after.</p>
+          <p class="body">Allergen management is a particular area of risk for breweries with complex or experimental recipes. Fining agents, adjuncts, flavourings and fruit additions all carry potential allergen implications that need to be properly assessed and declared.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What Mucked* builds for breweries</p>
+          <h2 class="h2">Compliance that keeps pace with your production.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-file-check"></i></div><div><p class="reg-title">Food safety and HACCP documentation</p><p class="reg-body">HACCP plans covering your full production process, from raw ingredient intake through brewing, conditioning, packaging and dispatch. Updated whenever your process or product range changes.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-shield-check"></i></div><div><p class="reg-title">Allergen management</p><p class="reg-body">Allergen registers, risk assessments and label verification procedures that cover your core range and your experimental brews. Built to handle recipe changes without creating compliance gaps.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-database"></i></div><div><p class="reg-title">Production and duty records</p><p class="reg-body">Digital systems for batch records, duty calculations, stock accounts and dispatch documentation. Data entered once at the point of production, flowing automatically to everything that depends on it.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-certificate"></i></div><div><p class="reg-title">SALSA certification preparation</p><p class="reg-body">All twelve compliance areas built to SALSA standard as a baseline. If retail supply is in your plans, having the certificate ready rather than scrambling to get it when a buyer asks is a significant commercial advantage.</p></div></div>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Want to get properly sorted before it becomes a problem?</h2>
+        <p class="body">Tell Michael about your brewery and where you are at.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-drinks-brands">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Who we help</p>
+        <h2 class="h1">Drinks brands.<br><span style="color:var(--brick)">Getting to retail is harder than it looks.</span></h2>
+        <p class="body" style="max-width:580px">You have the product. You have the brand. You have buyers interested. Then they ask for your SALSA certificate, your food safety documentation and your allergen management policy. If you cannot produce them quickly, you lose the listing. <span class="mucked">Mucked*</span> gets drinks brands retailer-ready without the corporate consultancy price tag.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The gap between a great product and a retail listing</p>
+          <h2 class="h2">Most buyers will not wait while you get your documentation together.</h2>
+          <p class="body">Serious retailers and wholesalers run due diligence before they place an order. That means food safety documentation, allergen information, traceability records and, increasingly, SALSA certification. Having these in order before a buyer asks for them means you can say yes immediately rather than asking for time you may not get.</p>
+          <p class="body">The compliance requirements do not go away as your brand grows. They multiply. More SKUs, more complexity, more buyers with their own specific requirements. Getting the foundations right at the start means adding new products and new accounts is a manageable process rather than starting from scratch each time.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What Mucked* builds for drinks brands</p>
+          <h2 class="h2">Retail-ready compliance without the corporate price tag.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-certificate"></i></div><div><p class="reg-title">SALSA certification preparation</p><p class="reg-body">Full preparation for SALSA accreditation, covering all twelve compliance areas. Built around your specific products, your production setup and your ingredient supply chain.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-tag"></i></div><div><p class="reg-title">Labelling and allergen compliance</p><p class="reg-body">Label review against Food Information Regulations 2014 requirements. Allergen declarations, nutritional information, mandatory labelling and country of origin requirements. Done correctly once and maintained as your range develops.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-truck"></i></div><div><p class="reg-title">Supplier and traceability systems</p><p class="reg-body">Approved supplier lists, incoming goods procedures and batch traceability from raw ingredient to finished product. Built so you can respond to a buyer traceability request or a recall scenario within minutes.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-database"></i></div><div><p class="reg-title">Digital product management</p><p class="reg-body">A product database covering specifications, allergen information, labelling records and compliance status for every SKU. Keeps pace as your range grows without creating a documentation backlog.</p></div></div>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Got buyers interested and compliance catching up?</h2>
+        <p class="body">Tell Michael about your brand and what you need in place.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-food-manufacturers">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Who we help</p>
+        <h2 class="h1">Food manufacturers.<br><span style="color:var(--brick)">Compliance that reflects how you actually make things.</span></h2>
+        <p class="body" style="max-width:580px">Small food manufacturers face the same legal requirements as large ones with a fraction of the resource. The documentation needs to be thorough, specific to your processes and genuinely embedded in how your team operates. Not templates. Not copy and paste. Built around your production.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Where small manufacturers get caught out</p>
+          <h2 class="h2">The law does not scale down for small operations. The documentation requirements are the same.</h2>
+          <p class="body">Regulation (EC) No 852/2004 applies to every food business regardless of size. HACCP, allergen management, supplier controls, traceability, cleaning and hygiene records. Environmental health officers inspect small manufacturers with the same framework they use for large ones. Buyers run the same due diligence. The difference is that a large manufacturer has a team to manage compliance. A small one usually has the founder doing it alongside everything else.</p>
+          <p class="body">The businesses that get into difficulty are almost always the ones that grew faster than their compliance systems. More products, more staff, more complexity, but the same HACCP plan that was written on day one and never updated. Getting the systems right and keeping them current is what <span class="mucked">Mucked*</span> is built for.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What Mucked* builds for food manufacturers</p>
+          <h2 class="h2">Everything the law requires. Built for how you actually operate.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-file-check"></i></div><div><p class="reg-title">HACCP and food safety management</p><p class="reg-body">A HACCP plan written for your specific products, equipment and processes. Not adapted from a template. Built from scratch around how your operation actually works, covering every product in your range.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-shield-check"></i></div><div><p class="reg-title">Allergen management</p><p class="reg-body">Allergen registers, cross-contamination controls, label verification and staff procedures. For manufacturers with complex recipes or shared equipment, this is one of the highest risk areas in the business.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-certificate"></i></div><div><p class="reg-title">SALSA certification preparation</p><p class="reg-body">All twelve SALSA compliance areas built and embedded. The standard that retailers and wholesalers increasingly require, and the quality floor that <span class="mucked">Mucked*</span> applies to every engagement.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-database"></i></div><div><p class="reg-title">Production and compliance systems</p><p class="reg-body">Digital systems for batch records, stock management, supplier controls, traceability and compliance document management. Built so compliance happens as a byproduct of production, not as a separate administrative job.</p></div></div>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Need compliance that keeps pace with your production?</h2>
+        <p class="body">Tell Michael about your operation and what you have in place.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-artisan-producers">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Who we help</p>
+        <h2 class="h1">Artisan producers.<br><span style="color:var(--brick)">Small batch does not mean small compliance.</span></h2>
+        <p class="body" style="max-width:580px">Artisan producers often have the most complex compliance challenges relative to their size. Specialist ingredients, small batches, multiple product lines, farmers markets, delis, independent retailers and online sales all at once. <span class="mucked">Mucked*</span> builds systems that are proportionate to your scale but thorough enough to open commercial doors.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The artisan producer compliance gap</p>
+          <h2 class="h2">The passion got you started. The paperwork is what keeps you trading.</h2>
+          <p class="body">Most artisan producers start selling at markets or direct to local customers with minimal documentation. That is fine at the very beginning, but the moment you want to supply a deli, get stocked in an independent retailer or supply a food service buyer, the documentation requirements become real. And if you have been trading without proper systems in place, catching up while also running the business is genuinely difficult.</p>
+          <p class="body">The other challenge specific to artisan producers is allergen complexity. Specialist ingredients, seasonal variations, shared equipment and small batch production all create allergen management challenges that a standard template will not cover adequately. Getting this wrong is not just a compliance issue, it is a safety issue.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What Mucked* builds for artisan producers</p>
+          <h2 class="h2">Proportionate to your scale. Thorough enough to open doors.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-file-check"></i></div><div><p class="reg-title">Food safety documentation</p><p class="reg-body">HACCP plans, cleaning schedules and food safety management documentation built for small batch production. Proportionate to your operation without leaving gaps that will create problems as you grow.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-shield-check"></i></div><div><p class="reg-title">Allergen management for complex recipes</p><p class="reg-body">Allergen registers, cross-contamination controls and label verification for producers with specialist or botanical ingredients, seasonal variations or shared production equipment.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-certificate"></i></div><div><p class="reg-title">SALSA preparation for retail supply</p><p class="reg-body">If your ambition includes supplying serious retailers, building to SALSA standard from the start means certification is achievable without a full rebuild when a buyer asks for it.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-device-mobile"></i></div><div><p class="reg-title">Simple digital systems for small operations</p><p class="reg-body">Record keeping that works for a small producer without requiring expensive software or a dedicated admin resource. Built around how you actually work.</p></div></div>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Ready to get properly sorted?</h2>
+        <p class="body">Tell Michael about your products and where you want to take them.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-festival-caterers">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Who we help</p>
+        <h2 class="h1">Festival caterers.<br><span style="color:var(--brick)">Compliance does not stop because you are in a field.</span></h2>
+        <p class="body" style="max-width:580px">A temporary food setup is still a food business in the eyes of environmental health. The same legislation applies whether you are in a permanent kitchen or a gazebo at a music festival. <span class="mucked">Mucked*</span> has ten years of real festival operations experience. Not theoretical. Actually there.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What catches festival caterers out</p>
+          <h2 class="h2">Most first-time festival traders discover the compliance requirements the hard way.</h2>
+          <p class="body">Festival organisers increasingly require full documentation packs before they confirm your pitch. Food business registration, food hygiene rating, HACCP documentation, allergen information, public liability insurance, gas safety certificates, electrical certificates. Missing any of these from an application means rejection. Discovering you are missing them on site on a Friday afternoon is significantly worse.</p>
+          <p class="body">Environmental health officers do inspect at festivals. An officer who finds temperature records not being kept, allergen information that is inaccurate or food stored incorrectly will act regardless of the setting. The temporary nature of the setup is not a mitigating factor.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What Mucked* does for festival caterers</p>
+          <h2 class="h2">Everything except getting you the pitch.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-file-check"></i></div><div><p class="reg-title">Mobile and temporary food safety documentation</p><p class="reg-body">HACCP plans, allergen management, cleaning schedules and food safety documentation built for how a temporary or mobile kitchen actually operates. Not adapted from a fixed premises version.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-layout-2"></i></div><div><p class="reg-title">Kitchen and unit design for sign-off</p><p class="reg-body">Layout advice for trailers, gazebos and temporary structures that takes environmental health requirements into account from the start rather than finding out on inspection day.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-device-mobile"></i></div><div><p class="reg-title">Digital systems for the road</p><p class="reg-body">Stock tracking, sales recording, prep lists and compliance records that work on a phone in a field with unreliable signal. Built for the reality of festival operations, not for a desk.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-users"></i></div><div><p class="reg-title">On-site support</p><p class="reg-body">For clients who want experienced eyes on their operation at the moments that matter most. The setup on the morning before opening, the first service rush, the moment something unexpected happens. Available for first events and season launches.</p></div></div>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Planning your first season or scaling an existing one?</h2>
+        <p class="body">Tell Michael about your setup and what you need in place.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-startups">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Who we help</p>
+        <h2 class="h1">Food and drink startups.<br><span style="color:var(--brick)">Build it right from the start.</span></h2>
+        <p class="body" style="max-width:580px">The first year of a food or drink business involves doing everything simultaneously. Getting compliance right from day one is significantly less painful than trying to rebuild it later while also running the business. <span class="mucked">Mucked*</span> is priced for startups and built around the reality of launching something from scratch.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Why startups get compliance wrong</p>
+          <h2 class="h2">It is not lack of care. It is lack of time and the wrong advice.</h2>
+          <p class="body">Most food and drink founders are not compliance experts and have no reason to be. The instinct is to focus on the product and the sales and sort the paperwork when there is time. There is never time. And when the compliance catches up, it tends to arrive in the form of a buyer asking for documentation you do not have, an inspection finding your HACCP plan missing, or a label that turns out to be wrong.</p>
+          <p class="body">The other problem is that the advice available to startups is often either too generic to be useful or too expensive to be accessible. Template companies sell documents that were not written for your products. Corporate consultancies charge day rates that make sense for a company with ten employees and not for one with two. <span class="mucked">Mucked*</span> sits in the gap. Genuine expertise, priced for where you actually are.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What Mucked* builds for startups</p>
+          <h2 class="h2">Everything you need from day one. Nothing you do not.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-rocket"></i></div><div><p class="reg-title">Day one compliance</p><p class="reg-body">Food business registration, HACCP plan, allergen management, cleaning schedules and the core documentation you need to trade legally and confidently from the start. Built correctly once rather than patched repeatedly.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-certificate"></i></div><div><p class="reg-title">SALSA-standard foundations</p><p class="reg-body">Everything built to SALSA standard as a baseline, even if formal certification is not an immediate priority. When a buyer asks for the certificate, you are already there rather than starting from scratch.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-database"></i></div><div><p class="reg-title">Digital systems from the start</p><p class="reg-body">A Notion-based operational system configured for how your business works now and built to scale as you grow. Production records, stock, compliance documents and traceability in one place from day one.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-headset"></i></div><div><p class="reg-title">Ongoing support through the first year</p><p class="reg-body">The first year is when the system gets tested. New products, process changes, first inspections, first buyer audits. Support drops in cost as the system embeds, but it is there when you need it.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">Pricing for startups</p>
+          <h2 class="h2">Built around the reality of launching something.</h2>
+          <p class="body"><span class="mucked">Mucked*</span> is also a startup. The rates right now are significantly lower than they will be once there are a handful of happy clients and a track record to point to. If you come in early, you benefit from that. The build starts from £10,000 for a small operation of up to five people, with a 12 month payment plan option that combines everything into roughly £1,100 to £1,200 a month all in for year one.</p>
+          <button class="btn-primary" style="margin-top:1.5rem" onclick="showPage('pricing')">See full pricing</button>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Just starting out and want to get it right?</h2>
+        <p class="body">Tell Michael what you are building and where you are in the process.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
 </body>
 </html>
