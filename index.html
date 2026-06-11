@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mucked* — Food and Drink Consultancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unkempt:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --brick: #B85C38;
+  --cream: #FAF3E0;
+  --sage: #7C8C6B;
+  --sage-light: #EEF2E8;
+  --sage-dark: #4A5440;
+  --blue: #5B7FA6;
+  --blue-light: #EAF0F7;
+  --blue-mid: #3D6490;
+  --ink: #222820;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--ink); }
+
+.site { max-width: 960px; margin: 0 auto; }
+
+.mucked { font-family: 'Unkempt', cursive; font-weight: 700; color: var(--brick); }
+
+/* NAV */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 2rem;
+  background: var(--ink);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 1rem;
+}
+.nav-logo {
+  font-family: 'Unkempt', cursive;
+  font-size: 1.6rem;
+  color: var(--cream);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  list-style: none;
+  justify-content: flex-end;
+}
+.nav-links button {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.78rem;
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 700;
+  opacity: 0.65;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.nav-links button:hover, .nav-links button.active { opacity: 1; color: var(--brick); }
+
+/* PAGES */
+.page { display: none; }
+.page.active { display: block; }
+
+/* TYPOGRAPHY */
+.eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.9rem; }
+.h1 { font-family: 'Unkempt', cursive; font-size: clamp(1.9rem, 4.5vw, 3rem); line-height: 1.15; margin: 0 0 1.5rem; }
+.h2 { font-family: 'Unkempt', cursive; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.2; margin: 0 0 1.25rem; }
+.h3 { font-family: 'Unkempt', cursive; font-size: 1.1rem; line-height: 1.3; margin: 0 0 0.5rem; }
+.body { font-size: 1rem; line-height: 1.85; margin: 0 0 1.1rem; opacity: 0.82; }
+
+/* BUTTONS */
+.btn-primary {
+  display: inline-block;
+  background: var(--brick);
+  color: var(--cream);
+  font-family: 'Unkempt', cursive;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  border: none;
+}
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: var(--cream);
+  font-family: 'Unkempt', cursive;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  border: 2px solid #FAF3E080;
+  margin-top: 1.5rem;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+.hero-cream { background: var(--cream); padding: 5rem 2.5rem 4.5rem; border-left: 6px solid var(--brick); padding-left: 3rem; }
+.section-blue { background: var(--blue-light); padding: 4.5rem 2.5rem; border-left: 6px solid var(--blue); padding-left: 3rem; }
+.section-sage { background: var(--sage-light); padding: 4.5rem 2.5rem; border-left: 6px solid var(--sage); padding-left: 3rem; }
+.section-cream { background: var(--cream); padding: 4.5rem 2.5rem; border-left: 6px solid var(--brick); padding-left: 3rem; }
+.section-ink { background: var(--ink); padding: 4.5rem 2.5rem; border-left: 6px solid var(--sage-dark); padding-left: 3rem; }
+.section-brick { background: var(--brick); padding: 4.5rem 2.5rem; text-align: center; border-left: 6px solid rgba(0,0,0,0.15); padding-left: 3rem; }
+
+.section-blue .eyebrow { color: var(--blue); }
+.section-blue .h2 { color: var(--blue-mid); }
+.section-sage .eyebrow { color: var(--sage); }
+.section-sage .h2 { color: var(--sage-dark); }
+.section-ink .eyebrow { color: var(--sage); }
+.section-ink .h2 { color: var(--cream); }
+.section-ink .body { color: var(--cream); }
+.section-brick .h2 { color: var(--cream); }
+.section-brick .body { color: var(--cream); opacity: 0.85; max-width: 460px; margin-left: auto; margin-right: auto; }
+
+.inner { max-width: 680px; }
+
+/* SERVICE LIST */
+.service-list { max-width: 700px; display: flex; flex-direction: column; margin-top: 2rem; }
+.service-item { display: flex; gap: 1.75rem; padding: 1.75rem 0; border-bottom: 1px solid #c8d4be; align-items: flex-start; }
+.service-item:last-child { border-bottom: none; }
+.service-num { font-family: 'Unkempt', cursive; font-size: 2.5rem; color: var(--sage); opacity: 0.35; line-height: 1; min-width: 3rem; }
+.service-title { font-family: 'Unkempt', cursive; font-size: 1.1rem; color: var(--sage-dark); margin: 0 0 0.5rem; }
+.service-body { font-size: 0.9rem; color: var(--ink); opacity: 0.72; line-height: 1.7; margin: 0 0 0.75rem; }
+.service-link { font-family: 'Unkempt', cursive; font-size: 0.9rem; font-weight: 700; color: var(--brick); text-decoration: none; cursor: pointer; }
+
+/* ICON CIRCLES */
+.icon-circle { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.2rem; }
+.icon-circle i { color: var(--cream); font-size: 16px; }
+.ic-sage { background: var(--sage); }
+.ic-brick { background: var(--brick); }
+.ic-blue { background: var(--blue); }
+
+/* PULL QUOTE */
+.pull-quote { max-width: 680px; background: var(--sage-light); border-left: 4px solid var(--sage); padding: 1.75rem 2rem; margin: 2rem 0; border-radius: 0 6px 6px 0; }
+.pull-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.6rem; }
+.pull-quote p { font-size: 0.95rem; color: var(--ink); line-height: 1.8; margin: 0 0 0.5rem; opacity: 0.82; }
+.pull-quote p:last-child { margin: 0; }
+
+/* BORDER BOX */
+.border-box { max-width: 680px; border: 2px solid var(--brick); border-radius: 6px; padding: 2rem 2.25rem; margin-top: 2rem; }
+.border-box p { font-size: 0.95rem; line-height: 1.8; margin: 0 0 0.75rem; opacity: 0.82; }
+.border-box p:last-child { margin: 0; }
+.border-box.dark p { color: var(--cream); }
+.border-box.light p { color: var(--ink); }
+
+/* STATS */
+.stat-row { display: flex; gap: 2rem; margin-top: 2.5rem; max-width: 680px; flex-wrap: wrap; }
+.stat-item { flex: 1; min-width: 130px; border-top: 3px solid var(--brick); padding-top: 1rem; }
+.stat-num { font-family: 'Unkempt', cursive; font-size: 2.2rem; color: var(--brick); line-height: 1; margin-bottom: 0.4rem; }
+.stat-label { font-size: 0.85rem; opacity: 0.65; line-height: 1.5; }
+.stat-item.blue { border-top-color: var(--blue); }
+.stat-item.blue .stat-num { color: var(--blue-mid); }
+
+/* REG LIST */
+.reg-list { max-width: 720px; display: flex; flex-direction: column; margin-top: 2rem; }
+.reg-item { display: flex; gap: 1.75rem; padding: 1.75rem 0; border-bottom: 1px solid #c8d4be; align-items: flex-start; }
+.reg-item:last-child { border-bottom: none; }
+.reg-title { font-family: 'Unkempt', cursive; font-size: 1.05rem; color: var(--sage-dark); margin: 0 0 0.4rem; }
+.reg-body { font-size: 0.9rem; color: var(--ink); opacity: 0.72; line-height: 1.7; margin: 0; }
+
+/* COMPARE */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 760px; margin: 2rem 0; }
+.compare-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 0.75rem; margin-bottom: 1rem; border-bottom: 2px solid; }
+.compare-label.them { color: #888; border-color: #ccc; }
+.compare-label.us { color: var(--brick); border-color: var(--brick); }
+.compare-item { font-size: 0.9rem; color: var(--ink); opacity: 0.78; line-height: 1.7; padding: 0.6rem 0; border-bottom: 1px solid #e8e0cc; display: flex; align-items: flex-start; gap: 0.6rem; }
+.compare-item:last-child { border-bottom: none; }
+.compare-item i { font-size: 15px; margin-top: 3px; flex-shrink: 0; }
+.compare-item.them i { color: #bbb; }
+.compare-item.us i { color: var(--sage); }
+
+/* WHO LIST */
+.who-list { max-width: 680px; display: flex; flex-direction: column; margin-top: 1.5rem; }
+.who-item { padding: 1.5rem 0; border-bottom: 1px solid #c8d4be; display: flex; gap: 1.5rem; align-items: flex-start; }
+.who-item.dark-border { border-bottom-color: #ffffff12; }
+.who-item:last-child { border-bottom: none; }
+.who-num { font-family: 'Unkempt', cursive; font-size: 2rem; color: var(--brick); opacity: 0.5; line-height: 1; min-width: 2.5rem; }
+.who-title { font-family: 'Unkempt', cursive; font-size: 1.05rem; margin: 0 0 0.4rem; }
+.who-body { font-size: 0.9rem; line-height: 1.7; margin: 0; opacity: 0.65; }
+
+/* AREA LIST */
+.area-list { max-width: 720px; display: flex; flex-direction: column; margin-top: 2rem; }
+.area-item { display: flex; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid #c8d4be; }
+.area-item:last-child { border-bottom: none; }
+.area-num { font-family: 'Unkempt', cursive; font-size: 1.6rem; color: var(--sage); opacity: 0.4; line-height: 1; min-width: 2.2rem; }
+.area-title { font-family: 'Unkempt', cursive; font-size: 1rem; color: var(--sage-dark); margin: 0 0 0.3rem; }
+.area-body { font-size: 0.88rem; color: var(--ink); opacity: 0.72; line-height: 1.65; margin: 0; }
+
+/* LAYERS */
+.layer-list { max-width: 720px; margin-top: 2.5rem; display: flex; flex-direction: column; }
+.layer { display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid #ffffff10; align-items: flex-start; }
+.layer:last-child { border-bottom: none; }
+.layer-num { font-family: 'Unkempt', cursive; font-size: 2.8rem; color: var(--blue); opacity: 0.4; line-height: 1; min-width: 3rem; }
+.layer-title { font-family: 'Unkempt', cursive; font-size: 1.2rem; color: var(--cream); margin: 0 0 0.5rem; }
+.layer-body { font-size: 0.92rem; color: var(--cream); opacity: 0.62; line-height: 1.75; margin: 0 0 1rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); border: 1px solid var(--sage); padding: 0.25rem 0.65rem; border-radius: 20px; opacity: 0.75; }
+
+/* SCENARIOS */
+.scenario-list { max-width: 700px; margin-top: 2rem; display: flex; flex-direction: column; }
+.scenario { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid #c8d4be; align-items: flex-start; }
+.scenario:last-child { border-bottom: none; }
+.scenario-title { font-family: 'Unkempt', cursive; font-size: 1rem; color: var(--sage-dark); margin: 0 0 0.35rem; }
+.scenario-body { font-size: 0.9rem; color: var(--ink); opacity: 0.72; line-height: 1.7; margin: 0; }
+
+/* PAYOFF */
+.payoff-row { display: flex; gap: 2rem; margin-top: 2.5rem; max-width: 680px; flex-wrap: wrap; }
+.payoff-item { flex: 1; min-width: 150px; border-top: 3px solid var(--sage); padding-top: 1rem; }
+.payoff-title { font-family: 'Unkempt', cursive; font-size: 1rem; color: var(--cream); margin: 0 0 0.4rem; }
+.payoff-body { font-size: 0.85rem; color: var(--cream); opacity: 0.6; line-height: 1.6; margin: 0; }
+
+/* MATCH LIST */
+.match-list { max-width: 700px; margin-top: 2rem; display: flex; flex-direction: column; }
+.match-item { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid #e8e0cc; align-items: flex-start; }
+.match-item:last-child { border-bottom: none; }
+.match-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.2rem; }
+.match-icon.good { background: var(--sage); }
+.match-icon.bad { background: #c0a898; }
+.match-icon i { color: var(--cream); font-size: 16px; }
+.match-title { font-family: 'Unkempt', cursive; font-size: 1rem; color: var(--ink); margin: 0 0 0.35rem; }
+.match-body { font-size: 0.88rem; color: var(--ink); opacity: 0.7; line-height: 1.65; margin: 0; }
+
+/* MARKET */
+.market-list { max-width: 700px; margin-top: 2rem; display: flex; flex-direction: column; }
+.market-item { display: flex; gap: 1.75rem; padding: 1.5rem 0; border-bottom: 1px solid #c8d5e8; align-items: flex-start; }
+.market-item:last-child { border-bottom: none; }
+.market-who { font-family: 'Unkempt', cursive; font-size: 1rem; color: var(--blue-mid); margin: 0 0 0.35rem; }
+.market-body { font-size: 0.9rem; color: var(--ink); opacity: 0.72; line-height: 1.7; margin: 0; }
+
+/* PRICE CARDS */
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 760px; margin-top: 2.5rem; }
+.price-card { border-radius: 6px; padding: 2.5rem 2rem; display: flex; flex-direction: column; }
+.pc-cream { background: var(--cream); border: 2px solid var(--brick); }
+.pc-sage { background: var(--sage-light); border: 2px solid var(--sage); }
+.price-title { font-family: 'Unkempt', cursive; font-size: 1.4rem; margin: 0 0 0.25rem; }
+.pc-cream .price-title { color: var(--brick); }
+.pc-sage .price-title { color: var(--sage-dark); }
+.price-sub { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.5; margin-bottom: 1.5rem; }
+.price-num { font-family: 'Unkempt', cursive; font-size: 2.5rem; line-height: 1; margin-bottom: 0.25rem; }
+.pc-cream .price-num { color: var(--ink); }
+.pc-sage .price-num { color: var(--sage-dark); }
+.price-unit { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.5; margin-bottom: 1.5rem; }
+.price-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+.price-features li { font-size: 0.9rem; opacity: 0.8; line-height: 1.5; display: flex; gap: 0.5rem; align-items: flex-start; }
+.price-features li i { font-size: 14px; margin-top: 3px; flex-shrink: 0; }
+.pc-cream .price-features li i { color: var(--brick); }
+.pc-sage .price-features li i { color: var(--sage); }
+
+/* FOOTER */
+.footer { background: var(--ink); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--cream); opacity: 0.7; border-top: 1px solid #ffffff15; flex-wrap: wrap; gap: 0.5rem; }
+.footer-logo { font-family: 'Unkempt', cursive; font-size: 1.1rem; opacity: 1; color: var(--cream); }
+
+/* CONTACT FORM */
+.contact-form { display: flex; flex-direction: column; gap: 1.5rem; max-width: 500px; margin-top: 2rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--blue-mid); }
+.form-input { font-family: 'Lato', sans-serif; font-size: 1rem; padding: 0.75rem 1rem; border: 2px solid #c8d5e8; background: #fff; color: var(--ink); border-radius: 4px; outline: none; }
+.form-input:focus { border-color: var(--blue); }
+textarea.form-input { min-height: 120px; resize: vertical; }
+
+@media (max-width: 768px) {
+  .nav { padding: 1rem; flex-direction: column; align-items: flex-start; }
+  .nav-links { justify-content: flex-start; width: 100%; margin-top: 0.5rem; }
+  .hero-cream, .section-blue, .section-sage, .section-cream, .section-ink, .section-brick { padding: 3rem 1.5rem; border-left-width: 4px; padding-left: 1.75rem; }
+  .compare { grid-template-columns: 1fr; }
+  .price-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Mucked*",
+  "description": "Compliance, operations, SALSA standards, and digital operational workflow tracking configurations for early-stage UK food and drink startups.",
+  "url": "https://mucked.co.uk",
+  "email": "michael@mucked.co.uk",
+  "founder": {
+    "@type": "Person",
+    "name": "Michael"
+  },
+  "areaServed": "GB",
+  "knowsAbout": [
+    "Food Safety Act 1990",
+    "Regulation (EC) No 852/2004",
+    "SALSA Standard Compliance",
+    "HACCP architecture validation",
+    "Food business registration management",
+    "Festival operations and mobile workflow tracking"
+  ]
+}
+</script>
+</head>
+<body>
+<div class="site">
+
+  <header>
+    <nav class="nav" aria-label="Main Navigation">
+      <button class="nav-logo" onclick="showPage('home')" aria-label="Mucked Home Page">Mucked*</button>
+      <ul class="nav-links">
+        <li><button onclick="showPage('home')" id="nav-home" class="active">Home</button></li>
+        <li><button onclick="showPage('compliance')" id="nav-compliance">Compliance</button></li>
+        <li><button onclick="showPage('salsa')" id="nav-salsa">SALSA</button></li>
+        <li><button onclick="showPage('digital')" id="nav-digital">Digital</button></li>
+        <li><button onclick="showPage('festival')" id="nav-festival">Festival</button></li>
+        <li><button onclick="showPage('pricing')" id="nav-pricing">Pricing</button></li>
+        <li><button onclick="showPage('about')" id="nav-about">About</button></li>
+        <li><button onclick="showPage('contact')" id="nav-contact">Contact</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article class="page active" id="page-home">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Food and drink consultancy</p>
+        <h1 class="h1">The bit you've been avoiding?<br><span style="color:var(--brick)">That's exactly what we do.</span></h1>
+        <p class="body" style="max-width:580px"><span class="mucked">Mucked*</span> helps small food and drink businesses get properly sorted. Compliance, systems, certification and operations, so you can get back to the part you actually started the business for.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Let's talk</button>
+      </section>
+
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The reality</p>
+          <h2 class="h2">The boring stuff will wreck you. Get it wrong and you are well and truly <span class="mucked">Mucked*</span></h2>
+          <p class="body">Food safety documentation, SALSA standard compliance, HMRC excise records, environmental health sign-off. None of it is exciting and all of it matters. Get it wrong and it does not just slow you down, it stops you. A failed buyer audit, a missed duty return, an environmental health inspection that finds nothing in writing. These are not unlikely scenarios for a small producer trying to do everything themselves.</p>
+          <p class="body">Most of the help available is either a template company charging thousands for a copy and paste job, or an overpriced software solution built for someone ten times your size. Neither of them has been on the floor of your operation at 4am understanding how things actually work.</p>
+          <p class="body"><span class="mucked">Mucked*</span> is different because the experience is real. Ten years getting food and drink businesses to market through festivals and events. Three years as operations manager at a startup distillery. The frustrations of cash flow, council bureaucracy and doing everything yourself. All of it, lived rather than consulted on from a distance.</p>
+        </div>
+      </section>
+
+      <section class="section-sage">
+        <h2 class="h2" style="text-align:center">Four things. One place.</h2>
+        <p class="body" style="text-align:center;max-width:500px;margin-left:auto;margin-right:auto">Every business is different. The services below get shaped around yours.</p>
+        <div class="service-list" style="margin:2rem auto">
+          <div class="service-item">
+            <span class="service-num">01</span>
+            <div>
+              <p class="service-title">Compliance and food safety</p>
+              <p class="service-body">Written for how your business actually operates. Not templates. Not copy and paste. Built around your products, your equipment and your team.</p>
+              <span class="service-link" onclick="showPage('compliance')">Find out more →</span>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-num">02</span>
+            <div>
+              <p class="service-title">SALSA standard</p>
+              <p class="service-body">Everything built to SALSA standard as a baseline. The highest bar in the industry for small producers, applied to every piece of work <span class="mucked">Mucked*</span> delivers.</p>
+              <span class="service-link" onclick="showPage('salsa')">Find out more →</span>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-num">03</span>
+            <div>
+              <p class="service-title">Digital operational systems</p>
+              <p class="service-body">Data entered once, flowing automatically to stock, compliance and accounts. A fraction of the cost of specialist software, built around how your business actually works.</p>
+              <span class="service-link" onclick="showPage('digital')">Find out more →</span>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-num">04</span>
+            <div>
+              <p class="service-title">Festival catering</p>
+              <p class="service-body">Compliance for mobile setups, systems that work in a field at 6am, scaling without the wheels coming off.</p>
+              <span class="service-link" onclick="showPage('festival')">Find out more →</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-cream" style="text-align:center">
+        <p class="eyebrow" style="color:var(--brick)">Why <span class="mucked">Mucked*</span></p>
+        <h2 class="h2">Not corporate. Not expensive. Not guessing.</h2>
+        <p class="body" style="max-width:540px;margin-left:auto;margin-right:auto"><span class="mucked">Mucked*</span> exists because small food and drink businesses deserve the same quality of operational support as large ones, without the price tag and without the condescension. The goal is simple. You succeed, you tell people, and this works for both of us.</p>
+      </section>
+
+      <section class="section-brick">
+        <h2 class="h2">Got something on the go?</h2>
+        <p class="body">Whether you are just starting out, preparing for your first season or trying to get a digital system that actually makes sense. Get in touch. Michael reads every message and responds personally.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-compliance">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Compliance and food safety</p>
+        <h1 class="h1">Get it right from day one.<br><span style="color:var(--brick)">Before it becomes a problem.</span></h1>
+        <p class="body" style="max-width:580px">Food safety compliance is not optional and it is not one size fits all. Whether you are registering your first food business or preparing for a buyer audit, the paperwork needs to reflect how your operation actually works. Not how someone else's does.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Why it matters</p>
+          <h2 class="h2">Most small producers are one inspection away from a serious problem.</h2>
+          <p class="body">Environmental health officers visit unannounced. Buyers run due diligence before they place an order. Retailers ask for documentation before they will stock you. If your food safety management system exists only in your head, or as a folder of documents you downloaded and never properly adapted, you are exposed.</p>
+          <p class="body">Getting compliant does not have to be expensive, slow or complicated. Built correctly from the start, a food safety management system runs in the background without demanding constant attention. The hard work happens once. After that, compliance becomes part of how you operate rather than a separate job on top of it.</p>
+        </div>
+      </section>
+
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">The regulations</p>
+          <h2 class="h2">What the law actually requires.</h2>
+          <p class="body">These are the key pieces of legislation that apply to most small food and drink businesses in the UK.</p>
+        </div>
+        <div class="reg-list">
+          <div class="reg-item">
+            <div class="icon-circle ic-sage"><i class="ti ti-file-text"></i></div>
+            <div><p class="reg-title">Food Safety Act 1990</p><p class="reg-body">The foundation of UK food law. It makes it a criminal offence to sell food that is unsafe, unfit or not what it claims to be. It establishes the due diligence defence, meaning that if something goes wrong, you need documentation proving you took all reasonable precautions.</p></div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-sage"><i class="ti ti-clipboard-list"></i></div>
+            <div><p class="reg-title">Regulation (EC) No 852/2004</p><p class="reg-body">Retained in UK law post-Brexit. Requires all food businesses to implement a food safety management system based on HACCP principles. Identifying hazards, putting controls in place, monitoring those controls and keeping records. For most small producers this is the single most important document to get right.</p></div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-sage"><i class="ti ti-alert-triangle"></i></div>
+            <div><p class="reg-title">Food Information Regulations 2014</p><p class="reg-body">Governs what must appear on labels and how allergens must be declared. The 14 major allergens must be clearly highlighted. For producers with complex or botanical recipes, allergen management is one of the highest risk areas in the business.</p></div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-sage"><i class="ti ti-building-store"></i></div>
+            <div><p class="reg-title">Food Business Registration</p><p class="reg-body">Any food business must register with its local authority at least 28 days before starting to trade. Free, mandatory and often missed by startups focused on everything else. Registration triggers the environmental health inspection cycle and puts you on the right side of the law from day one.</p></div>
+          </div>
+          <div class="reg-item">
+            <div class="icon-circle ic-sage"><i class="ti ti-certificate"></i></div>
+            <div><p class="reg-title">Food Standards Act 1999 and local authority enforcement</p><p class="reg-body">Local authorities have the power to inspect, issue improvement notices, suspend operations and prosecute. The Food Hygiene Rating Scheme is increasingly used by buyers and consumers as a quick indicator of standards. A low rating is hard to recover from commercially.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-cream">
+        <p class="eyebrow" style="color:var(--brick)">The <span class="mucked">Mucked*</span> difference</p>
+        <h2 class="h2">Bespoke beats generic. Every time.</h2>
+        <p class="body" style="max-width:640px">There are companies that will sell you a folder of compliance templates. They are not worthless. But they were not written for your products, your equipment, your team or your premises. When an environmental health officer asks why your HACCP plan references a walk-in chiller you do not have, the answer is uncomfortable.</p>
+        <div class="compare">
+          <div>
+            <p class="compare-label them">Template companies</p>
+            <div class="compare-item them"><i class="ti ti-x"></i><span>Generic documents adapted for no one in particular</span></div>
+            <div class="compare-item them"><i class="ti ti-x"></i><span>No understanding of your products or process</span></div>
+            <div class="compare-item them"><i class="ti ti-x"></i><span>You do the work of making it fit</span></div>
+            <div class="compare-item them"><i class="ti ti-x"></i><span>Delivered and forgotten</span></div>
+            <div class="compare-item them"><i class="ti ti-x"></i><span>Thousands for copy and paste</span></div>
+          </div>
+          <div>
+            <p class="compare-label us">Mucked*</p>
+            <div class="compare-item us"><i class="ti ti-check"></i><span>Built around your specific operation from scratch</span></div>
+            <div class="compare-item us"><i class="ti ti-check"></i><span>Written by someone who has been on the floor</span></div>
+            <div class="compare-item us"><i class="ti ti-check"></i><span>Reflects how your business actually works</span></div>
+            <div class="compare-item us"><i class="ti ti-check"></i><span>Ongoing support as your business grows</span></div>
+            <div class="compare-item us"><i class="ti ti-check"></i><span>Priced for small businesses, not large ones</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-ink">
+        <p class="eyebrow">Who this is for</p>
+        <h2 class="h2">If any of these sound familiar, let's talk.</h2>
+        <div class="who-list">
+          <div class="who-item dark-border"><span class="who-num">01</span><div><p class="who-title" style="color:var(--cream)">Starting a food or drink business and need to get compliant before you trade</p><p class="who-body" style="color:var(--cream)">Registration, HACCP, allergen management, labelling. Built correctly from the start so you trade legally and confidently from day one.</p></div></div>
+          <div class="who-item dark-border"><span class="who-num">02</span><div><p class="who-title" style="color:var(--cream)">Approaching a buyer, retailer or wholesaler who wants to see your documentation</p><p class="who-body" style="color:var(--cream)">Most serious buyers run due diligence before placing an order. Having the right documents in place means you do not lose the opportunity while scrambling to produce them.</p></div></div>
+          <div class="who-item dark-border"><span class="who-num">03</span><div><p class="who-title" style="color:var(--cream)">Already trading but you know your compliance is not where it should be</p><p class="who-body" style="color:var(--cream)">It happens. Things grow faster than the paperwork. An honest review and a clear plan to get sorted is better than waiting for an inspection to find out.</p></div></div>
+          <div class="who-item dark-border"><span class="who-num">04</span><div><p class="who-title" style="color:var(--cream)">Had an environmental health visit and need to act on the findings</p><p class="who-body" style="color:var(--cream)">Improvement notices have deadlines. Getting the right documentation in place quickly and correctly is exactly what <span class="mucked">Mucked*</span> is built for.</p></div></div>
+        </div>
+      </section>
+
+      <section class="section-brick">
+        <h2 class="h2">Ready to get properly sorted?</h2>
+        <p class="body">Tell Michael about your business and where you are at. No jargon, no hard sell. Just a conversation about what you need.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-salsa">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">SALSA standard</p>
+        <h1 class="h1">Unlock the big buyers.<br><span style="color:var(--brick)">Without losing your mind.</span></h1>
+        <p class="body" style="max-width:580px">Safe and Local Supplier Approval (SALSA) is the badge that major regional buyers, high-end independent retailers, and wholesalers look for. It proves you aren't just guessing—it proves your operation is rock solid.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Get Audit-Ready</button>
+      </section>
+
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The Baseline Requirement</p>
+          <h2 class="h2">SALSA isn't a mountain. It's just a strict set of stairs.</h2>
+          <p class="body">Many small food and drink setups see the SALSA audit guidelines and think it's only meant for industrial factories. That's a myth. SALSA was explicitly designed to give smaller, local producers a reputable, achievable stamp of absolute safety without the astronomical costs of corporate global food standard parameters (like BRCGS).</p>
+          <p class="body">When you hire <span class="mucked">Mucked*</span>, we don't just hand you an audit checklist. We configure your daily routines, records, and raw material controls directly to align with the framework so that passing becomes a natural result of your workday, not a panicked scramble the week before the auditor arrives.</p>
+        </div>
+      </section>
+
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">The Audit Pillars</p>
+          <h2 class="h2">What SALSA reviews in your building</h2>
+          <p class="body">The standard is strictly divided into core operational sections. We build out proof logs and tracking mechanisms for all of them:</p>
+        </div>
+        <div class="area-list">
+          <div class="area-item">
+            <span class="area-num">A</span>
+            <div>
+              <p class="area-title">Prerequisite Controls</p>
+              <p class="area-body">Your baseline premise hygiene, structural cleaning specs, deep pest management arrangements, staff personal medical checks, and explicit cross-contamination safeguards.</p>
+            </div>
+          </div>
+          <div class="area-item">
+            <span class="area-num">B</span>
+            <div>
+              <p class="area-title">HACCP & Process Management</p>
+              <p class="area-body">An airtight, fully customized Hazard Analysis Critical Control Point logbook. We document exactly how your product is received, stored, mixed, processed, packaged, and shipped safely.</p>
+            </div>
+          </div>
+          <div class="area-item">
+            <span class="area-num">C</span>
+            <div>
+              <p class="area-title">Traceability Systems</p>
+              <p class="area-body">The core of the audit. You must be capable of tracking any individual raw batch element from the exact supplier invoice, forward through your mixing process, right down to the specific retail box out the door. We test this rigorously.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="section-brick">
+        <h2 class="h2">Need to pass your audit?</h2>
+        <p class="body">Let Michael audit your current room setup and systems before the official assessor sets foot inside your facility.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Book a Pre-Audit Check</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-digital">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--blue-mid)">Digital operational systems</p>
+        <h1 class="h1">Ditch the soggy clipboards.<br><span style="color:var(--brick)">Automate the tracking.</span></h1>
+        <p class="body" style="max-width:580px">You don't need a £15,000 corporate software package to manage your batch logs, allergen records, and inventory tracks. We build nimble, automated tracking platforms using accessible tools like Notion, Make, and cloud forms.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Build My System</button>
+      </section>
+
+      <section class="section-ink">
+        <div class="inner">
+          <p class="eyebrow">The Digital Strategy</p>
+          <h2 class="h2">Data entered exactly once. Distributed everywhere automatically.</h2>
+          <p class="body">If your team is writing batch logs on paper clipboards, typing those into a spreadsheet at the end of the week, and then manually altering a separate accounting invoice program, you are wasting valuable founder hours and begging for human entry errors.</p>
+        </div>
+        <div class="layer-list">
+          <div class="layer">
+            <span class="layer-num">01</span>
+            <div>
+              <p class="layer-title">The Input layer (Mobile Forms)</p>
+              <p class="layer-body">Clean, simplified digital interfaces optimized for phone or tablet use directly on the kitchen or production floor. Wet hands or messy workspaces can quickly input batch temperatures, raw component IDs, or cleaning sign-offs in seconds.</p>
+              <div class="tags"><span class="tag">Zero friction</span><span class="tag">Mobile native</span></div>
+            </div>
+          </div>
+          <div class="layer">
+            <span class="layer-num">02</span>
+            <div>
+              <p class="layer-title">The Brain database (Notion / Airtable)</p>
+              <p class="layer-body">A visual hub where all production records link naturally into ingredient inventories. The moment a batch form is submitted, the storage engine deducts used quantities from your raw goods stock levels and warns you when a resupply is required.</p>
+              <div class="tags"><span class="tag">Real-Time Stock</span><span class="tag">Compliance Ready</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-festival">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Festival catering operations</p>
+        <h1 class="h1">10 years in the mud.<br><span style="color:var(--brick)">We know what actually works.</span></h1>
+        <p class="body" style="max-width:580px">Running compliance inside a brick-and-mortar facility is one thing. Maintaining a 5-star food hygiene rating inside a canvas gazebo, in a rain-soaked field at 3 AM with 400 people queueing outside, is a completely different challenge.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Fix My Event Setup</button>
+      </section>
+
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">On-The-Ground Reality</p>
+          <h2 class="h2">Local Authorities don't pause their standards for bad weather or field conditions.</h2>
+          <p class="body">Festival organizers demand strict risk assessments, fire declaration logs, and independent local council clearance checks before they let your crew deploy onto the site structure. <span class="mucked">Mucked*</span> helps craft targeted structural workflows, allergen control templates, and water/power logs explicitly engineered for fast-paced mobile environments.</p>
+        </div>
+        <div class="scenario-list" style="margin-top:2rem">
+          <div class="scenario">
+            <div class="icon-circle ic-brick"><i class="ti ti-flame"></i></div>
+            <div>
+              <p class="scenario-title">Gas & Fire Sign-offs</p>
+              <p class="scenario-body">Air ventilation maps, layout maps for safety barriers, and structured logs ensuring external regulators sign off your mobile stall configuration instantly on site induction day.</p>
+            </div>
+          </div>
+          <div class="scenario">
+            <div class="icon-circle ic-blue"><i class="ti ti-droplet"></i></div>
+            <div>
+              <p class="scenario-title">Water & Chill Integrity logs</p>
+              <p class="scenario-body">Simple, robust systems to verify thermal holding chains and water safety standards remain completely unbroken, even when operating off a shared generator link.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-pricing">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--brick)">Pricing architecture</p>
+        <h1 class="h1">Transparent rates.<br><span style="color:var(--sage-dark)">Zero hidden monthly retainers.</span></h1>
+        <p class="body" style="max-width:580px">We do not hide our pricing variables behind an introductory sales consultation call. We work for emerging founders, so we lay our pricing structures out plainly right from the beginning.</p>
+      </section>
+
+      <section class="section-sage">
+        <div class="price-grid">
+          <div class="price-card pc-cream">
+            <p class="price-title">The Foundation Build</p>
+            <p class="price-sub">One-time operational overhaul</p>
+            <p class="price-num">£10,000</p>
+            <p class="price-unit">Upfront fee</p>
+            <ul class="price-features">
+              <li><i class="ti ti-square-check"></i>Custom bespoke HACCP documentation architecture</li>
+              <li><i class="ti ti-square-check"></i>Full asset facility spatial layout audit</li>
+              <li><i class="ti ti-square-check"></i>Notion / mobile inventory database deployment</li>
+              <li><i class="ti ti-square-check"></i>Allergen & label compliance sign-off</li>
+            </ul>
+          </div>
+          <div class="price-card pc-sage">
+            <p class="price-title">Retained Advisory</p>
+            <p class="price-sub">Ongoing developmental partnership</p>
+            <p class="price-num">£1,500</p>
+            <p class="price-unit">Per Month</p>
+            <ul class="price-features">
+              <li><i class="ti ti-square-check"></i>Regular site observation visits</li>
+              <li><i class="ti ti-square-check"></i>Continuous system iteration changes</li>
+              <li><i class="ti ti-square-check"></i>Direct WhatsApp contact access to Michael</li>
+              <li><i class="ti ti-square-check"></i>Immediate emergency audit call support</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-about">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">The background story</p>
+        <h1 class="h1">About Michael &<br><span style="color:var(--brick)">Why it's named Mucked*</span></h1>
+        <p class="body" style="max-width:580px">We didn't learn operational regulations from a corporate business textbook. We learned them by working directly on the damp, cold warehouse floors where production actually happens.</p>
+      </section>
+
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The Professional Journey</p>
+          <h2 class="h2">A decade of keeping the wheels attached to scaling B2B food operations.</h2>
+          <p class="body">Michael spent ten long years inside the fast-paced mobile festival circuit managing site logistics, health code checks, and operational layout constraints for large-scale setups. Following that, he stepped into the role of operations head for a prominent startup UK distillery—navigating HMRC customs tracking bonds, complex botanical supply parameters, and building an entire facility blueprint up to full SALSA certification limits from a completely bare floor layout.</p>
+          <p class="body">The name <span class="mucked">Mucked*</span> stands as a transparent tribute to that gritty, ground-level practitioner reality. It's for the early mornings, the stressful trading environments, and the heavy regulatory hurdles where a business could stumble if they don't have clear, solid systems backing them up.</p>
+        </div>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-contact">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Contact</p>
+        <h1 class="h1">Start the conversation.<br><span style="color:var(--brick)">No corporate fluff.</span></h1>
+        <p class="body" style="max-width:580px">If you need help getting sorted, or just want to figure out if <span class="mucked">Mucked*</span> is the right fit, use the form below. Michael reads everything and will get back to you directly.</p>
+      </section>
+
+      <section class="section-blue">
+        <div class="inner">
+          <h2 class="h2">Tell Michael about it</h2>
+          <div class="contact-form">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Your name</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="Michael">
+            </div>
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Email address</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="michael@mucked.co.uk">
+            </div>
+            <div class="form-group">
+              <label for="contact-biz" class="form-label">Business name & what you make</label>
+              <input type="text" id="contact-biz" class="form-input" placeholder="Mucked Distillery - Gin & Rum">
+            </div>
+            <div class="form-group">
+              <label for="contact-stage" class="form-label">Where are you at right now?</label>
+              <input type="text" id="contact-stage" class="form-input" placeholder="Just starting out / preparing for a seasonal rush / scaling up">
+            </div>
+            <div class="form-group">
+              <label for="contact-msg" class="form-label">What do you need sorted?</label>
+              <textarea id="contact-msg" class="form-input" placeholder="HACCP setup, SALSA preparation, digital stock management systems..."></textarea>
+            </div>
+            <button class="btn-primary" style="align-self: flex-start;">Send message</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-cream">
+        <p class="eyebrow" style="color:var(--brick)">Or just email directly</p>
+        <h2 class="h2" style="color:var(--ink)">michael@mucked.co.uk</h2>
+        <p class="body" style="max-width:500px">If you would rather just write an email, that works too. Same response, same person, no difference.</p>
+        <p style="font-size:0.82rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--sage);margin-top:2rem">What happens next</p>
+        <p class="body" style="max-width:500px;margin-top:0.5rem">Michael reads the message, has a think about your situation and comes back with an honest response. If <span class="mucked">Mucked*</span> is the right fit he will say so and suggest next steps. If it is not he will say that too and point you in the right direction. No hard sell, no follow up calls you did not ask for.</p>
+      </section>
+
+      <footer class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></footer>
+    </article>
+  </main>
+
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  
+  const targetPage = document.getElementById('page-' + id);
+  const targetNav = document.getElementById('nav-' + id);
+  
+  if (targetPage) targetPage.classList.add('active');
+  if (targetNav) targetNav.classList.add('active');
+  
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
