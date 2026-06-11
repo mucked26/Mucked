@@ -478,6 +478,11 @@ textarea.form-input { min-height: 120px; resize: vertical; }
             <li><button onclick="showPage('res-festival-checklist')">Festival Compliance Checklist</button></li>
             <li><button onclick="showPage('res-eho-guide')">Environmental Health Guide</button></li>
             <li><button onclick="showPage('res-food-traceability')">Food Traceability in the UK</button></li>
+            <li class="dropdown-label">Notion for food businesses</li>
+            <li><button onclick="showPage('res-notion-food')">Notion for Food Businesses</button></li>
+            <li><button onclick="showPage('res-notion-haccp')">Managing HACCP Records in Notion</button></li>
+            <li><button onclick="showPage('res-notion-inventory')">Inventory Management in Notion</button></li>
+            <li><button onclick="showPage('res-notion-workflows')">Operational Workflows in Notion</button></li>
             <li class="dropdown-label">Comparisons</li>
             <li><button onclick="showPage('res-salsa-vs-brcgs')">SALSA vs BRCGS</button></li>
             <li><button onclick="showPage('res-haccp-templates')">HACCP Templates vs Custom Plans</button></li>
@@ -1380,7 +1385,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 
 <script>
 const whoPages = ['distilleries','breweries','drinks-brands','food-manufacturers','artisan-producers','festival-caterers','startups'];
-const resourcePages = ['faq','res-salsa-cost','res-need-salsa','res-haccp-plan','res-startup-checklist','res-eho-inspection','res-legal-records','res-salsa-vs-brcgs','res-haccp-templates','res-consultant-vs-software','res-notion-vs-software','res-salsa-guide','res-haccp-explained','res-festival-checklist','res-eho-guide','res-food-traceability'];
+const resourcePages = ['faq','res-salsa-cost','res-need-salsa','res-haccp-plan','res-startup-checklist','res-eho-inspection','res-legal-records','res-salsa-vs-brcgs','res-haccp-templates','res-consultant-vs-software','res-notion-vs-software','res-salsa-guide','res-haccp-explained','res-festival-checklist','res-eho-guide','res-food-traceability','res-notion-food','res-notion-haccp','res-notion-inventory','res-notion-workflows'];
 
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -2455,6 +2460,183 @@ document.addEventListener('click', function(e) {
       <section class="section-brick">
         <h2 class="h2">Want a traceability system that actually works?</h2>
         <p class="body">Tell Michael about your operation. He builds them for food and drink businesses of all sizes.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+<!-- NOTION FOR FOOD BUSINESSES PAGES -->
+
+    <article class="page" id="page-res-notion-food">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Notion for food businesses</p>
+        <h2 class="h1">Using Notion for a food or drink business.<br><span style="color:var(--brick)">Why it works better than you might expect.</span></h2>
+        <p class="body" style="max-width:580px">Notion is a relational database and document management tool that most people know as a note-taking app. Configured properly for a food or drink business, it becomes the operational backbone of the entire operation. This page explains how and why.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What Notion actually is</p>
+          <h2 class="h2">Not a note-taking app. A relational database that happens to look friendly.</h2>
+          <p class="body">Most people who have encountered Notion think of it as a more flexible version of a document editor or a digital notebook. That is the consumer-facing presentation. Under the surface, Notion is a relational database tool. You can create databases, link records between them, filter and sort data, build custom views, create rollup calculations and automate actions based on database changes.</p>
+          <p class="body">For a food or drink business, this means you can build a single system where your suppliers, raw materials, recipes, production batches, stock levels, compliance documents, customers and dispatch records all live in linked databases. When a production batch is created, it automatically pulls in the recipe, links to the raw material batches used, creates a traceability record and updates stock levels. Data entered once flows to everything that depends on it.</p>
+          <p class="body">This is not theoretical. It is how the <span class="mucked">Mucked*</span> digital system works for every client. The configuration is where the expertise sits, not the tool itself.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What Notion manages for food businesses</p>
+          <h2 class="h2">Every operational and compliance function in one place.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-database"></i></div><div><p class="reg-title">Supplier and raw material management</p><p class="reg-body">Approved supplier database with contact details, certifications, approval status and review dates. Raw material specifications linked to suppliers. Incoming goods records linked to raw materials and production batches.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-flask"></i></div><div><p class="reg-title">Recipe and product management</p><p class="reg-body">Recipe database with ingredients, quantities, allergen flags and finished product specifications. Linked to production batches so actual versus target can be tracked. Cost per unit calculated automatically from current ingredient costs.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-clipboard-check"></i></div><div><p class="reg-title">Production records and batch traceability</p><p class="reg-body">Production batch database linked to recipes, raw material batches, finished stock and dispatch records. Full forward and backward traceability from a single database view. Annual traceability exercise completed in minutes rather than hours.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-package"></i></div><div><p class="reg-title">Stock management</p><p class="reg-body">Raw material stock updated automatically when deliveries are received and production batches are completed. Finished product stock updated when batches are produced and dispatched. Low stock alerts triggered automatically when levels fall below defined thresholds.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-file-check"></i></div><div><p class="reg-title">Compliance document management</p><p class="reg-body">Version-controlled compliance documents with review dates, owner responsibility and document history. HACCP plans, SOPs, allergen registers, cleaning schedules and supplier certificates all in one place with clear audit trails.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-calendar"></i></div><div><p class="reg-title">Compliance calendar</p><p class="reg-body">Automated reminders for document review dates, calibration due dates, pest control visits, staff training renewals, SALSA audit preparation milestones and HMRC duty return deadlines. Nothing falls through the gaps because the system tracks it.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">The cost comparison</p>
+          <h2 class="h2">What this costs versus specialist software.</h2>
+          <p class="body">Notion's paid plan for a small team costs around £8 to £15 per user per month. For a food business running the full operational system described above, the total Notion cost for a team of five is under £75 a month. Add Make for automation at around £9 a month, custom mobile apps built once with no ongoing licence cost, and the total monthly software spend for a fully configured operational system is typically under £100 a month.</p>
+          <p class="body">Specialist food manufacturing software for the same number of users with equivalent functionality typically costs between £300 and £800 a month. The saving over a year is significant. Over five years it is transformative for a small business budget.</p>
+          <p class="body">The investment is in the configuration. A well-built Notion system for a food business takes expertise to design and build. That is the <span class="mucked">Mucked*</span> service. Once it is built, the ongoing cost is the Notion subscription and nothing else.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Want to see what a Notion system looks like for your business?</h2>
+        <p class="body">Tell Michael about your operation. Every system is built differently because every business is different.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-notion-haccp">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Notion for food businesses</p>
+        <h2 class="h1">Managing HACCP records in Notion.<br><span style="color:var(--brick)">Digital compliance that actually holds up to scrutiny.</span></h2>
+        <p class="body" style="max-width:580px">HACCP records are a legal requirement. They also need to be accessible, auditable and up to date. A well-configured Notion workspace manages all of this and is significantly easier to demonstrate to an environmental health officer or SALSA auditor than a folder of paper forms.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Are digital HACCP records acceptable?</p>
+          <h2 class="h2">Yes. The law specifies what you must record, not how.</h2>
+          <p class="body">There is no legal requirement to keep food safety records on paper. UK food safety legislation requires records to be maintained, accessible and retained for an appropriate period. Digital records satisfy all of these requirements provided they are properly maintained, have a clear audit trail and are backed up.</p>
+          <p class="body">Environmental health officers and SALSA auditors are accustomed to reviewing digital records. A well-organised digital system is often easier to review than a folder of paper forms because records can be filtered, sorted and searched. An auditor asking for all temperature records for a specific month can have them on screen in seconds rather than having to work through a physical folder.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">How HACCP records work in Notion</p>
+          <h2 class="h2">The structure that makes compliance auditable.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-file-description"></i></div><div><p class="reg-title">The HACCP plan document</p><p class="reg-body">The HACCP plan itself lives as a version-controlled document in Notion. Each version is dated and the current version is clearly identified. When the plan is reviewed and updated, the previous version is archived with a date and reason for change. This satisfies the document control requirement of both food safety law and the SALSA standard.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-thermometer"></i></div><div><p class="reg-title">Monitoring records database</p><p class="reg-body">A database for CCP monitoring records. Each entry is dated and timestamped, linked to the relevant CCP, records the measured value and the person who recorded it, and flags automatically if a critical limit has been breached. Out-of-range entries trigger the corrective action procedure automatically.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-alert-triangle"></i></div><div><p class="reg-title">Corrective action records</p><p class="reg-body">When a CCP monitoring record flags a deviation, a corrective action record is created automatically. It records what happened, what was done with the affected product, what corrective action was taken, and who authorised it. The link between the monitoring record and the corrective action record is maintained automatically.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-calendar-check"></i></div><div><p class="reg-title">HACCP review records</p><p class="reg-body">Scheduled HACCP review meetings are tracked in the compliance calendar. When a review is completed, the review record is linked to the HACCP plan version it relates to. Review findings, any updates made, and the date of the next scheduled review are all recorded and visible from the plan document.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-device-mobile"></i></div><div><p class="reg-title">Mobile entry for floor-level monitoring</p><p class="reg-body">Custom mobile apps allow production staff to complete CCP monitoring records on a phone or tablet at the point of measurement. Records are submitted directly to the Notion database with a timestamp. No paper, no data entry delay, no risk of records being lost or completed retrospectively.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">What this looks like during an audit</p>
+          <h2 class="h2">Demonstrating compliance in real time.</h2>
+          <p class="body">When a SALSA auditor or environmental health officer asks to see your HACCP monitoring records for the last three months, you open the Notion database, filter by date range and CCP, and the records are on screen within thirty seconds. Every record is dated, timestamped, linked to the person who completed it, and any deviations are linked to their corrective action records.</p>
+          <p class="body">The auditor can see at a glance that monitoring is happening consistently, that critical limits are being met, and that when they are not, corrective actions are being taken and documented. This is significantly more convincing than a folder of paper forms, some of which are missing, some of which appear to have been completed in the same handwriting at the same time, and none of which are linked to each other.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Want HACCP records that hold up to scrutiny?</h2>
+        <p class="body">Tell Michael about your operation and he will build a system that works for how you actually run it.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-notion-inventory">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Notion for food businesses</p>
+        <h2 class="h1">Inventory management in Notion<br><span style="color:var(--brick)">for food and drink producers.</span></h2>
+        <p class="body" style="max-width:580px">Stock management for food producers is more complex than stock management for most businesses. Ingredients have batch numbers, shelf lives and allergen implications. Finished products have traceability requirements. A Notion inventory system handles all of it without specialist software costing hundreds a month.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Why food producer inventory is different</p>
+          <h2 class="h2">It is not just counting what is on the shelf.</h2>
+          <p class="body">A standard inventory system tracks quantities. A food producer inventory system needs to track quantities, batch numbers, supplier information, allergen flags, shelf life dates, storage conditions and traceability linkages all at the same time. A raw material batch is not just a quantity of an ingredient. It is a specific delivery from a specific supplier on a specific date with a specific batch number that needs to be linked to every production batch it goes into.</p>
+          <p class="body">When stock management is done in spreadsheets, this linkage is either absent or maintained manually with considerable effort and significant risk of error. When it is done in a properly configured Notion database, the linkages are built into the structure and maintained automatically.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">How inventory works in Notion</p>
+          <h2 class="h2">The database structure that makes it work.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-truck"></i></div><div><p class="reg-title">Raw material goods-in</p><p class="reg-body">Each delivery is logged as a record in the raw materials database. Supplier, ingredient, quantity, batch number, best before date, storage location and any quality checks. Logging a delivery automatically creates a stock entry and links it to the approved supplier record. The mobile app makes this a two-minute job on the loading bay rather than a desk-based admin task.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-flask"></i></div><div><p class="reg-title">Production batch consumption</p><p class="reg-body">When a production batch is logged, the raw materials used are linked to their delivery records. Stock levels adjust automatically. The system knows exactly which delivery batches went into which production batches, which is the core of your traceability system.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-package"></i></div><div><p class="reg-title">Finished product stock</p><p class="reg-body">Production batches create finished product stock records automatically. Quantity, batch code, production date, best before date and storage location. Dispatch records reduce finished stock automatically when orders are fulfilled.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-alert-circle"></i></div><div><p class="reg-title">Low stock alerts</p><p class="reg-body">Each raw material has a minimum stock level defined. When stock falls below that level, an alert is triggered automatically via Make. No manual stock checks required. The system monitors itself and tells you when action is needed.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-calendar-x"></i></div><div><p class="reg-title">Shelf life and date management</p><p class="reg-body">Best before and use by dates are recorded for every raw material batch and finished product batch. Approaching expiry dates trigger alerts. The system can identify stock that needs to be used or reviewed before it becomes a compliance issue.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">The cost of getting inventory wrong</p>
+          <h2 class="h2">It is not just waste. It is compliance exposure.</h2>
+          <p class="body">Poor inventory management in a food business has two categories of consequence. The operational consequences are waste, stockouts, production delays and inaccurate costing. These are significant but recoverable.</p>
+          <p class="body">The compliance consequences are more serious. Inaccurate raw material records mean your traceability system does not work. If a supplier notifies you of a contamination issue with a batch you received, you cannot identify which of your products it went into or which customers received it. If a SALSA auditor asks you to demonstrate traceability and your stock records do not link to your production records, that is a major non-conformance. A well-configured inventory system prevents both categories of problem simultaneously.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Want inventory management that handles compliance at the same time?</h2>
+        <p class="body">Tell Michael about your products and production process. He will build it around how you actually work.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-notion-workflows">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Notion for food businesses</p>
+        <h2 class="h1">Operational workflows in Notion<br><span style="color:var(--brick)">for food and drink producers.</span></h2>
+        <p class="body" style="max-width:580px">The gap between a food business that runs smoothly and one that is constantly firefighting is almost always operational infrastructure. How tasks are tracked, how information flows, how deadlines are managed and how new team members are onboarded. Notion handles all of it without a separate project management tool, a separate HR system or a separate compliance calendar.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What operational workflows actually means</p>
+          <h2 class="h2">The systems that make a business run without the founder doing everything.</h2>
+          <p class="body">Operational workflows are the documented, repeatable processes that govern how a business operates day to day. In a small food or drink business this means production schedules, opening and closing checks, cleaning routines, goods-in procedures, dispatch processes, monthly compliance reviews, staff training schedules and document review cycles.</p>
+          <p class="body">In most small businesses these workflows exist in the founder's head and in informal practice. They work fine when the founder is present and when the team is small and experienced. They break down when someone is absent, when a new team member starts, when the business is busy, or when a compliance question arises and nobody can find the relevant document.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Workflows the Mucked* system manages</p>
+          <h2 class="h2">Everything that runs the business, in one place.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-checklist"></i></div><div><p class="reg-title">Daily operational checklists</p><p class="reg-body">Opening checks, production start-up checks, temperature monitoring reminders, closing checks and end-of-day cleaning sign-off. Completed on mobile, timestamped automatically and stored in the compliance database. Missed checks are flagged. Nothing is forgotten at the end of a busy day.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-calendar"></i></div><div><p class="reg-title">Compliance calendar</p><p class="reg-body">Every recurring compliance obligation tracked in one calendar. Document review dates, equipment calibration, pest control visits, staff training renewals, SALSA audit preparation milestones, HMRC return deadlines and environmental health follow-up actions. Automated reminders sent via Make at defined intervals before each deadline.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-users"></i></div><div><p class="reg-title">Staff training and competency records</p><p class="reg-body">Training records database linked to staff profiles. Each training completion is recorded with date, trainer and assessment outcome. Renewal reminders triggered automatically when training is approaching expiry. Competency matrix showing which team members are qualified for which tasks, updated automatically as training is completed.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-book"></i></div><div><p class="reg-title">Standard operating procedures</p><p class="reg-body">Every operational procedure documented as a Notion page, version controlled, linked to the relevant compliance area and accessible from any device. New team members complete a structured onboarding process that walks through each relevant SOP and records completion. No more relying on someone to remember to tell a new starter how things are done.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-report"></i></div><div><p class="reg-title">Automated reporting</p><p class="reg-body">Monthly compliance summaries generated automatically and delivered to the relevant person on a set date. Production summaries, stock position, compliance calendar status and any outstanding actions. Review takes twenty minutes. The system generates the content. You make the decisions.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">What this changes in practice</p>
+          <h2 class="h2">The difference between running the business and the business running you.</h2>
+          <p class="body">The businesses that benefit most from a properly built operational system are the ones where the founder is currently the single point of failure. Everything depends on them being present, remembering everything and having time to do it all. A new team member cannot operate independently because the procedures are not written down. A compliance question cannot be answered quickly because the documents are in three different places. A monthly return takes half a day because the data needs to be assembled from multiple sources.</p>
+          <p class="body">After a well-built Notion system is in place and embedded, the founder is no longer the only person who can run the operation. Documents are findable. Deadlines are tracked automatically. New staff can follow procedures without needing to be walked through everything. Monthly reporting is a review rather than a data-gathering exercise. The business becomes sellable, auditable and scalable in a way it was not before.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Want a business that runs properly without you doing everything?</h2>
+        <p class="body">Tell Michael about how your operation works right now and where the pain points are.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
       <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
