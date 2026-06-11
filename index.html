@@ -41,8 +41,8 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
   z-index: 100;
   gap: 1rem;
 }
-.nav-logo { background:none; border:none; cursor:pointer; padding:0; flex-shrink:0; }
-.nav-logo-img { height:38px; width:auto; display:block; }
+.nav-logo { background:none; border:none; color:var(--cream); font-family:'Unkempt',cursive; font-size:1.6rem; cursor:pointer; padding:0; flex-shrink:0; white-space:nowrap; }
+
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -437,9 +437,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 
   <header>
     <nav class="nav" aria-label="Main Navigation">
-      <button class="nav-logo" onclick="showPage('home')" aria-label="Mucked Home Page">
-        <img src="Mucked_Logo2.png" alt="Mucked*" class="nav-logo-img">
-      </button>
+      <button class="nav-logo" onclick="showPage('home')" aria-label="Mucked Home Page">Mucked*</button>
       <ul class="nav-links">
         <li><button onclick="showPage('home')" id="nav-home" class="active">Home</button></li>
         <li><button onclick="showPage('compliance')" id="nav-compliance">Compliance</button></li>
@@ -456,8 +454,39 @@ textarea.form-input { min-height: 120px; resize: vertical; }
             <li><button onclick="showPage('festival-caterers')">Festival Caterers</button></li>
           </ul>
         </li>
+        <li class="nav-dropdown" id="nav-resources-wrap">
+          <button class="nav-dropdown-btn" id="nav-resources" onclick="toggleDropdown('resources-menu')">Resources ▾</button>
+          <ul class="nav-dropdown-menu" id="resources-menu">
+            <li class="dropdown-label">Guides</li>
+            <li><button onclick="showPage('res-salsa-cost')">How Much Does SALSA Cost?</button></li>
+            <li><button onclick="showPage('res-need-salsa')">Do I Need SALSA Certification?</button></li>
+            <li><button onclick="showPage('res-haccp-plan')">Can I Write My Own HACCP Plan?</button></li>
+            <li><button onclick="showPage('res-startup-checklist')">Food Business Startup Checklist</button></li>
+            <li><button onclick="showPage('res-eho-inspection')">Environmental Health Inspections</button></li>
+            <li><button onclick="showPage('res-legal-records')">Legal Record Keeping Requirements</button></li>
+            <li class="dropdown-label">Knowledge</li>
+            <li><button onclick="showPage('res-salsa-guide')">Complete Guide to SALSA</button></li>
+            <li><button onclick="showPage('res-haccp-explained')">HACCP Explained</button></li>
+            <li><button onclick="showPage('res-festival-checklist')">Festival Compliance Checklist</button></li>
+            <li><button onclick="showPage('res-eho-guide')">Environmental Health Guide</button></li>
+            <li><button onclick="showPage('res-food-traceability')">Food Traceability in the UK</button></li>
+            <li class="dropdown-label">Notion for food businesses</li>
+            <li><button onclick="showPage('res-notion-food')">Notion for Food Businesses</button></li>
+            <li><button onclick="showPage('res-notion-haccp')">Managing HACCP Records in Notion</button></li>
+            <li><button onclick="showPage('res-notion-inventory')">Inventory Management in Notion</button></li>
+            <li><button onclick="showPage('res-notion-workflows')">Operational Workflows in Notion</button></li>
+            <li class="dropdown-label">Comparisons</li>
+            <li><button onclick="showPage('res-salsa-vs-brcgs')">SALSA vs BRCGS</button></li>
+            <li><button onclick="showPage('res-haccp-templates')">HACCP Templates vs Custom Plans</button></li>
+            <li><button onclick="showPage('res-consultant-vs-software')">Consultant vs Food Safety Software</button></li>
+            <li><button onclick="showPage('res-notion-vs-software')">Notion vs Specialist Software</button></li>
+            <li class="dropdown-label">FAQs</li>
+            <li><button onclick="showPage('faq')">All FAQs</button></li>
+          </ul>
+        </li>
         <li><button onclick="showPage('pricing')" id="nav-pricing">Pricing</button></li>
         <li><button onclick="showPage('about')" id="nav-about">About</button></li>
+        <li><button onclick="showPage('contact')" id="nav-contact">Contact</button></li>
       </ul>
     </nav>
   </header>
@@ -591,7 +620,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="body">Whether you are just starting out, preparing for your first season or trying to get a digital system that actually makes sense. Get in touch. Michael reads every message and responds personally.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-compliance">
@@ -662,7 +691,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="body" style="margin-top:0.75rem;opacity:0.85">Want to understand what is required first? Read <span style="text-decoration:underline;cursor:pointer" onclick="showPage('res-haccp-explained')">HACCP explained</span> or <span style="text-decoration:underline;cursor:pointer" onclick="showPage('res-legal-records')">what records you are legally required to keep</span>.</p>
         <button class="btn-ghost" style="margin-top:1.5rem" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-salsa">
@@ -724,7 +753,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="body" style="margin-top:0.75rem;opacity:0.85">Want to understand the costs first? Read <span style="text-decoration:underline;cursor:pointer" onclick="showPage('res-salsa-cost')">how much SALSA certification actually costs</span>, or <span style="text-decoration:underline;cursor:pointer" onclick="showPage('res-need-salsa')">work out whether you need it</span>.</p>
         <button class="btn-ghost" style="margin-top:1.5rem" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-digital">
@@ -798,7 +827,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="body" style="margin-top:0.75rem;opacity:0.85">Want more detail first? Read <span style="text-decoration:underline;cursor:pointer" onclick="showPage('res-notion-food')">how Notion works for food businesses</span> or <span style="text-decoration:underline;cursor:pointer" onclick="showPage('res-notion-vs-software')">how it compares to specialist software</span>.</p>
         <button class="btn-ghost" style="margin-top:1.5rem" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-festival">
@@ -864,7 +893,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="body" style="margin-top:0.75rem;opacity:0.85">Want to check what paperwork you need first? Read the <span style="text-decoration:underline;cursor:pointer" onclick="showPage('res-festival-checklist')">festival catering compliance checklist</span>.</p>
         <button class="btn-ghost" style="margin-top:1.5rem" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-pricing">
@@ -971,7 +1000,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="body">Tell Michael about your business and what you need. He will come back with an honest view of scope, what it involves and what it costs. No inflated quotes, no vague estimates, no surprises.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-about">
@@ -1018,7 +1047,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="body">Get in touch and tell Michael about your business. He reads every message and responds personally.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-contact">
@@ -1066,7 +1095,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="body" style="max-width:500px;margin-top:0.5rem">Michael reads the message, has a think about your situation and comes back with an honest response. If <span class="mucked">Mucked*</span> is the right fit he will say so and suggest next steps. If it is not he will say that too and point you in the right direction. No hard sell, no follow up calls you did not ask for.</p>
       </section>
 
-      <footer class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></footer>
+      <footer class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></footer>
     </article>
   </main>
 
@@ -1324,7 +1353,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
         <p class="body">If your question is not here, email Michael directly. He reads every message and responds personally.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Get in touch</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
   </main>
 
@@ -1409,7 +1438,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael where you are at. He has been there.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-breweries">
@@ -1444,7 +1473,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your brewery and where you are at.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-drinks-brands">
@@ -1479,7 +1508,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your brand and what you need in place.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-food-manufacturers">
@@ -1514,7 +1543,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your operation and what you have in place.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-artisan-producers">
@@ -1549,7 +1578,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your products and where you want to take them.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-festival-caterers">
@@ -1584,7 +1613,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your setup and what you need in place.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-startups">
@@ -1627,7 +1656,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael what you are building and where you are in the process.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
 <!-- TIER 1 RESOURCE PAGES -->
@@ -1677,7 +1706,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your operation and he will give you an honest estimate.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-need-salsa">
@@ -1715,7 +1744,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your business and your plans. He will give you an honest view.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-haccp-plan">
@@ -1758,7 +1787,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your products and processes. He will tell you what is actually required.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-startup-checklist">
@@ -1812,7 +1841,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael what you are building. He will tell you what you actually need.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-eho-inspection">
@@ -1863,7 +1892,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael where you are at. He has been through this from both sides.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-legal-records">
@@ -1916,7 +1945,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your operation and he will give you an honest view.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Start the conversation</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
 <!-- TIER 2 COMPARISON PAGES -->
@@ -1975,7 +2004,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your products and your target buyers. He will give you a straight answer.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-haccp-templates">
@@ -2033,7 +2062,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your operation. He will give you an honest view of what you actually need.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-consultant-vs-software">
@@ -2089,7 +2118,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your operation and he will give you a straight answer.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-notion-vs-software">
@@ -2156,7 +2185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your current setup. He will give you an honest view of whether there is a better way.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
 <!-- KNOWLEDGE ARTICLES -->
@@ -2219,7 +2248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your business and where you are starting from. He will give you an honest view of what it takes.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-haccp-explained">
@@ -2266,7 +2295,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your products and processes. He will build it around how you actually operate.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-festival-checklist">
@@ -2325,7 +2354,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your setup and what you are planning. He has been there.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-eho-guide">
@@ -2377,7 +2406,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your operation. He will tell you honestly what needs to be in place.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-food-traceability">
@@ -2422,7 +2451,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your operation. He builds them for food and drink businesses of all sizes.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
 <!-- NOTION FOR FOOD BUSINESSES PAGES -->
@@ -2470,7 +2499,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your operation. Every system is built differently because every business is different.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-notion-haccp">
@@ -2513,7 +2542,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your operation and he will build a system that works for how you actually run it.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-notion-inventory">
@@ -2556,7 +2585,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about your products and production process. He will build it around how you actually work.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
     <article class="page" id="page-res-notion-workflows">
@@ -2599,7 +2628,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="body">Tell Michael about how your operation works right now and where the pain points are.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
-      <div class="footer"><span class="footer-logo"><img src="Mucked_Logo2.png" alt="Mucked*" style="height:24px;width:auto;vertical-align:middle;opacity:0.9"></span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span><span class="footer-links"><button onclick="showPage('res-salsa-cost')">Resources</button>&nbsp;&nbsp;<button onclick="showPage('contact')">Contact</button></span></div>
     </article>
 
 </body>
