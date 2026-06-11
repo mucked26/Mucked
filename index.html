@@ -472,6 +472,12 @@ textarea.form-input { min-height: 120px; resize: vertical; }
             <li><button onclick="showPage('res-startup-checklist')">Food Business Startup Checklist</button></li>
             <li><button onclick="showPage('res-eho-inspection')">Environmental Health Inspections</button></li>
             <li><button onclick="showPage('res-legal-records')">Legal Record Keeping Requirements</button></li>
+            <li class="dropdown-label">Knowledge</li>
+            <li><button onclick="showPage('res-salsa-guide')">Complete Guide to SALSA</button></li>
+            <li><button onclick="showPage('res-haccp-explained')">HACCP Explained</button></li>
+            <li><button onclick="showPage('res-festival-checklist')">Festival Compliance Checklist</button></li>
+            <li><button onclick="showPage('res-eho-guide')">Environmental Health Guide</button></li>
+            <li><button onclick="showPage('res-food-traceability')">Food Traceability in the UK</button></li>
             <li class="dropdown-label">Comparisons</li>
             <li><button onclick="showPage('res-salsa-vs-brcgs')">SALSA vs BRCGS</button></li>
             <li><button onclick="showPage('res-haccp-templates')">HACCP Templates vs Custom Plans</button></li>
@@ -1374,7 +1380,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 
 <script>
 const whoPages = ['distilleries','breweries','drinks-brands','food-manufacturers','artisan-producers','festival-caterers','startups'];
-const resourcePages = ['faq','res-salsa-cost','res-need-salsa','res-haccp-plan','res-startup-checklist','res-eho-inspection','res-legal-records','res-salsa-vs-brcgs','res-haccp-templates','res-consultant-vs-software','res-notion-vs-software'];
+const resourcePages = ['faq','res-salsa-cost','res-need-salsa','res-haccp-plan','res-startup-checklist','res-eho-inspection','res-legal-records','res-salsa-vs-brcgs','res-haccp-templates','res-consultant-vs-software','res-notion-vs-software','res-salsa-guide','res-haccp-explained','res-festival-checklist','res-eho-guide','res-food-traceability'];
 
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -2183,6 +2189,272 @@ document.addEventListener('click', function(e) {
       <section class="section-brick">
         <h2 class="h2">Paying for software that is not doing what you need?</h2>
         <p class="body">Tell Michael about your current setup. He will give you an honest view of whether there is a better way.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+<!-- KNOWLEDGE ARTICLES -->
+
+    <article class="page" id="page-res-salsa-guide">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Knowledge</p>
+        <h2 class="h1">Complete guide to SALSA certification<br><span style="color:var(--brick)">for small food and drink producers.</span></h2>
+        <p class="body" style="max-width:580px">Everything you need to understand about the SALSA standard, what it covers, how the audit works, and how to prepare for it without wasting time or money.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What SALSA is</p>
+          <h2 class="h2">The food safety standard designed specifically for small producers.</h2>
+          <p class="body">SALSA stands for Safe and Local Supplier Approval. It is a food safety certification scheme created specifically for small and micro food and drink producers in the UK. It was developed because the large food safety standards, BRC and FSSC 22000, were built for industrial food manufacturers and were wholly disproportionate for small producers making food in small batches.</p>
+          <p class="body">SALSA is managed by the SALSA organisation and supported by the major UK food industry trade bodies. Certification is recognised by retailers, wholesalers, food service buyers and hospitality operators across the UK as a credible, independently audited standard that small producers can realistically achieve and maintain.</p>
+          <p class="body">The standard covers twelve areas of food safety management. Every document, procedure and record required by SALSA also satisfies the corresponding UK legal requirement. Build once to SALSA standard and your legal compliance is covered with no duplication.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">The twelve compliance areas</p>
+          <h2 class="h2">What SALSA actually covers.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">01</span></div><div><p class="reg-title">Food safety management</p><p class="reg-body">HACCP plan, review procedure, food safety culture policy and internal audit records. The core of the standard and the area most businesses need to build from scratch.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">02</span></div><div><p class="reg-title">Allergen management</p><p class="reg-body">Allergen register, risk assessment, cross-contamination controls and label verification. Critical for producers with complex or botanical recipes, multiple product lines or shared equipment.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">03</span></div><div><p class="reg-title">Supplier and raw material control</p><p class="reg-body">Approved supplier list, input specifications, incoming goods inspection and food fraud risk assessment. Demonstrates that you know where your ingredients come from and have verified their suitability.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">04</span></div><div><p class="reg-title">Premises and equipment</p><p class="reg-body">Site floor plan, glass register, maintenance programme and foreign body controls. Your premises and equipment must be fit for purpose and properly maintained.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">05</span></div><div><p class="reg-title">Cleaning and hygiene</p><p class="reg-body">Cleaning schedules, chemical COSHH records, cleaning verification and Listeria monitoring where applicable. Evidence that your cleaning programme is followed and effective.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">06</span></div><div><p class="reg-title">Pest control</p><p class="reg-body">Contracted pest programme, site map and inspection records. Either a contracted pest control service or a documented self-managed programme with appropriate records.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">07</span></div><div><p class="reg-title">Personal hygiene and training</p><p class="reg-body">Hygiene policy, fitness to work procedure, training records and competency matrix. Everyone handling food must have appropriate training documented.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">08</span></div><div><p class="reg-title">Process and product control</p><p class="reg-body">Recipe and finished product specifications, process monitoring records and calibration records. Demonstrates consistent production to specification.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">09</span></div><div><p class="reg-title">Labelling</p><p class="reg-body">Label approval procedure covering legal requirements and allergen declarations for all products. Labels must comply with the Food Information Regulations 2014.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">10</span></div><div><p class="reg-title">Traceability</p><p class="reg-body">Full trace from raw material to customer, batch coding and an annual traceability exercise. You must be able to trace any batch of product forward and backward within hours.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">11</span></div><div><p class="reg-title">Incidents and non-conformance</p><p class="reg-body">Recall procedure, incident response, complaint log and corrective action records. Evidence that when things go wrong, there is a procedure to follow and a record of what happened.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">12</span></div><div><p class="reg-title">Document control and security</p><p class="reg-body">Version control, retention policy, food defence plan and cybersecurity policy. Documents must be controlled so that only current versions are in use and old versions are clearly identified.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">How the audit works</p>
+          <h2 class="h2">What to expect on audit day.</h2>
+          <p class="body">A SALSA audit is conducted by a SALSA-approved auditor, typically an independent food safety professional approved by the SALSA organisation. The audit is announced, meaning you know it is coming, and typically lasts a full day for a small operation.</p>
+          <p class="body">The auditor will review your documentation across all twelve compliance areas, inspect your premises and equipment, observe your processes in operation, and interview staff at various levels including production staff, not just management. The interview element catches businesses that have good documentation but whose teams do not actually follow or understand the procedures.</p>
+          <p class="body">The audit produces a report with findings graded as major non-conformances, minor non-conformances and observations. Major non-conformances must be resolved before certification is granted. Minor non-conformances must be addressed within an agreed timeframe. Observations are recommendations rather than requirements.</p>
+        </div>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Preparing for SALSA</p>
+          <h2 class="h2">The realistic timeline and what genuinely good preparation looks like.</h2>
+          <p class="body">For a business starting from scratch, three to six months is a realistic preparation timeline. The documentation can be produced faster, but the audit requires evidence that systems are actually being used. Temperature records need to have been completed. Cleaning schedules need to have been followed. Supplier approval procedures need to have been applied to real purchases. You cannot produce this evidence retrospectively.</p>
+          <p class="body">The most important thing a business can do in the preparation phase is build systems that people actually use, rather than documentation that looks right on paper. An auditor who interviews a production operative and gets a blank look when asking why a particular procedure exists will note that as a finding regardless of how thorough the written procedure is.</p>
+          <p class="body">Businesses that fail their first SALSA audit almost always fail on one of three things: incomplete traceability records, allergen management that looks correct in documents but has gaps in practice, or HACCP plans that do not accurately reflect the operation being audited.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Ready to start building towards SALSA?</h2>
+        <p class="body">Tell Michael about your business and where you are starting from. He will give you an honest view of what it takes.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-haccp-explained">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Knowledge</p>
+        <h2 class="h1">HACCP explained<br><span style="color:var(--brick)">for startup food businesses.</span></h2>
+        <p class="body" style="max-width:580px">HACCP is a legal requirement for every food business in the UK. This guide explains what it actually is, what it requires you to do, and how to build a HACCP plan that genuinely protects your business rather than just satisfying a checkbox.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">What HACCP is</p>
+          <h2 class="h2">Hazard Analysis and Critical Control Points. In plain English.</h2>
+          <p class="body">HACCP is a systematic approach to identifying the things that could go wrong with food safety in your production process and putting controls in place to prevent them. It was originally developed for NASA's space food programme in the 1960s and has since become the global standard for food safety management.</p>
+          <p class="body">The principle is straightforward. You analyse your production process step by step, identify every potential hazard at each step, whether biological, chemical or physical, assess the risk of each hazard occurring and its potential severity, and then determine whether a control measure at that step is critical to preventing the hazard from causing harm. Those critical steps become your Critical Control Points, and you put monitoring procedures in place to verify that the controls are working.</p>
+          <p class="body">Regulation (EC) No 852/2004, retained in UK law after Brexit, makes HACCP a legal requirement for all food businesses. There is no minimum size threshold. Every food business must have a food safety management system based on HACCP principles.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">The seven HACCP principles</p>
+          <h2 class="h2">The framework every HACCP plan is built on.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">1</span></div><div><p class="reg-title">Conduct a hazard analysis</p><p class="reg-body">Identify every potential hazard associated with your food production process. Biological hazards include bacteria, viruses and parasites. Chemical hazards include cleaning agents, pesticides and allergens. Physical hazards include glass, metal, bone and packaging materials.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">2</span></div><div><p class="reg-title">Identify critical control points</p><p class="reg-body">A critical control point is a step in your process where a control measure can be applied to prevent, eliminate or reduce a food safety hazard to an acceptable level. Common CCPs include cooking temperatures, chilling rates and metal detection.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">3</span></div><div><p class="reg-title">Establish critical limits</p><p class="reg-body">For each CCP, define the measurable limit that separates safe from unsafe. For a cooking CCP this might be a minimum core temperature of 75 degrees Celsius for two minutes. The limit must be specific and measurable.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">4</span></div><div><p class="reg-title">Establish monitoring procedures</p><p class="reg-body">Define how each CCP is monitored, how often, by whom, and using what equipment. Monitoring must be frequent enough to detect loss of control before it results in unsafe food.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">5</span></div><div><p class="reg-title">Establish corrective actions</p><p class="reg-body">Define what happens when monitoring shows that a CCP is not under control. What do you do with the product? Who decides whether it is safe? How do you prevent the same failure recurring?</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">6</span></div><div><p class="reg-title">Establish verification procedures</p><p class="reg-body">Confirm that the HACCP system is working effectively. This includes reviewing monitoring records, checking calibration of monitoring equipment, conducting internal audits and reviewing the plan when anything changes.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><span style="font-family:'Unkempt',cursive;font-size:0.9rem;color:var(--cream)">7</span></div><div><p class="reg-title">Establish documentation and record keeping</p><p class="reg-body">Keep records demonstrating that the HACCP system is being followed. Monitoring records, corrective action records, verification records and the HACCP plan itself. Records are your due diligence defence if something goes wrong.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">Common HACCP mistakes</p>
+          <h2 class="h2">Where food businesses get it wrong.</h2>
+          <p class="body">The most common mistake is treating HACCP as a document-writing exercise rather than a genuine analysis of your operation. A HACCP plan that was written to satisfy a requirement rather than to reflect reality will not protect your business during an inspection or audit, and will not protect consumers if something goes wrong.</p>
+          <p class="body">Over-identifying critical control points is a frequent problem in self-written plans. If everything is a CCP, nothing is effectively controlled. A well-designed HACCP plan for a small producer typically has between two and six CCPs. If your plan has twenty, it probably needs rethinking.</p>
+          <p class="body">Failing to review the plan when things change is the other major failure. A new product, a new supplier, a new piece of equipment, a change to your process. Each of these potentially changes your hazard analysis. A plan that was accurate on day one but has never been updated is a liability rather than a protection.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Need a HACCP plan built properly for your business?</h2>
+        <p class="body">Tell Michael about your products and processes. He will build it around how you actually operate.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-festival-checklist">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Knowledge</p>
+        <h2 class="h1">Festival catering compliance checklist.<br><span style="color:var(--brick)">Everything you need before the gates open.</span></h2>
+        <p class="body" style="max-width:580px">Based on ten years of real festival operations experience. This is the list that prevents the phone call on a Friday afternoon from an organiser asking for a document you do not have.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">Before you apply for a pitch</p>
+          <h2 class="h2">Have these in place before you fill in a single application form.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">Food business registration</p><p class="reg-body">Registered with your local authority at least 28 days before trading. You need the registration confirmation document. Most festival organisers ask for it as part of the application.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">Food hygiene rating certificate</p><p class="reg-body">Your current food hygiene rating, ideally a four or five. Some organisers specify a minimum rating. A new business without a rating yet should get an inspection before applying to serious events.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">Public liability insurance</p><p class="reg-body">Minimum £5 million public liability is standard for most events. Some larger events require £10 million. Product liability cover is also strongly recommended. Keep a digital copy accessible at all times.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">Food safety management documentation</p><p class="reg-body">Your HACCP plan adapted for mobile or temporary operation. Not your fixed premises version. A temporary kitchen has different hazard points and different controls. The document needs to reflect that.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-circle-check"></i></div><div><p class="reg-title">Allergen information</p><p class="reg-body">Accurate, written allergen information for every product you will sell. If your recipe varies by batch or by day, your allergen information process needs to account for that. Verbal allergen declarations at a busy service are not adequate.</p></div></div>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Equipment and unit documents</p>
+          <h2 class="h2">What most organisers ask for about your setup.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-flame"></i></div><div><p class="reg-title">Gas safety certificate</p><p class="reg-body">If you use LPG, a current gas safety certificate for your equipment is required by almost every event organiser and is a legal requirement for commercial gas use. Must be carried on site.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-plug"></i></div><div><p class="reg-title">Electrical safety certificate</p><p class="reg-body">PAT testing for portable appliances and an electrical installation certificate for fixed wiring in trailers or vehicles. Requirements vary by organiser but are increasingly standard at serious events.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-fire-extinguisher"></i></div><div><p class="reg-title">Fire risk assessment and equipment</p><p class="reg-body">A documented fire risk assessment for your unit. Appropriate fire extinguishers serviced and in date. A fire blanket if you use cooking oil. Most event health and safety teams will check this on arrival.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-layout-2"></i></div><div><p class="reg-title">Unit layout plan</p><p class="reg-body">Some organisers and local authorities require a scale drawing of your unit layout showing equipment positions, workflow and food handling areas. Environmental health teams use this to assess cross-contamination risk before visiting on site.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">On site during the event</p>
+          <h2 class="h2">Keep these accessible at all times during the event.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-folder"></i></div><div><p class="reg-title">Your full compliance folder</p><p class="reg-body">Food business registration, food hygiene rating certificate, insurance certificates, gas certificate, HACCP summary and allergen information all in one place. A waterproof folder in the unit. An environmental health officer can arrive unannounced at any time.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-thermometer"></i></div><div><p class="reg-title">Temperature monitoring records</p><p class="reg-body">Daily temperature logs for all chilled and frozen storage. Cooking temperature records where relevant. Completed in real time, not at the end of service. A calibrated probe thermometer on site at all times.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-clipboard-check"></i></div><div><p class="reg-title">Opening and closing checks</p><p class="reg-body">A signed daily checklist covering temperature checks, cleaning, allergen information review and equipment condition. Takes five minutes and provides evidence of due diligence across the whole event.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-truck"></i></div><div><p class="reg-title">Delivery and stock records</p><p class="reg-body">Records of any deliveries received during the event. Supplier, product, quantity, temperature if chilled. The traceability chain does not stop because you are in a field.</p></div></div>
+        </div>
+      </section>
+      <section class="section-ink">
+        <div class="inner">
+          <p class="eyebrow">The honest bit</p>
+          <h2 class="h2">What catches people out even with the paperwork in order.</h2>
+          <p class="body">The documents above are necessary but not sufficient. The businesses that have compliance problems at events are often the ones that have the paperwork but do not actually follow the procedures under pressure. Temperature checks that get skipped during a busy service. Allergen information that is not communicated to a new team member working their first shift. Cleaning that gets shortened at the end of a long day.</p>
+          <p class="body">Compliance at a festival requires the same discipline as compliance in a fixed premises. The difference is that the environment is more chaotic, the team may be less experienced, and the pressure during a busy service is intense. Building procedures that are simple enough to follow when everything else is happening is what separates the operations that sail through inspections from the ones that do not.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Planning your first festival season?</h2>
+        <p class="body">Tell Michael about your setup and what you are planning. He has been there.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-eho-guide">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Knowledge</p>
+        <h2 class="h1">Environmental health inspections.<br><span style="color:var(--brick)">What to expect and how to be genuinely ready.</span></h2>
+        <p class="body" style="max-width:580px">Environmental health officers inspect food businesses to protect public health and enforce food safety law. This guide covers how the inspection system works, what officers look for, what the food hygiene rating scheme means in practice, and what happens when things do not go well.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">How the inspection system works</p>
+          <h2 class="h2">Who inspects you, when, and why.</h2>
+          <p class="body">Environmental health officers are employed by local authorities. They have the legal power under the Food Safety Act 1990 to enter food business premises at any reasonable time, inspect your operation, examine and take away food samples, and inspect your records. They do not need to make an appointment. The unannounced nature of inspections is deliberate. It means the business they see is the business you operate every day, not the business you put together for inspection day.</p>
+          <p class="body">New food businesses are typically inspected within the first year of trading. After that, inspection frequency is risk-based. Businesses with a five rating and a good compliance history may not be inspected again for several years. Businesses with lower ratings or compliance issues are inspected more frequently. A complaint from a customer or another business can trigger an unplanned inspection at any time.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">The food hygiene rating scheme</p>
+          <h2 class="h2">What the numbers actually mean.</h2>
+          <p class="body">The Food Hygiene Rating Scheme, operated by local authorities across England, Wales and Northern Ireland, rates food businesses from zero to five following an inspection. Scotland operates a similar scheme. The rating reflects the state of the business at the time of the inspection across three areas, which are weighted to produce the final score.</p>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-star"></i></div><div><p class="reg-title">Food hygiene and safety (most heavily weighted)</p><p class="reg-body">How food is stored, handled, prepared and cooked. Temperature controls, cross-contamination prevention, personal hygiene. This area has the biggest impact on the final rating.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-building"></i></div><div><p class="reg-title">Structure, cleanliness and condition of the premises</p><p class="reg-body">The physical condition of the building, equipment and facilities. Damaged surfaces, inadequate ventilation, poorly maintained equipment and inadequate pest control all contribute to a lower score in this area.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-file-check"></i></div><div><p class="reg-title">Confidence in management systems</p><p class="reg-body">The food safety management system, documentation and record keeping. This is where HACCP plans, cleaning records, temperature logs, training records and allergen management documentation are assessed. Missing or inadequate documentation significantly reduces the rating in this area.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">What happens after a poor rating</p>
+          <h2 class="h2">The practical and commercial consequences.</h2>
+          <p class="body">Food hygiene ratings are published on the Food Standards Agency website and must be displayed by food businesses in Wales and Northern Ireland. In England, display is currently encouraged but not mandatory for most business types, though many buyers and platforms require it regardless. The rating is publicly searchable and increasingly checked.</p>
+          <p class="body">A rating below three creates immediate commercial problems. Buyers, retailers and food service operators who ask for your rating will see it. Online platforms that list food businesses may delist or restrict you. Some event organisers will not accept applications from businesses below a certain rating.</p>
+          <p class="body">You can request a re-inspection after a minimum of three months. The local authority controls the timing and cannot guarantee when the re-inspection will happen. In the meantime, the original rating remains published. Businesses that improve their systems properly rather than making superficial changes before a re-inspection tend to achieve and sustain higher ratings.</p>
+          <p class="body">Improvement notices issued during an inspection have legal force. They specify what must be done and by when. Failure to comply with an improvement notice can result in prosecution. Prohibition notices, issued in serious cases, can close a food business immediately.</p>
+        </div>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The only reliable preparation</p>
+          <h2 class="h2">Operate correctly every day.</h2>
+          <p class="body">The businesses that consistently achieve and maintain a five rating are not the ones that prepare intensively for inspections. They are the ones that have built proper systems, embedded them into daily operations, and maintain them consistently. When an environmental health officer arrives unannounced, they see the same operation the business runs every day.</p>
+          <p class="body">The businesses that struggle are the ones that either have not prioritised compliance or that have documentation in place but whose teams do not actually follow it. An officer who interviews staff and finds that nobody knows where the HACCP plan is, or what to do if a temperature check fails, will note that regardless of how impressive the file looks.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Want to be genuinely ready before an officer arrives?</h2>
+        <p class="body">Tell Michael about your operation. He will tell you honestly what needs to be in place.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-res-food-traceability">
+      <section class="hero-cream">
+        <p class="eyebrow" style="color:var(--sage)">Knowledge</p>
+        <h2 class="h1">Food traceability requirements in the UK.<br><span style="color:var(--brick)">What the law requires and how to build a system that actually works.</span></h2>
+        <p class="body" style="max-width:580px">Traceability is the ability to follow food through all stages of production, processing and distribution. It is a legal requirement for all food businesses, a core SALSA compliance area, and the first thing a buyer asks for when something goes wrong. This guide explains what is required and what good traceability looks like in practice.</p>
+      </section>
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">The legal requirement</p>
+          <h2 class="h2">What UK food law requires from every food business.</h2>
+          <p class="body">Regulation (EC) No 178/2002, the General Food Law Regulation retained in UK law after Brexit, requires all food businesses to be able to identify from whom they have purchased food or food-producing animals, and to whom they have sold their products. This is the one-step-back, one-step-forward traceability principle.</p>
+          <p class="body">In practice this means knowing who supplied every ingredient in every product you make, and being able to identify which customers received which batches of your products. If a food safety issue is identified with a specific raw material batch, you need to be able to identify which of your products it went into and which customers or retailers received those products, quickly enough to prevent harm.</p>
+          <p class="body">The Food Safety Act 1990 due diligence defence reinforces this. If something goes wrong, you need records that demonstrate you took all reasonable precautions. Traceability records are a core part of that evidence.</p>
+        </div>
+      </section>
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What a traceability system covers</p>
+          <h2 class="h2">The components that make traceability work end to end.</h2>
+        </div>
+        <div class="reg-list" style="max-width:760px;margin-top:2rem">
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-truck"></i></div><div><p class="reg-title">Incoming goods records</p><p class="reg-body">Records of every delivery received. Supplier, product, quantity, batch or lot number, delivery date and any quality checks carried out on receipt. This is the start of your traceability chain. Without supplier batch records, you cannot trace backwards from your finished product to the raw materials it contains.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-flask"></i></div><div><p class="reg-title">Production batch records</p><p class="reg-body">Records linking each batch of finished product to the ingredients used, the quantities used, the batch numbers of those ingredients, the date of production, the equipment used and the staff involved. This is the link between your incoming goods and your outgoing products.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-tag"></i></div><div><p class="reg-title">Batch coding</p><p class="reg-body">Every batch of product must be clearly coded so that it can be linked to its production record. The code system needs to be consistent and unambiguous. A batch code on a product must be traceable to a specific production record within minutes, not hours.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-package"></i></div><div><p class="reg-title">Dispatch records</p><p class="reg-body">Records linking each batch of product to the customer or retailer it was dispatched to. Date of dispatch, quantity, customer details and the batch code of the product dispatched. This completes the forward traceability chain from raw material to end customer.</p></div></div>
+          <div class="reg-item"><div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-refresh"></i></div><div><p class="reg-title">Annual traceability exercise</p><p class="reg-body">SALSA requires an annual exercise demonstrating that your traceability system works. Select a raw material batch and trace it forward through production to dispatch. Select a finished product batch and trace it backward to raw materials. Document the exercise and the time taken. The SALSA benchmark is to complete a full trace in four hours. Good digital systems make this a fifteen minute exercise.</p></div></div>
+        </div>
+      </section>
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">Why most small producer traceability systems fail</p>
+          <h2 class="h2">The gaps that only become visible when you need them.</h2>
+          <p class="body">The most common traceability failure in small food businesses is not the absence of records but the absence of linkage. Businesses often have delivery notes, production records and dispatch records as separate documents that are not connected to each other. You can find the delivery note for a particular ingredient, and you can find the dispatch record for a particular customer, but you cannot quickly answer the question of whether that ingredient ended up in a product dispatched to that customer.</p>
+          <p class="body">The second common failure is inconsistent batch coding. If the batch code on a finished product does not match the batch code in the production record, or if batch codes are used inconsistently across products, the traceability chain breaks at the point where it matters most.</p>
+          <p class="body">A well-configured digital system solves both of these problems. Notion databases can link ingredient deliveries to production batches to dispatch records automatically, so the trace from raw material to customer is a database query rather than a manual search through folders and spreadsheets.</p>
+        </div>
+      </section>
+      <section class="section-brick">
+        <h2 class="h2">Want a traceability system that actually works?</h2>
+        <p class="body">Tell Michael about your operation. He builds them for food and drink businesses of all sizes.</p>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Michael</button>
       </section>
       <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
