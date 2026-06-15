@@ -43,29 +43,46 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
 }
 .nav-logo { background:none; border:none; color:var(--cream); font-family:'Unkempt',cursive; font-size:1.6rem; cursor:pointer; padding:0; flex-shrink:0; white-space:nowrap; }
 
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
-  list-style: none;
-  justify-content: flex-end;
-}
-.nav-links button {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.78rem;
-  color: var(--cream);
-  text-decoration: none;
-  font-weight: 700;
-  opacity: 0.65;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  white-space: nowrap;
-  background: none;
-  border: none;
-  padding: 0;
-}
-.nav-links button:hover, .nav-links button.active { opacity: 1; color: var(--brick); }
+.nav-menu-btn { background:none; border:1.5px solid var(--brick); border-radius:8px; color:var(--brick); width:42px; height:42px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.3rem; flex-shrink:0; }
+.nav-menu-btn:hover { background:rgba(184,92,56,0.12); }
+
+/* FULL-SCREEN MENU OVERLAY */
+.nav-overlay { position:fixed; inset:0; background:var(--ink); z-index:300; opacity:0; visibility:hidden; transition:opacity 0.25s ease; overflow-y:auto; }
+.nav-overlay.open { opacity:1; visibility:visible; }
+.nav-overlay-inner { max-width:760px; margin:0 auto; padding:5rem 2rem 3rem; }
+.nav-overlay-close { position:fixed; top:1.5rem; right:max(1.5rem, calc((100vw - 960px) / 2 + 1.5rem)); background:none; border:1px solid rgba(250,243,224,0.3); border-radius:8px; color:var(--cream); width:44px; height:44px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.3rem; z-index:301; }
+.nav-overlay-close:hover { border-color:var(--brick); color:var(--brick); }
+
+.nav-overlay-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.25rem 2rem; list-style:none; }
+.nav-overlay-link { font-family:'Unkempt',cursive; font-size:1.6rem; color:var(--cream); background:none; border:none; text-align:left; padding:0.6rem 0; cursor:pointer; opacity:0.9; transition:opacity 0.15s, color 0.15s; }
+.nav-overlay-link:hover, .nav-overlay-link.active { opacity:1; color:var(--brick); }
+
+.nav-overlay-fp { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; background:var(--brick); color:var(--cream) !important; border-radius:10px; padding:0.6rem 1.25rem; opacity:1 !important; grid-column:1/-1; }
+.nav-overlay-fp:hover { color:var(--cream) !important; }
+.nav-overlay-badge { font-family:'Lato',sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:var(--cream); color:var(--brick); padding:0.2rem 0.5rem; border-radius:4px; }
+
+.nav-overlay-label { font-family:'Lato',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--sage); margin:2.5rem 0 0.75rem; }
+.nav-overlay-grid-sub .nav-overlay-link { font-family:'Lato',sans-serif; font-size:0.95rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; padding:0.45rem 0; }
+
+.nav-overlay-resources { display:inline-flex; align-items:center; gap:0.5rem; margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid rgba(250,243,224,0.12); font-family:'Lato',sans-serif; font-size:0.95rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--cream); background:none; border-left:none; border-right:none; border-bottom:none; cursor:pointer; opacity:0.85; }
+.nav-overlay-resources:hover { opacity:1; color:var(--brick); }
+
+/* FOUNDATION PACK BANNER */
+.banner-fp { background:var(--brick); color:var(--cream); padding:1rem max(2rem, calc((100vw - 960px) / 2 + 2rem)); display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
+.banner-fp p { margin:0; font-size:0.95rem; line-height:1.6; max-width:620px; opacity:1; }
+.banner-fp .btn-primary { background:var(--cream); color:var(--brick); margin:0; flex-shrink:0; }
+
+/* DOCUMENT AND RESOURCE GRIDS */
+.doc-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem 2rem; margin-top:1.5rem; }
+.doc-item { font-size:0.88rem; line-height:1.6; opacity:0.78; display:flex; align-items:flex-start; gap:0.6rem; }
+.doc-item i { color:var(--sage); font-size:14px; margin-top:3px; flex-shrink:0; }
+
+.resource-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.75rem 2rem; margin-top:1.5rem; }
+.resource-link { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; background:none; border:none; border-bottom:1px solid #e8e0cc; text-align:left; font-family:'Lato', sans-serif; font-size:0.92rem; font-weight:700; color:var(--ink); padding:0.85rem 0; cursor:pointer; opacity:0.8; width:100%; }
+.resource-link:hover { opacity:1; color:var(--brick); }
+.resource-link i { font-size:14px; opacity:0.5; flex-shrink:0; }
+.resource-group-label { font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--brick); margin:2rem 0 0.25rem; grid-column:1/-1; }
+.resource-group-label:first-child { margin-top:0; }
 
 /* PAGES */
 .page { display: none; }
@@ -293,24 +310,16 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
 textarea.form-input { min-height: 120px; resize: vertical; }
 
 @media (max-width: 768px) {
-  .nav { padding: 1rem 1.5rem; flex-direction: column; align-items: flex-start; }
-  .nav-links { justify-content: flex-start; width: 100%; margin-top: 0.5rem; }
   .hero-cream, .section-blue, .section-sage, .section-cream, .section-ink, .section-brick { padding: 3rem 1.5rem; border-top-width: 4px; }
   .compare { grid-template-columns: 1fr; }
   .price-grid { grid-template-columns: 1fr; }
-  .nav-dropdown-menu { position:static; box-shadow:none; border:none; background:rgba(255,255,255,0.05); border-radius:4px; margin-top:0.25rem; }
+  .nav-overlay-grid, .nav-overlay-grid-sub, .doc-grid, .resource-grid { grid-template-columns: 1fr; }
+  .nav-overlay-link { font-size: 1.4rem; }
+  .nav-overlay-inner { padding: 4.5rem 1.5rem 3rem; }
+  .nav-overlay-fp { grid-column: 1; }
+  .resource-group-label { grid-column: 1; }
+  .banner-fp { padding: 1rem 1.5rem; }
 }
-
-/* DROPDOWN */
-.nav-dropdown { position:relative; }
-.nav-dropdown-btn { background:none; border:none; color:var(--cream); font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; padding:0.3rem 0; opacity:0.7; transition:opacity 0.2s; white-space:nowrap; }
-.nav-dropdown-btn:hover, .nav-dropdown-btn.active { opacity:1; color:var(--brick); }
-.nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 0.75rem); left:0; background:var(--ink); border:1px solid rgba(255,255,255,0.1); border-radius:8px; min-width:180px; padding:0.5rem 0; z-index:200; box-shadow:0 8px 24px rgba(0,0,0,0.3); }
-.nav-dropdown-menu.open { display:block; }
-.nav-dropdown-menu li { list-style:none; }
-.nav-dropdown-menu li button { background:none; border:none; color:var(--cream); font-size:0.85rem; padding:0.6rem 1.2rem; width:100%; text-align:left; cursor:pointer; opacity:0.8; transition:opacity 0.15s, background 0.15s; }
-.nav-dropdown-menu li button:hover { opacity:1; background:rgba(255,255,255,0.08); }
-.dropdown-label { font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--brick); padding:0.75rem 1.2rem 0.3rem; pointer-events:none; }
 </style>
 
 <script type="application/ld+json">
@@ -443,61 +452,45 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   <header>
     <nav class="nav" aria-label="Main Navigation">
       <button class="nav-logo" onclick="showPage('home')" aria-label="Mucked Home Page">Mucked*</button>
-      <ul class="nav-links">
-        <li><button onclick="showPage('home')" id="nav-home" class="active">Home</button></li>
-        <li><button onclick="showPage('compliance')" id="nav-compliance">Compliance</button></li>
-        <li><button onclick="showPage('salsa')" id="nav-salsa">SALSA</button></li>
-        <li><button onclick="showPage('digital')" id="nav-digital">Digital</button></li>
-        <li><button onclick="showPage('festival')" id="nav-festival">Festival</button></li>
-        <li class="nav-dropdown" id="nav-who-wrap">
-          <button class="nav-dropdown-btn" id="nav-who" onclick="toggleDropdown('who-menu')">Who We Help ▾</button>
-          <ul class="nav-dropdown-menu" id="who-menu">
-            <li><button onclick="showPage('distilleries')">Distilleries</button></li>
-            <li><button onclick="showPage('breweries')">Breweries</button></li>
-            <li><button onclick="showPage('drinks-brands')">Drinks Brands</button></li>
-            <li><button onclick="showPage('food-manufacturers')">Food Manufacturers</button></li>
-            <li><button onclick="showPage('festival-caterers')">Festival Caterers</button></li>
-          </ul>
-        </li>
-        <li class="nav-dropdown" id="nav-resources-wrap">
-          <button class="nav-dropdown-btn" id="nav-resources" onclick="toggleDropdown('resources-menu')">Resources ▾</button>
-          <ul class="nav-dropdown-menu" id="resources-menu">
-            <li class="dropdown-label">Guides</li>
-            <li><button onclick="showPage('res-salsa-cost')">How Much Does SALSA Cost?</button></li>
-            <li><button onclick="showPage('res-need-salsa')">Do I Need SALSA Certification?</button></li>
-            <li><button onclick="showPage('res-haccp-plan')">Can I Write My Own HACCP Plan?</button></li>
-            <li><button onclick="showPage('res-startup-checklist')">Food Business Startup Checklist</button></li>
-            <li><button onclick="showPage('res-eho-inspection')">Environmental Health Inspections</button></li>
-            <li><button onclick="showPage('res-legal-records')">Legal Record Keeping Requirements</button></li>
-            <li class="dropdown-label">Knowledge</li>
-            <li><button onclick="showPage('res-salsa-guide')">Complete Guide to SALSA</button></li>
-            <li><button onclick="showPage('res-haccp-explained')">HACCP Explained</button></li>
-            <li><button onclick="showPage('res-festival-checklist')">Festival Compliance Checklist</button></li>
-            <li><button onclick="showPage('res-eho-guide')">Environmental Health Guide</button></li>
-            <li><button onclick="showPage('res-food-traceability')">Food Traceability in the UK</button></li>
-            <li class="dropdown-label">Notion for food businesses</li>
-            <li><button onclick="showPage('res-notion-food')">Notion for Food Businesses</button></li>
-            <li><button onclick="showPage('res-notion-haccp')">Managing HACCP Records in Notion</button></li>
-            <li><button onclick="showPage('res-notion-inventory')">Inventory Management in Notion</button></li>
-            <li><button onclick="showPage('res-notion-workflows')">Operational Workflows in Notion</button></li>
-            <li class="dropdown-label">Comparisons</li>
-            <li><button onclick="showPage('res-salsa-vs-brcgs')">SALSA vs BRCGS</button></li>
-            <li><button onclick="showPage('res-haccp-templates')">HACCP Templates vs Custom Plans</button></li>
-            <li><button onclick="showPage('res-consultant-vs-software')">Consultant vs Food Safety Software</button></li>
-            <li><button onclick="showPage('res-notion-vs-software')">Notion vs Specialist Software</button></li>
-            <li class="dropdown-label">FAQs</li>
-            <li><button onclick="showPage('faq')">All FAQs</button></li>
-          </ul>
-        </li>
-        <li><button onclick="showPage('pricing')" id="nav-pricing">Pricing</button></li>
-        <li><button onclick="showPage('about')" id="nav-about">About</button></li>
-        <li><button onclick="showPage('contact')" id="nav-contact">Contact</button></li>
-      </ul>
+      <button class="nav-menu-btn" onclick="toggleNavOverlay()" aria-label="Open menu" id="nav-menu-btn">
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
+      </button>
     </nav>
+    <div class="nav-overlay" id="nav-overlay">
+      <button class="nav-overlay-close" onclick="toggleNavOverlay()" aria-label="Close menu">
+        <i class="ti ti-x" aria-hidden="true"></i>
+      </button>
+      <div class="nav-overlay-inner">
+        <div class="nav-overlay-grid">
+          <button onclick="showPage('home')" id="nav-home" class="nav-overlay-link active">Home</button>
+          <button onclick="showPage('compliance')" id="nav-compliance" class="nav-overlay-link">Compliance</button>
+          <button onclick="showPage('salsa')" id="nav-salsa" class="nav-overlay-link">SALSA</button>
+          <button onclick="showPage('digital')" id="nav-digital" class="nav-overlay-link">Digital</button>
+          <button onclick="showPage('festival')" id="nav-festival" class="nav-overlay-link">Festival</button>
+          <button onclick="showPage('foundation-pack')" id="nav-foundation-pack" class="nav-overlay-link nav-overlay-fp">Foundation Pack <span class="nav-overlay-badge">New</span></button>
+          <button onclick="showPage('pricing')" id="nav-pricing" class="nav-overlay-link">Pricing</button>
+          <button onclick="showPage('about')" id="nav-about" class="nav-overlay-link">About</button>
+          <button onclick="showPage('contact')" id="nav-contact" class="nav-overlay-link">Contact</button>
+        </div>
+        <div class="nav-overlay-label">Who we help</div>
+        <div class="nav-overlay-grid nav-overlay-grid-sub">
+          <button onclick="showPage('distilleries')" id="nav-distilleries" class="nav-overlay-link">Distilleries</button>
+          <button onclick="showPage('breweries')" id="nav-breweries" class="nav-overlay-link">Breweries</button>
+          <button onclick="showPage('drinks-brands')" id="nav-drinks-brands" class="nav-overlay-link">Drinks Brands</button>
+          <button onclick="showPage('food-manufacturers')" id="nav-food-manufacturers" class="nav-overlay-link">Food Manufacturers</button>
+          <button onclick="showPage('festival-caterers')" id="nav-festival-caterers" class="nav-overlay-link">Festival Caterers</button>
+        </div>
+        <button onclick="showPage('resources-hub')" id="nav-resources-hub" class="nav-overlay-resources">Resources hub <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
   </header>
 
   <main id="main-content">
     <article class="page active" id="page-home">
+      <div class="banner-fp">
+        <p><span style="font-weight:700">New: the Foundation Pack.</span> A complete, personalised food safety system, built to SALSA Issue 7 standard, for a one-off price.</p>
+        <button class="btn-primary" onclick="showPage('foundation-pack')">See the Foundation Pack</button>
+      </div>
       <section class="hero-cream">
         <div class="hero-illustration">
           <div class="hero-text">
@@ -921,6 +914,165 @@ textarea.form-input { min-height: 120px; resize: vertical; }
       <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
     </article>
 
+    <article class="page" id="page-foundation-pack">
+      <section class="hero-cream">
+        <div class="hero-illustration">
+          <div class="hero-text">
+            <p class="eyebrow" style="color:var(--brick)">Foundation Pack</p>
+            <h1 class="h1">If an EHO knocked on your door tomorrow,<br><span style="color:var(--sage-dark)">would you pass?</span></h1>
+            <p class="body" style="max-width:580px;font-weight:700;color:var(--ink)">A complete, personalised food safety management system, built to SALSA Issue 7 standard, for a one-off price.</p>
+            <p class="body" style="max-width:580px">Most small food and drink producers know their paperwork is not where it should be. The Foundation Pack closes that gap. It is not a generic template. It is a full set of food safety documents personalised to your business, your products and your site, ready to use from the day they arrive.</p>
+            <button class="btn-primary" onclick="showPage('contact')">Get started</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-blue">
+        <div class="inner">
+          <p class="eyebrow">SALSA standard, explained</p>
+          <h2 class="h2">You do not need SALSA accreditation to benefit from SALSA standard.</h2>
+          <p class="body">SALSA, Safe and Local Supplier Approval, is the food safety standard used by retailers, wholesalers and food service buyers across the UK to assess whether small producers are safe to supply from. Being accredited opens doors to buyers who would otherwise not look twice.</p>
+          <p class="body">But the standard itself is simply the most thorough and well-respected framework for food safety management at your size. Operating to it means doing things properly, whether or not you ever apply for accreditation. If an environmental health officer knocks on your door, this is what good looks like. If you do want SALSA accreditation, this pack gives you everything you need to walk into your audit.</p>
+        </div>
+      </section>
+
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">What you get</p>
+          <h2 class="h2">A complete food safety management system, personalised to your business.</h2>
+          <p class="body">Every pack includes the full core set, built to SALSA Issue 7 standard, covering everything from policies and procedures through to the records you will use day to day. If you are a distillery, brewery, bakery, dairy or cheese producer, festival caterer, drinks brand or ambient and artisan food producer, you also receive the relevant sector-specific documents on top.</p>
+        </div>
+        <div class="doc-grid">
+          <div class="doc-item"><i class="ti ti-check"></i> Food safety management policy and culture statement</div>
+          <div class="doc-item"><i class="ti ti-check"></i> Allergen management policy and cleaning validation</div>
+          <div class="doc-item"><i class="ti ti-check"></i> HACCP scope, process flow and hazard analysis</div>
+          <div class="doc-item"><i class="ti ti-check"></i> CCP monitoring and corrective action records</div>
+          <div class="doc-item"><i class="ti ti-check"></i> Supplier approval and incoming goods records</div>
+          <div class="doc-item"><i class="ti ti-check"></i> Traceability procedure and exercise record</div>
+          <div class="doc-item"><i class="ti ti-check"></i> Cleaning schedule and pest control records</div>
+          <div class="doc-item"><i class="ti ti-check"></i> Temperature monitoring and equipment calibration</div>
+          <div class="doc-item"><i class="ti ti-check"></i> Staff training, induction and personal hygiene policy</div>
+          <div class="doc-item"><i class="ti ti-check"></i> Product and raw material specifications</div>
+          <div class="doc-item"><i class="ti ti-check"></i> Customer complaint log and withdrawal and recall procedure</div>
+          <div class="doc-item"><i class="ti ti-check"></i> Internal audit schedule and management review record</div>
+        </div>
+        <div class="inner">
+          <p class="body" style="margin-top:1.5rem">Every document arrives with your business name, site address, responsible personnel and product details already filled in. Anything that needs a decision from you is clearly marked. Nothing arrives as a blank template you have to figure out yourself.</p>
+        </div>
+      </section>
+
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">How it works</p>
+          <h2 class="h2">A call, a video, and a session to walk through everything together.</h2>
+        </div>
+        <div class="who-list">
+          <div class="who-item"><span class="who-num">01</span><div><p class="who-title">You book a call</p><p class="who-body">A single call with Michael. No sales pitch. Just the questions needed to understand your business, your products, your site and your processes. The call is recorded so nothing gets missed.</p></div></div>
+          <div class="who-item"><span class="who-num">02</span><div><p class="who-title">You send us your site walkthrough</p><p class="who-body">For the parts of the system that require knowledge of your physical site, particularly the HACCP study and site plan, you record a short video walkthrough on your phone. You do not need any experience or equipment. Michael tells you exactly what to film and how. This replaces an on-site visit and keeps the cost down without cutting corners on quality.</p></div></div>
+          <div class="who-item"><span class="who-num">03</span><div><p class="who-title">We build your system</p><p class="who-body">Your complete document set is built, reviewed and sent across.</p></div></div>
+          <div class="who-item"><span class="who-num">04</span><div><p class="who-title">We walk you through it</p><p class="who-body">A short online session where Michael takes you through the documents, explains what each one means in practice and answers any questions. You leave knowing exactly what you have, why it matters and what to do with it.</p></div></div>
+        </div>
+      </section>
+
+      <section class="section-ink">
+        <div style="max-width:520px;margin:0 auto;text-align:center">
+          <p class="eyebrow" style="text-align:center">Pricing</p>
+          <h2 class="h2" style="text-align:center">Foundation Pack: £995</h2>
+          <p class="body" style="text-align:center">One-off payment. No monthly fees. No ongoing commitment. Includes the full personalised document set for your sector, the onboarding call, the online walkthrough session and email support for 30 days after delivery.</p>
+          <p class="body" style="text-align:center">If you want ongoing support after the 30 days, for annual reviews, process changes, new products or audit preparation, that is available separately.</p>
+          <button class="btn-ghost" onclick="showPage('pricing')">See ongoing support options</button>
+        </div>
+      </section>
+
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--sage)">Not a budget option</p>
+          <h2 class="h2">The price is lower because the involvement is lower, not because the quality is.</h2>
+          <p class="body">The documents you receive are identical in quality and standard to those produced for clients on the full <span class="mucked">Mucked*</span> service. The difference is the level of hand-holding and ongoing involvement. If you are a confident, capable business owner who knows your operation well and wants a complete, professional food safety system without paying for months of consultancy, this is built for you. If you want someone alongside you throughout and for the year that follows, the full service on the Pricing page is what you need.</p>
+        </div>
+      </section>
+
+      <section class="section-sage">
+        <div class="inner">
+          <p class="eyebrow">Who it's for</p>
+          <h2 class="h2">And what the pack does not cover.</h2>
+        </div>
+        <div class="compare">
+          <div>
+            <p class="compare-label us">This is for you if</p>
+            <div class="compare-item us"><i class="ti ti-check"></i> You produce food or drink and know your paperwork is not where it should be</div>
+            <div class="compare-item us"><i class="ti ti-check"></i> You are approaching a buyer who will want to see your food safety documentation</div>
+            <div class="compare-item us"><i class="ti ti-check"></i> You want to be SALSA ready without a full consultancy engagement</div>
+            <div class="compare-item us"><i class="ti ti-check"></i> You have had a visit from your local authority and want the next one to go differently</div>
+            <div class="compare-item us"><i class="ti ti-check"></i> You are launching a new product or site and want to start as you mean to go on</div>
+          </div>
+          <div>
+            <p class="compare-label them">Worth knowing</p>
+            <div class="compare-item them"><i class="ti ti-info-circle"></i> Implementing the system, running the records and keeping it all up to date is your responsibility once it is delivered</div>
+            <div class="compare-item them"><i class="ti ti-info-circle"></i> SALSA certification itself is a separate process involving SALSA membership and an independent audit</div>
+            <div class="compare-item them"><i class="ti ti-info-circle"></i> Documents are built on the information you provide, so the call and walkthrough matter</div>
+            <div class="compare-item them"><i class="ti ti-info-circle"></i> Not a managed service. It is a complete, professional starting point</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-brick">
+        <h2 class="h2">Ready to get started?</h2>
+        <p class="body">Send a message and we will come back with an honest answer about whether the Foundation Pack or the full service is the right fit for you.</p>
+        <button class="btn-ghost" onclick="showPage('contact')">Get in touch</button>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
+    <article class="page" id="page-resources-hub">
+      <section class="hero-cream">
+        <div class="hero-illustration">
+          <div class="hero-text">
+            <p class="eyebrow" style="color:var(--sage)">Resources</p>
+            <h1 class="h1">Everything we've written down,<br><span style="color:var(--brick)">in one place.</span></h1>
+            <p class="body" style="max-width:580px">Guides, explainers and comparisons covering SALSA, HACCP, environmental health and the digital systems <span class="mucked">Mucked*</span> builds. Have a browse, or just get in touch if you can't find what you're after.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-cream">
+        <div class="inner" style="max-width:760px">
+          <div class="resource-grid">
+            <p class="resource-group-label">Guides</p>
+            <button class="resource-link" onclick="showPage('res-salsa-cost')">How Much Does SALSA Cost? <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-need-salsa')">Do I Need SALSA Certification? <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-haccp-plan')">Can I Write My Own HACCP Plan? <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-startup-checklist')">Food Business Startup Checklist <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-eho-inspection')">Environmental Health Inspections <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-legal-records')">Legal Record Keeping Requirements <i class="ti ti-arrow-right"></i></button>
+
+            <p class="resource-group-label">Knowledge</p>
+            <button class="resource-link" onclick="showPage('res-salsa-guide')">Complete Guide to SALSA <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-haccp-explained')">HACCP Explained <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-festival-checklist')">Festival Compliance Checklist <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-eho-guide')">Environmental Health Guide <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-food-traceability')">Food Traceability in the UK <i class="ti ti-arrow-right"></i></button>
+
+            <p class="resource-group-label">Notion for food businesses</p>
+            <button class="resource-link" onclick="showPage('res-notion-food')">Notion for Food Businesses <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-notion-haccp')">Managing HACCP Records in Notion <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-notion-inventory')">Inventory Management in Notion <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-notion-workflows')">Operational Workflows in Notion <i class="ti ti-arrow-right"></i></button>
+
+            <p class="resource-group-label">Comparisons</p>
+            <button class="resource-link" onclick="showPage('res-salsa-vs-brcgs')">SALSA vs BRCGS <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-haccp-templates')">HACCP Templates vs Custom Plans <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-consultant-vs-software')">Consultant vs Food Safety Software <i class="ti ti-arrow-right"></i></button>
+            <button class="resource-link" onclick="showPage('res-notion-vs-software')">Notion vs Specialist Software <i class="ti ti-arrow-right"></i></button>
+
+            <p class="resource-group-label">FAQs</p>
+            <button class="resource-link" onclick="showPage('faq')">All FAQs <i class="ti ti-arrow-right"></i></button>
+          </div>
+        </div>
+      </section>
+      <div class="footer"><span class="footer-logo">Mucked*</span><span>mucked.co.uk &nbsp;|&nbsp; michael@mucked.co.uk</span></div>
+    </article>
+
     <article class="page" id="page-pricing">
       <section class="hero-cream">
         <div class="hero-illustration">
@@ -931,6 +1083,15 @@ textarea.form-input { min-height: 120px; resize: vertical; }
             <p class="body" style="max-width:580px">Here is the truth: pricing depends on your business, your products, how much you already have in place and what you actually need built. This page gives you a clear guide, an honest comparison with what the same outcome costs elsewhere, and real numbers so you know roughly where you stand before we speak.</p>
             <p class="body" style="max-width:580px"><span class="mucked">Mucked*</span> is also a startup. The rates right now are significantly lower than they will be once there are a handful of happy clients and a track record to point to. If you come in early, you benefit from that.</p>
           </div>
+        </div>
+      </section>
+
+      <section class="section-cream">
+        <div class="inner">
+          <p class="eyebrow" style="color:var(--brick)">Prefer a one-off?</p>
+          <h2 class="h2">The Foundation Pack: £995</h2>
+          <p class="body">If you would rather have a complete, personalised set of food safety documents for a single payment, with no ongoing retainer, the Foundation Pack gives you everything you need to operate to SALSA Issue 7 standard and be ready for an environmental health visit or a SALSA audit.</p>
+          <button class="btn-primary" onclick="showPage('foundation-pack')">See the Foundation Pack</button>
         </div>
       </section>
 
@@ -963,28 +1124,28 @@ textarea.form-input { min-height: 120px; resize: vertical; }
           <div class="reg-item">
             <div class="icon-circle ic-brick" style="margin-top:0.3rem"><i class="ti ti-tool"></i></div>
             <div>
-              <p class="reg-title">The build — from £10,000</p>
+              <p class="reg-title">The build: from £10,000</p>
               <p class="reg-body">Everything created from scratch for your business. Compliance documentation, SOPs, HACCP, digital systems, custom apps, automations and integrations. The guide price of £10,000 covers a small startup of up to five people with a single site and a straightforward product range. Scope is agreed before anything starts.</p>
             </div>
           </div>
           <div class="reg-item">
             <div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-calendar"></i></div>
             <div>
-              <p class="reg-title">Months 1 to 3: active support — £1,000 to £1,200 per month</p>
+              <p class="reg-title">Months 1 to 3: active support, £1,000 to £1,200 per month</p>
               <p class="reg-body">The first three months are the busiest. New products, process changes, system tweaks, user support and compliance calendar management. Typically 25 to 30 hours a month.</p>
             </div>
           </div>
           <div class="reg-item">
             <div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-calendar"></i></div>
             <div>
-              <p class="reg-title">Months 4 to 6: settling in — £480 to £600 per month</p>
+              <p class="reg-title">Months 4 to 6: settling in, £480 to £600 per month</p>
               <p class="reg-body">The system is running and the team knows how it works. Support drops to around 12 to 15 hours a month covering updates, reviews and anything that needs attention.</p>
             </div>
           </div>
           <div class="reg-item">
             <div class="icon-circle ic-sage" style="margin-top:0.3rem"><i class="ti ti-calendar"></i></div>
             <div>
-              <p class="reg-title">Month 7 onward: steady state — £240 to £320 per month</p>
+              <p class="reg-title">Month 7 onward: steady state, £240 to £320 per month</p>
               <p class="reg-body">Around 6 to 8 hours a month for compliance calendar management, document reviews, minor system updates and ongoing support.</p>
             </div>
           </div>
@@ -1046,7 +1207,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 
       <section class="section-blue">
         <div class="inner">
-          <p class="eyebrow">Michael — Founder, <span class="mucked">Mucked*</span></p>
+          <p class="eyebrow">Michael, Founder, <span class="mucked">Mucked*</span></p>
           <h2 class="h2">Ten years getting food and drink businesses to market. Three years running operations at a startup distillery. Before that, forestry.</h2>
           <p class="body">That gap is where <span class="mucked">Mucked*</span> lives. Most compliance help is either a template company that does not understand your operation, or a corporate consultancy that charges accordingly and sends someone who has never been on a production floor. <span class="mucked">Mucked*</span> is neither of those things.</p>
           <p class="body">The experience behind <span class="mucked">Mucked*</span> is real. Not theoretical. I have designed kitchens to pass environmental health sign-off. I have written SOPs for equipment I have personally operated. I have built digital systems for businesses that could not afford specialist software. I have been at 4am making sausage rolls because we sold out on day one. I understand cash flow because I have had to. I understand council bureaucracy because I have had to fight it. I understand the regulatory frustration of working with government bodies because I have done it across multiple sectors.</p>
@@ -1393,38 +1554,38 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 </div>
 
 <script>
-const whoPages = ['distilleries','breweries','drinks-brands','food-manufacturers','artisan-producers','festival-caterers','startups'];
-const resourcePages = ['faq','res-salsa-cost','res-need-salsa','res-haccp-plan','res-startup-checklist','res-eho-inspection','res-legal-records','res-salsa-vs-brcgs','res-haccp-templates','res-consultant-vs-software','res-notion-vs-software','res-salsa-guide','res-haccp-explained','res-festival-checklist','res-eho-guide','res-food-traceability','res-notion-food','res-notion-haccp','res-notion-inventory','res-notion-workflows'];
-
 function showPage(id, updateHash) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-overlay-link').forEach(b => b.classList.remove('active'));
   const targetPage = document.getElementById('page-' + id);
   const targetNav = document.getElementById('nav-' + id);
   if (targetPage) targetPage.classList.add('active');
   if (targetNav) targetNav.classList.add('active');
-  if (whoPages.includes(id)) document.getElementById('nav-who').classList.add('active');
-  if (resourcePages.includes(id)) document.getElementById('nav-resources').classList.add('active');
-  closeAllDropdowns();
+  closeNavOverlay();
   if (updateHash !== false) {
     history.pushState(null, '', id === 'home' ? '#' : '#' + id);
   }
   window.scrollTo(0, 0);
 }
 
-function toggleDropdown(menuId) {
-  const menu = document.getElementById(menuId);
-  const isOpen = menu.classList.contains('open');
-  closeAllDropdowns();
-  if (!isOpen) menu.classList.add('open');
+function toggleNavOverlay() {
+  const overlay = document.getElementById('nav-overlay');
+  const isOpen = overlay.classList.contains('open');
+  if (isOpen) {
+    closeNavOverlay();
+  } else {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 }
 
-function closeAllDropdowns() {
-  document.querySelectorAll('.nav-dropdown-menu').forEach(m => m.classList.remove('open'));
+function closeNavOverlay() {
+  document.getElementById('nav-overlay').classList.remove('open');
+  document.body.style.overflow = '';
 }
 
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.nav-dropdown')) closeAllDropdowns();
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeNavOverlay();
 });
 
 window.addEventListener('popstate', function() {
