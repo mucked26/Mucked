@@ -65,6 +65,14 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
 .nav-overlay-resources { display:inline-flex; align-items:center; gap:0.5rem; margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid rgba(250,243,224,0.12); font-family:'Lato',sans-serif; font-size:0.95rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--cream); background:none; border-left:none; border-right:none; border-bottom:none; cursor:pointer; opacity:0.85; }
 .nav-overlay-resources:hover { opacity:1; color:var(--brick); }
 
+.nav-overlay-digital { display:flex; flex-direction:column; align-items:flex-start; gap:0.15rem; background:linear-gradient(135deg, var(--blue-mid), var(--sage-dark)); border:none; border-radius:10px; padding:0.85rem 1.25rem; margin-top:1.75rem; cursor:pointer; width:100%; max-width:380px; text-align:left; }
+.nav-overlay-digital-label { font-family:'Lato',sans-serif; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); opacity:0.8; }
+.nav-overlay-digital-title { font-family:'Unkempt',cursive; font-size:1.3rem; color:var(--cream); }
+.nav-overlay-digital:hover { opacity:0.9; }
+
+.nav-overlay-tiers .nav-overlay-tier { display:flex; flex-direction:column; gap:0.1rem; }
+.nav-overlay-tier-price { font-family:'Lato',sans-serif; font-size:0.7rem; font-weight:700; text-transform:none; letter-spacing:0; opacity:0.6; }
+
 /* FOUNDATION PACK BANNER */
 .banner-fp { background:var(--brick); color:var(--cream); padding:1rem max(2rem, calc((100vw - 960px) / 2 + 2rem)); display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
 .banner-fp p { margin:0; font-size:0.95rem; line-height:1.6; max-width:620px; opacity:1; }
@@ -153,6 +161,8 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
 .service-title { font-family: 'Unkempt', cursive; font-size: 1.1rem; color: var(--sage-dark); margin: 0 0 0.5rem; }
 .service-body { font-size: 0.9rem; color: var(--ink); opacity: 0.72; line-height: 1.7; margin: 0 0 0.75rem; }
 .service-link { font-family: 'Unkempt', cursive; font-size: 0.9rem; font-weight: 700; color: var(--brick); text-decoration: none; cursor: pointer; }
+.brick-inline-link { color: var(--cream); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--sage); cursor: pointer; padding-bottom: 1px; }
+.brick-inline-link:hover { border-bottom-color: var(--cream); }
 
 /* ICON CIRCLES */
 .icon-circle { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.2rem; }
@@ -203,6 +213,20 @@ body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--i
 /* WHO LIST */
 .who-list { max-width: 680px; display: flex; flex-direction: column; margin-top: 1.5rem; }
 .who-item { padding: 1.5rem 0; border-bottom: 1px solid #c8d4be; display: flex; gap: 1.5rem; align-items: flex-start; }
+.who-group-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brick); margin: 0; }
+
+/* DIGITAL PAGE DISTINCT TREATMENT */
+.digital-hero { background: linear-gradient(135deg, var(--ink) 0%, var(--blue-mid) 100%); padding: 5rem max(3rem, calc((100vw - 960px) / 2 + 3rem)); border-top: 6px solid var(--sage); position: relative; overflow: hidden; }
+.digital-hero::before { content: ''; position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,140,107,0.18), transparent 70%); }
+.digital-hero .eyebrow { color: var(--sage); }
+.digital-hero .h1, .digital-hero .h2 { color: var(--cream); }
+.digital-hero .body { color: var(--cream); opacity: 0.88; }
+.digital-pitch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2.5rem; position: relative; z-index: 1; }
+.digital-pitch-card { background: rgba(250,243,224,0.06); border: 1px solid rgba(250,243,224,0.18); border-radius: 12px; padding: 1.75rem; }
+.digital-pitch-card .digital-pitch-num { font-family: 'Unkempt', cursive; font-size: 2rem; color: var(--sage); display: block; margin-bottom: 0.5rem; }
+.digital-pitch-card p { color: var(--cream); font-family: 'Lato', sans-serif; font-size: 0.95rem; line-height: 1.6; opacity: 0.9; margin: 0; }
+.digital-pitch-card .digital-pitch-title { font-family: 'Unkempt', cursive; font-size: 1.3rem; color: var(--cream); opacity: 1; margin-bottom: 0.5rem; }
+@media (max-width: 768px) { .digital-pitch-grid { grid-template-columns: 1fr; } }
 .who-item.dark-border { border-bottom-color: #ffffff12; }
 .who-item:last-child { border-bottom: none; }
 .who-num { font-family: 'Unkempt', cursive; font-size: 2rem; color: var(--brick); opacity: 0.5; line-height: 1; min-width: 2.5rem; }
@@ -425,9 +449,9 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 <body>
 <div class="site">
 
-  <header>
+<header>
     <nav class="nav" aria-label="Main Navigation">
-      <a class="nav-logo" href="/Mucked/" aria-label="Mucked Home Page" style="text-decoration:none">Mucked*</a>
+      <a href="/Mucked/" class="nav-logo" aria-label="Mucked Home Page">Mucked*</a>
       <button class="nav-menu-btn" onclick="toggleNavOverlay()" aria-label="Open menu" id="nav-menu-btn">
         <i class="ti ti-menu-2" aria-hidden="true"></i>
       </button>
@@ -438,29 +462,38 @@ textarea.form-input { min-height: 120px; resize: vertical; }
       </button>
       <div class="nav-overlay-inner">
         <div class="nav-overlay-grid">
-          <a href="/Mucked/" class="nav-overlay-link">Home</a>
-          <a href="/Mucked/compliance.html" class="nav-overlay-link">Compliance</a>
-          <a href="/Mucked/salsa.html" class="nav-overlay-link">SALSA</a>
-          <a href="/Mucked/digital.html" class="nav-overlay-link">Digital</a>
-          <a href="/Mucked/festival.html" class="nav-overlay-link">Festival</a>
-          <a href="/Mucked/blueprint.html" class="nav-overlay-link">Blueprint</a>
-          <a href="/Mucked/engine-room.html" class="nav-overlay-link">Engine Room</a>
-          <a href="/Mucked/whole-works.html" class="nav-overlay-link">Whole Works</a>
-          <a href="/Mucked/pricing.html" class="nav-overlay-link">Pricing</a>
-          <a href="/Mucked/about.html" class="nav-overlay-link">About</a>
-          <a href="/Mucked/contact.html" class="nav-overlay-link">Contact</a>
+          <a href="/Mucked/" id="nav-home" class="nav-overlay-link active">Home</a>
+          <a href="/Mucked/compliance.html" id="nav-compliance" class="nav-overlay-link">Compliance</a>
+          <a href="/Mucked/salsa.html" id="nav-salsa" class="nav-overlay-link">SALSA</a>
+          <a href="/Mucked/festival.html" id="nav-festival" class="nav-overlay-link">Festival</a>
+          <a href="/Mucked/pricing.html" id="nav-pricing" class="nav-overlay-link">Pricing</a>
+          <a href="/Mucked/about.html" id="nav-about" class="nav-overlay-link">About</a>
+          <a href="/Mucked/contact.html" id="nav-contact" class="nav-overlay-link">Contact</a>
         </div>
+
+        <a href="/Mucked/digital.html" id="nav-digital" class="nav-overlay-digital">
+     <span class="nav-overlay-digital-label">The unique bit</span>
+     <span class="nav-overlay-digital-title">Digital Systems</span>
+    </a>
+
+        <div class="nav-overlay-label">Work with Michael</div>
+        <div class="nav-overlay-grid nav-overlay-grid-sub nav-overlay-tiers">
+          <a href="/Mucked/blueprint.html" id="nav-blueprint" class="nav-overlay-link nav-overlay-tier"><span>Blueprint</span><span class="nav-overlay-tier-price">from £600</span></a>
+          <a href="/Mucked/engine-room.html" id="nav-engine-room" class="nav-overlay-link nav-overlay-tier"><span>Engine Room</span><span class="nav-overlay-tier-price">from £1,995</span></a>
+          <a href="/Mucked/whole-works.html" id="nav-whole-works" class="nav-overlay-link nav-overlay-tier"><span>Whole Works</span><span class="nav-overlay-tier-price">individual quote</span></a>
+        </div>
+
         <div class="nav-overlay-label">Who we help</div>
         <div class="nav-overlay-grid nav-overlay-grid-sub">
-          <a href="/Mucked/distilleries.html" class="nav-overlay-link">Distilleries</a>
-          <a href="/Mucked/breweries.html" class="nav-overlay-link active">Breweries</a>
-          <a href="/Mucked/drinks-brands.html" class="nav-overlay-link">Drinks Brands</a>
-          <a href="/Mucked/food-manufacturers.html" class="nav-overlay-link">Food Manufacturers</a>
-          <a href="/Mucked/festival-caterers.html" class="nav-overlay-link">Festival Caterers</a>
-          <a href="/Mucked/artisan-producers.html" class="nav-overlay-link">Artisan Producers</a>
-          <a href="/Mucked/startups.html" class="nav-overlay-link">Startups</a>
+          <a href="/Mucked/distilleries.html" id="nav-distilleries" class="nav-overlay-link">Distilleries</a>
+          <a href="/Mucked/breweries.html" id="nav-breweries" class="nav-overlay-link active">Breweries</a>
+          <a href="/Mucked/drinks-brands.html" id="nav-drinks-brands" class="nav-overlay-link">Drinks Brands</a>
+          <a href="/Mucked/food-manufacturers.html" id="nav-food-manufacturers" class="nav-overlay-link">Food Manufacturers</a>
+          <a href="/Mucked/festival-caterers.html" id="nav-festival-caterers" class="nav-overlay-link">Festival Caterers</a>
+          <a href="/Mucked/artisan-producers.html" id="nav-artisan-producers" class="nav-overlay-link">Artisan Producers</a>
+          <a href="/Mucked/startups.html" id="nav-startups" class="nav-overlay-link">Startups</a>
         </div>
-        <a href="/Mucked/resources.html" class="nav-overlay-resources">Resources hub <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+        <a href="/Mucked/resources.html" id="nav-resources-hub" class="nav-overlay-resources">Resources hub <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
   </header>
